@@ -1,0 +1,12 @@
+{
+  indent: 2,
+  condense: true,
+  indent_inner_html: true,
+  preserve_newlines: true,
+  max_preserve_newlines: 1,
+  unformatted: [
+    "a",
+    "pre",
+    "code"
+  ]
+}
