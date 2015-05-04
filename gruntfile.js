@@ -23,19 +23,17 @@ module.exports = function(grunt) {
         }
       },
 
-      sprites: {
-        files: ['src/assets/img/{sprites,sprites-2x}/*.png'],
-        tasks: ['sprite'],
-      },
-
-      iconfonts: {
-        files: ['src/assets/fonts/icons/*.svg'],
-        tasks: ['font'],
+      globbing: {
+        files: ['src/assets/sass/**/*.scss'],
+        tasks: ['sass_globbing:dev'],
+        options: {
+          event: ['added', 'deleted'],
+        },
       },
 
       styles: {
         files: ['src/assets/sass/**/*.scss'],
-        tasks: ['compass:dev', 'autoprefixer:dev'],
+        tasks: ['sass:dev', 'autoprefixer:dev'],
         options: {
             spawn: false,
         }
@@ -47,31 +45,6 @@ module.exports = function(grunt) {
       },
     },
 
-
-    font: {
-      all: {
-        // SVG files to read in 
-        src: ['src/assets/fonts/icons/*.svg'],
-   
-        // Location to output CSS variables 
-        destCss: [
-          //'src/assets/css/icons.css',
-          'src/assets/sass/base/_iconfont.scss'
-        ],
-   
-        // Location to output fonts (expanded via brace expansion) 
-        destFonts: 'src/assets/fonts/icons.{svg,woff,eot,ttf}',
-   
-        // Optional: Custom naming of font families for multi-task support 
-        fontFamily: 'icons',
-
-
-        cssRouter: function (fontpath) {
-          return fontpath.replace('src/assets','..');
-
-        },
-      }
-    },
 
     // Assembles your page content with html layout
     assemble: {
@@ -96,16 +69,13 @@ module.exports = function(grunt) {
             sortorder: 'asc', 
           }
         ],
-        snaps: grunt.file.readJSON('src/templates/data/snaps.json'),
+
         products: grunt.file.readJSON('src/templates/data/products.json'),
-        /*
-        articles: grunt.file.readJSON('src/templates/data/articles.json'),
-        sections: grunt.file.readJSON('src/templates/data/sections.json'),
-        */
+
         //flatten: true,
         marked: {
           gfm: false,
-        }
+        },
       },
 
       pages: {
@@ -137,18 +107,6 @@ module.exports = function(grunt) {
 
     prettify: {
       dist: {
-        options: {
-          indent: 2,
-          condense: true,
-          indent_inner_html: true,
-          preserve_newlines: true,
-          max_preserve_newlines: 1,
-          unformatted: [
-            "a",
-            "pre",
-            "code"
-          ]
-        },
         files: [{
             expand: true,
             cwd: 'dist/',
@@ -164,46 +122,6 @@ module.exports = function(grunt) {
         jshintrc: '.jshintrc'
       },
       all: ['src/assets/js/{,**/}*.js', '!src/assets/js/libs/**/*.js']
-    },
-
-    concat: { 
-      js: {
-          src: [
-              'src/assets/js/libs/*.js', // All JS in the libs folder
-              'src/assets/js/*.js',  // Custom JS files
-              '!src/assets/js/libs/modernizr.min.js'
-          ],
-          dest: 'dist/assets/js/scripts.js',
-      },
-    },
-
-    uglify: {
-      js: {
-          src: 'dist/assets/js/scripts.js',
-          dest: 'dist/assets/js/scripts.min.js',
-      },
-    },
-
-    sprite:{
-      retina: {
-        src: 'src/assets/img/sprites-2x/*.png',
-        dest: 'src/assets/img/sprites-2x.png',
-        destCss: 'src/assets/sass/abstractions/_sprites-2x.scss',
-        imgPath: '../img/sprites-2x.png',
-        cssVarMap: function (sprite) {
-          sprite.name = 'sprite_' + sprite.name + '_2x';
-        },
-      },
-      normal: {
-        src: 'src/assets/img/sprites/*.png',
-        dest: 'src/assets/img/sprites.png',
-        destCss: 'src/assets/sass/abstractions/_sprites.scss',
-        imgPath: '../img/sprites.png',
-        cssVarMap: function (sprite) {
-          sprite.name = 'sprite_' + sprite.name;
-        }
-      },
-
     },
 
     imagemin: {
@@ -236,7 +154,7 @@ module.exports = function(grunt) {
             }]
         }
     },
-
+/*
     compass: {
       options: {
         config: 'config.rb',
@@ -254,15 +172,47 @@ module.exports = function(grunt) {
         }
       }
     },
+*/
+    
+    // Grunt-sass 
+    sass: {
+      dev: {
+        files: [{
+          expand: true,
+          cwd: 'src/assets/sass',
+          src: ['**/*.scss'],
+          dest: 'src/assets/css',
+          ext: '.css'
+        }]
+      },
+      options: {
+        sourceMap: true, 
+        outputStyle: 'nested', 
+        imagePath: "../img/",
+      }
+    },
 
+    sass_globbing: {
+      dev: {
+        files: {
+          //'src/assets/sass/globbing/_variables.scss': 'src/assets/sass/variables/**/*.scss', // handled manually
+          'src/assets/sass/globbing/_abstractions.scss': 'src/assets/sass/abstractions/*.scss',
+          'src/assets/sass/globbing/_base.scss': 'src/assets/sass/base/**/*.scss',
+          'src/assets/sass/globbing/_components.scss': 'src/assets/sass/components/**/*.scss',
+          'src/assets/sass/globbing/_pages.scss': 'src/assets/sass/pages/**/*.scss',
+        },
+      },
+      options: {
+        useSingleQuotes: false
+      }
+    },
 
 
     autoprefixer: {
-      /*
+
         options: {
-          browsers: ['last 2 versions', 'ie>=9']
+          browsers: ['last 2 versions', 'ie >= 9']
         },
-      */
         dev: {
             files: {
                 'src/assets/css/default.css': 'src/assets/css/default.css',
@@ -270,18 +220,6 @@ module.exports = function(grunt) {
         },
     },
 
-    cssmin: {
-      target: {
-        files: [{
-          expand: true,
-          cwd: 'src/assets/css',
-          src: ['*.css', '!*.min.css'],
-          dest: 'dist/assets/css',
-          ext: '.min.css',
-        }]
-      },
-    },
-    
     clean: {
       dist: {
         src: ['dist/*', '!dist/.htaccess'],
@@ -301,7 +239,6 @@ module.exports = function(grunt) {
             expand: true,
             cwd: 'src/assets/js/',
             src: [
-              'main.js',
               'libs/modernizr.min.js'
             ],
             dest: 'dist/assets/js/',
@@ -318,14 +255,50 @@ module.exports = function(grunt) {
     },
 
     useminPrepare: {
-      html: 'dist/01-frontpage.html',
-      options: {
-          dest: 'dist/'
-      }
+      html: 'dist/single-page.html',
     },
 
+
+/*
+    concat: { 
+      js: {
+          src: [
+              'src/assets/js/libs/*.js', // All JS in the libs folder
+              'src/assets/js/*.js',  // Custom JS files
+              '!src/assets/js/libs/modernizr.min.js'
+          ],
+          dest: 'dist/assets/js/scripts.js',
+      },
+      generated: {},
+    },
+
+    uglify: {
+      js: {
+          src: 'dist/assets/js/scripts.js',
+          dest: 'dist/assets/js/scripts.min.js',
+      },
+      generated: {},
+    },
+
+    cssmin: {
+      target: {
+        files: [{
+          expand: true,
+          cwd: 'src/assets/css',
+          src: ['*.css', '!*.min.css'],
+          dest: 'dist/assets/css',
+          ext: '.min.css',
+        }]
+      },
+      generated: {},
+    },
+*/
+
     usemin: {
-      html: 'dist/**/*.html',
+      html: 'dist/*.html',
+      options: {
+          dirs: ['dist/']
+      }
     },
 
 
@@ -335,7 +308,7 @@ module.exports = function(grunt) {
           patterns: [
             {
               match: /(\.\.\/src\/assets\/|src\/assets\/|assets\/)/g,
-              replacement: 'http://git.krympevaerk.dk/royalcph/blueelements/dist/assets/',
+              replacement: 'http://git.krympevaerk.dk/royalcph/passion/dist/assets/',
             },
           ]
         },
@@ -355,26 +328,28 @@ module.exports = function(grunt) {
   });
 
   // Load plugins
-  require('matchdep').filterDev(['grunt-*', 'assemble']).forEach(grunt.loadNpmTasks);
+  require('matchdep').filterDev(['grunt-*', 'assemble', 'grunt-contrib-concat']).forEach(grunt.loadNpmTasks);
+
+
+  grunt.registerTask('common', ['assemble', 'prettify', 'sass_globbing', 'sass:dev', 'autoprefixer']);
 
   // Default task(s).
-  grunt.registerTask('default', ['assemble', 'compass:dist', 'autoprefixer']);
+  grunt.registerTask('default', ['clean:dist', 'common', 'watch']);
 
   // Build minified assets
   grunt.registerTask('build', [
     'clean:dist',
-    'default',
-    'htmlmin', 
-    'prettify', 
+    'common',
+    //'htmlmin', 
     'imagemin',
     'svgmin',
+    'useminPrepare', 
     'concat',
     'cssmin',
     'uglify',
-    'useminPrepare', 
     'usemin',
     'copy:dist',
-    'replace:dist',
+    //'replace:dist',
 
   ]);
 
