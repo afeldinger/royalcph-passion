@@ -1,28 +1,28 @@
 [
 	{
 		"title": "Craft",
-		"content": "<img src=\"../src/assets/img/gx_ourpassion_thumb_blue.jpg\">",
-		"imgurl": "/img/gx_ourpassion_blue.jpg"
+		"content": "<img src=\"../src/assets/img/ourpassion_thumb_blue.jpg\">",
+		"imgurl": "/img/ourpassion_blue.jpg"
 	},
 	{
 		"title": "Design",
-		"content": "<img src=\"../src/assets/img/gx_ourpassion_thumb_blue.jpg\">",
-		"imgurl": "/img/gx_ourpassion_history.jpg"
+		"content": "<img src=\"../src/assets/img/ourpassion_thumb_blue.jpg\">",
+		"imgurl": "/img/ourpassion_history.jpg"
 	},
 	{
 		"title": "Blue",
-		"content": "<img src=\"../src/assets/img/gx_ourpassion_thumb_blue.jpg\">",
-		"imgurl": "/img/gx_ourpassion_blue.jpg",
+		"content": "<img src=\"../src/assets/img/ourpassion_thumb_blue.jpg\">",
+		"imgurl": "/img/ourpassion_blue.jpg",
 		"class": "initial"
 	},
 	{
 		"title": "History",
-		"content": "<img src=\"../src/assets/img/gx_ourpassion_thumb_blue.jpg\">",
-		"imgurl": "/img/gx_ourpassion_history.jpg"
+		"content": "<img src=\"../src/assets/img/ourpassion_thumb_blue.jpg\">",
+		"imgurl": "/img/ourpassion_history.jpg"
 	},
 	{
 		"title": "Innovation",
-		"content": "<img src=\"../src/assets/img/gx_ourpassion_thumb_blue.jpg\">",
-		"imgurl": "/img/gx_ourpassion_blue.jpg"
+		"content": "<img src=\"../src/assets/img/ourpassion_thumb_blue.jpg\">",
+		"imgurl": "/img/ourpassion_blue.jpg"
 	}
 ]
