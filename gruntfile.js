@@ -56,21 +56,18 @@ module.exports = function(grunt) {
         helpers: [
           'handlebars-helpers',
           'helper-aggregate',
-          'handlebars-helper-partial',
-          'handlebars-helper-autolink',
-          'handlebars-helper-isactive',
+          //'handlebars-helper-partial',
+          //'handlebars-helper-autolink',
+          //'handlebars-helper-isactive',
           './src/templates/helpers/**/*.js',
         ],
-        
-        collections: [
-          {
-            title: 'pages',
-            sortby: 'sortorder',
-            sortorder: 'asc', 
-          }
-        ],
 
+        history: grunt.file.readJSON('src/templates/data/history.json'),
+        inspiration: grunt.file.readJSON('src/templates/data/inspiration.json'),
+        blue: grunt.file.readJSON('src/templates/data/blue.json'),
+        pattern: grunt.file.readJSON('src/templates/data/pattern.json'),
         products: grunt.file.readJSON('src/templates/data/products.json'),
+        passion: grunt.file.readJSON('src/templates/data/passion.json'),
 
         //flatten: true,
         marked: {
@@ -84,7 +81,7 @@ module.exports = function(grunt) {
           dest: 'dist/',
           expand: true,
           src: '**/*.hbs',
-        }]
+        }],
       },
 
     },
@@ -154,25 +151,7 @@ module.exports = function(grunt) {
             }]
         }
     },
-/*
-    compass: {
-      options: {
-        config: 'config.rb',
-        bundleExec: true,
-        force: true
-      },
-      dev: {
-        options: {
-          environment: 'development'
-        }
-      },
-      dist: {
-        options: {
-          environment: 'production'
-        }
-      }
-    },
-*/
+
     
     // Grunt-sass 
     sass: {
@@ -196,8 +175,8 @@ module.exports = function(grunt) {
       dev: {
         files: {
           //'src/assets/sass/globbing/_variables.scss': 'src/assets/sass/variables/**/*.scss', // handled manually
+          //'src/assets/sass/globbing/_base.scss': 'src/assets/sass/base/**/*.scss',
           'src/assets/sass/globbing/_abstractions.scss': 'src/assets/sass/abstractions/*.scss',
-          'src/assets/sass/globbing/_base.scss': 'src/assets/sass/base/**/*.scss',
           'src/assets/sass/globbing/_components.scss': 'src/assets/sass/components/**/*.scss',
           'src/assets/sass/globbing/_pages.scss': 'src/assets/sass/pages/**/*.scss',
         },
@@ -258,42 +237,6 @@ module.exports = function(grunt) {
       html: 'dist/single-page.html',
     },
 
-
-/*
-    concat: { 
-      js: {
-          src: [
-              'src/assets/js/libs/*.js', // All JS in the libs folder
-              'src/assets/js/*.js',  // Custom JS files
-              '!src/assets/js/libs/modernizr.min.js'
-          ],
-          dest: 'dist/assets/js/scripts.js',
-      },
-      generated: {},
-    },
-
-    uglify: {
-      js: {
-          src: 'dist/assets/js/scripts.js',
-          dest: 'dist/assets/js/scripts.min.js',
-      },
-      generated: {},
-    },
-
-    cssmin: {
-      target: {
-        files: [{
-          expand: true,
-          cwd: 'src/assets/css',
-          src: ['*.css', '!*.min.css'],
-          dest: 'dist/assets/css',
-          ext: '.min.css',
-        }]
-      },
-      generated: {},
-    },
-*/
-
     usemin: {
       html: 'dist/*.html',
       options: {
@@ -328,7 +271,7 @@ module.exports = function(grunt) {
   });
 
   // Load plugins
-  require('matchdep').filterDev(['grunt-*', 'assemble', 'grunt-contrib-concat']).forEach(grunt.loadNpmTasks);
+  require('matchdep').filterDev(['grunt-*', 'assemble']).forEach(grunt.loadNpmTasks);
 
 
   grunt.registerTask('common', ['assemble', 'prettify', 'sass_globbing', 'sass:dev', 'autoprefixer']);

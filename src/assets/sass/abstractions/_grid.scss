@@ -1,0 +1,43 @@
+
+
+@function calc-percent($target, $container) {
+  @return ($target / $container) * 100%;
+}
+
+@function perc-width($width, $full: $lg-abs) {
+  @return calc-percent($width, $full);
+}
+
+@function rel-width($width, $rel: $base-font-size) {
+  @return $width / $rel * 1em;
+}
+
+
+@mixin tile-position($x:0, $y:0, $col-size:0.2) {
+	margin-left: $x * $col-size * 100%;
+	margin-top: $y * $col-size * 100%;
+}
+
+@function vw-units($value: 10, $width: $lg-abs) {
+	@return $value / $width * 100vw;
+}
+
+
+/* temp stop-gap solutions */
+@mixin adjust-font-size-to($font-size: $base-font-size, $base: $base-font-size) {
+	font-size: $font-size;
+	font-size: $font-size / $base * 1rem;
+}
+@mixin adjust-leading-to($lines: 1.2, $font-size: $base-font-size) {
+	//line-height: ($lines * $base-font-size) / $base-font-size;
+}
+
+@function rhythm($lines) {
+	//@return $lines * $base-font-size;
+	@return 0;
+}
+
+
+@mixin letter-spacing-sm {
+  letter-spacing: -1px;
+}

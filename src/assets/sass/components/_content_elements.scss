@@ -1,0 +1,90 @@
+
+img {
+	display:block;
+	max-width:100%;
+}
+img.full-width {
+	width:100%;
+}
+
+.scroll-down {
+	display:none;
+	position:absolute;
+	width:50px;
+	height:50px;
+	text-align:center;
+	top: 540px;
+	left: 80%;
+	left: calc(50% + 320px);
+	font-size: 50px;
+	color: $color-white;
+	transform: translate3d(0,0,0);
+	backface-visibility: visible;
+
+
+	animation: scroll-down-bounce 4s;
+	animation-iteration-count: 5;
+
+
+	@include breakpoint($sm) {
+		display:block;
+	}
+	@include breakpoint($md) {
+		left: calc(50% + 350px);
+	}
+}
+
+@keyframes scroll-down-bounce {
+	0%, 100% {transform: translateY(0);}
+	70% {transform: translateY(30px);}
+}
+
+
+.pricing-info {
+	text-align:center;
+	font-style:italic;
+	color: #fff;
+
+	h2 {
+		display:inline-block;
+		clear:both;
+		font-style:normal;
+		border-bottom: 1px solid #fff;
+		margin: 0 0 rhythm(1);
+		@include adjust-font-size-to($size-md);
+	}
+
+	p {
+		margin: 0;
+		@include adjust-font-size-to($size-md);
+	}
+	.product-name {
+		@include adjust-font-size-to($size-xl);
+	}
+	.product-msrp {
+
+		.label {
+			display:block;
+			font-style: normal;
+			@include adjust-font-size-to($size-sm);
+		}
+	}
+}
+
+.video {
+	display:block;
+	position:relative;
+	text-shadow:none;
+	.icon {
+		position: absolute;
+		top:50%;
+		left:50%;
+		margin-top: -43px;
+		margin-left: -43px;
+		width: 86px;
+		height: 86px;
+		font-size:86px;
+		z-index:1;
+		color: #fff;
+	}
+}

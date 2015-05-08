@@ -1,0 +1,58 @@
+
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+
+
+body {
+	background: $color-background;;
+	margin:0;
+	padding:0;
+	text-align:center;
+}
+
+
+.content-section {
+	padding: vw-units($section-margin-v) vw-units($section-margin-h);
+	background-image: url(../img/bg_concrete_dark.jpg);
+	background-position: 50% 0;
+	background-size: 100% auto;
+
+	> h1,
+	> h2,
+	> p {
+		margin: vw-units($section-margin-v) 0;
+
+		+ h1,
+		+ h2,
+		+ p {
+			margin-top: -0.8 * vw-units($section-margin-v);
+
+		}
+	}
+
+
+	> *:first-child {
+		margin-top: 0;
+	}
+	> *:last-child {
+		margin-bottom: 0;
+	}
+
+
+	> h2,
+	> p {
+		@include adjust-font-size-to($size-xxl);
+		@include letter-spacing-sm;
+		font-style: italic;
+
+	}
+
+
+}

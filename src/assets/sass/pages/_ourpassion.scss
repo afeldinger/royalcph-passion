@@ -1,0 +1,121 @@
+.content-section.section-ourpassion {
+	position:relative;
+	overflow:hidden;
+	z-index:1;
+	min-height: vw-units(540px);
+	padding-top: $section-margin-v / 2;
+	padding-bottom: $section-margin-v / 2;
+/*
+	background: url(../img/bg_ourpassion.jpg) no-repeat 50% 50%;
+	background-attachment: fixed;
+	background-size: cover;
+*/
+
+	> h1 {
+		position:absolute;
+		@include adjust-font-size-to($size-xxl);
+		font-style: italic;
+		line-height: 1.2em;
+		@include letter-spacing-sm;
+		text-transform: none;
+		text-align: left;
+	}
+
+	transition: height .5s ease;
+}
+
+.passion-videos {
+	overflow:hidden;
+
+	h2 {
+		@include adjust-font-size-to(55px);
+		text-transform: uppercase;
+		@include letter-spacing-sm;
+		opacity: .3;
+		transition: 
+			opacity .3s ease
+		;
+		margin:0;
+
+		a {
+			display:block;
+		}
+	}
+
+
+	.elm-image {
+		position:absolute;
+		top:0;
+		left:0;
+		width:100%;
+		height:100%;
+
+
+		background-size:100% auto;
+		background-position: 0 0;
+
+		opacity: 0;
+		z-index:-1;
+
+		transition: opacity .3s ease;
+
+		img {
+			display:none;
+		}
+	}
+
+	.elm-content {
+		max-height: 0;
+		overflow: hidden;
+		
+		img {
+			margin: 1rem auto;
+		}
+	}
+
+	
+	&:not(:hover),
+	&:not(.has-active) {
+		li.initial h2 {
+			opacity: 1;
+		}
+	}
+
+	li.initial {
+		.elm-image {
+			opacity: 1;
+			z-index: -3;
+		}
+	}
+
+	h2:hover,
+	li.active h2,
+	h2:hover + .elm-image,
+	li.active .elm-image {
+		opacity: 1;
+	}
+
+	h2:hover + .elm-image {
+		z-index:-1;
+	}
+
+	li.active {
+		.elm-image {
+			z-index: -2;
+		}
+		.elm-content {
+			transition-duration: .5s;
+			transition-property: max-height;
+			max-height:500px;
+		}
+	}
+
+	&.has-active {
+		margin-top:0;
+		margin-bottom:0;
+
+		h2 {
+			@include adjust-font-size-to($size-xxl);
+		}
+	}
+}

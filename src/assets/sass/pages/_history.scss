@@ -1,0 +1,16 @@
+
+.section-history {
+	padding-bottom: 0;
+}
+
+.history {
+	margin-left:-1 * vw-units($section-margin-h);
+	margin-right:-1 * vw-units($section-margin-h);
+	padding-left: vw-units($section-margin-h);
+	padding-right: vw-units($section-margin-h);
+
+	color: $color-brand;
+	background:#fff;
+
+
+}

@@ -1,0 +1,60 @@
+
+.page-header {
+	@extend %center-element;
+	margin-top:rhythm(8);
+	margin-bottom:rhythm(8);
+
+
+	h1 {
+		text-align:center;
+		@include adjust-font-size-to(50px);
+		color:#fff;
+		svg {
+			width:50px;
+			height:50px;
+		}
+		img {
+			display: inline;
+		}
+		span {
+			display:none;
+		}
+	}
+
+	a {
+		color:#fff;
+	}
+
+	nav.country {
+		@include breakpoint($sm) {
+			position:absolute;
+			top:$content-margin;
+			right: $content-margin;	
+		}
+
+		ul {
+			margin:0 auto;
+			padding:0;
+			list-style:none;
+		}
+		li {
+			display:inline;
+			&:nth-of-type(n+1) {
+				margin-left: rhythm(2);	
+			}
+			
+		}
+		a {
+			display:inline-block;
+			color: $color-white;
+
+			&.active {
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+nav.sidenav {
+	display: none;
+}

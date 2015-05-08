@@ -1,0 +1,45 @@
+.section-front {
+	position:relative;
+	overflow:hidden;
+	background: none;
+
+	padding-top: vw-units(145px);
+	padding-bottom: vw-units(190px);
+
+	color: $color-brand;
+
+	background: url(../img/bg_frontpage.jpg) no-repeat 50% 50%;
+	background-attachment: fixed;
+	background-size: cover;
+
+	z-index:-2;
+
+
+	> h1 {
+		@include adjust-font-size-to($size-xxxxl);
+	}
+	> h2 {
+		@include adjust-font-size-to($size-xxxl);
+		margin-bottom:0;
+	}
+	img {
+		margin: 0 auto;
+	}
+
+	video {
+		display:none;
+		
+		position: absolute;
+		margin:0;
+		top: 0;
+		left: 0;
+		min-width: 100%;
+		min-height: 100%;
+		width: auto;
+		height: auto;
+		background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
+		background-size: cover;
+		z-index: -1;
+		transition: 1s opacity;
+	}
+}

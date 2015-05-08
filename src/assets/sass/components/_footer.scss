@@ -1,0 +1,19 @@
+
+.page-footer {
+	padding: vw-units($section-margin-v) vw-units($section-margin-h);
+	background-image: url(../img/bg_concrete_dark.jpg);
+	background-position: 50% 100%;
+	background-size: 100% auto;
+
+	.icon + span {
+		position: absolute;
+		left:-9999em;
+		opacity: 0;
+	}
+
+	.royalcph-logo {
+		margin: rhythm(12) 0;
+		text-align: center;
+		@include adjust-font-size-to(45px);
+	}
+}

@@ -1,0 +1,47 @@
+.section-blue {
+	padding-bottom:0;
+}
+
+.blue {
+	
+	margin: 0 (-1 * vw-units($section-margin-h));
+
+	ul.slides {
+		li {
+			overflow: hidden;
+		}
+	}
+	
+	.flex-direction-nav {
+		a {
+			color: $color-primary;
+		}
+	}
+	.flex-control-paging {
+		display: none;
+	}
+
+	.elm-image {
+		position:relative;
+	}
+
+	.elm-content {
+		position:absolute;
+		margin-top:vw-units(-225px);
+		overflow: hidden;
+		width: vw-units(410px);
+		padding: vw-units(.75 * $content-margin-px) vw-units($content-margin-px);
+		color: $color-brand;
+		text-align: left;
+		background:#fff;
+
+		> *:first-child {
+			margin-top:0;
+		}
+
+		p {
+			font-style: italic;
+			@include letter-spacing-sm;
+		}
+	}
+}

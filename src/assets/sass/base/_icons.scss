@@ -1,0 +1,68 @@
+
+.icon {
+	&,
+	&:before {
+		color: inherit;
+	}
+}
+
+
+.logo-missing {
+	@include icon($logo-missing);
+}
+.logo-royalcph {
+	@include icon($logo-royalcph);
+}
+.logo-royalcph-simple {
+	@include icon($logo-royalcph-simple);
+}
+.logo-kopogkande {
+	@include icon($logo-kopogkande);
+}
+.logo-illumsbolighus {
+	@include icon($logo-illumsbolighus);
+}
+.logo-bahne {
+	@include icon($logo-bahne);
+}
+.logo-inspiration {
+	@include icon($logo-inspiration);
+}
+.logo-imerco {
+	@include icon($logo-imerco);
+}
+.logo-magasin {
+	@include icon($logo-magasin);
+}
+.logo-illum {
+	@include icon($logo-illum);
+}
+.logo-salling {
+	@include icon($logo-salling);
+}
+
+
+.icon-arrow-right {
+	@include icon($icon-arrow-right);
+}
+.icon-arrow-left {
+	@include icon($icon-arrow-left);
+}
+.icon-scroll-down {
+	@include icon($icon-scroll-down);
+}
+.icon-scroll-up {
+	@include icon($icon-scroll-up);
+}
+.icon-play {
+	@include icon($icon-play);
+}
+.icon-map-marker {
+	@include icon($icon-map-marker);
+}
+.icon-close {
+	@include icon($icon-close);
+}
+.icon-facebook {
+	@include icon($icon-facebook);
+}

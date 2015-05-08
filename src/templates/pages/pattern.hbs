@@ -1,0 +1,30 @@
+---
+title: Pattern no. 1
+navTitle: Pattern no. 1
+sortorder: 7
+class: section-pattern
+---
+
+<h1>One intricate pattern</h1>
+<h2>240 years of reimagination.</h2>
+
+
+<div class="pattern">
+	<ul class="slides">
+	{{#eachOptions patterns}}
+		<li>
+			<article class="product">
+				<div class="elm-image"><img src="{{this.value.imgurl}}" alt="{{this.value.title}}" /></div>
+				<div class="elm-content">
+					<h2>
+						{{this.value.title}}
+					</h2>
+					<p>
+						{{{this.value.text}}}
+					</p>
+				</div>
+			</article>
+		</li>
+	{{/eachOptions}}
+	</ul>
+</div>

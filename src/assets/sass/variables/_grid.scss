@@ -1,0 +1,28 @@
+
+$section-margin-h: 90px;
+$section-margin-v: 90px;
+
+$content-margin-px: 40px;
+$content-margin: ($content-margin-px / $base-font-size) * 1rem;
+$content-margin-em: ($content-margin-px / $base-font-size) * 1em;
+
+$xs: 30em;
+$sm: 45em;
+$md: 60em;
+$lg-abs: 960px;
+$lg: ($lg-abs / $base-font-size) * 1em;
+$lg-bp: $lg + 2 * $content-margin-em ;
+
+/*
+@include add-grid(12);
+@include add-gutter(.3);
+@include sgs-change('output', 'isolation');
+*/
+
+
+$form-spacing: 		15px;
+$form-spacing-sm:	10px;
+$field-padding-h: 	8px;
+$field-padding-v: 	8px;
+$button-padding-h:	18px;
+$button-padding-v:	0px;

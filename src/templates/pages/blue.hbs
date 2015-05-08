@@ -1,0 +1,26 @@
+---
+title: Blue
+navTitle: Blue
+sortorder: 5
+class: section-blue
+---
+
+<h1>In the beginning there was blue</h1>
+
+<div class="blue flexslider">
+	<ul class="slides">
+	{{#eachOptions blue}}
+		<li>
+			<div class="elm-image"><img src="{{@root.assets}}{{this.value.imgurl}}" alt="{{this.value.title}}" /></div>
+			<div class="elm-content">
+				<h2>
+					{{this.value.title}}
+				</h2>
+				<p>
+					{{{this.value.text}}}
+				</p>
+			</div>
+		</li>
+	{{/eachOptions}}
+	</ul>
+</div>

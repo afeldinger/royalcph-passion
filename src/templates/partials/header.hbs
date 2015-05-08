@@ -1,0 +1,42 @@
+<!--
+<header class="page-header">
+
+	<nav class="country">
+		<ul>
+			<li><a href="#">Denmark</a></li>
+			<li><a class="active" href="#">International</a></li>
+		</ul>
+	</nav>
+
+	<h1>
+		<a href="single-page.html">
+			<img src="{{assets}}/img/logo_royalcph_crown.png" alt="Royal Copenhagen logo">
+			<span>Royal Copenhagen</span>
+		</a>
+	</h1>
+
+</header>
+-->
+<nav class="sidenav">
+	<a href="#">Open navigation</a>
+
+
+	<div class="nav">
+		<ul>
+	{{#withSort pages "data.sortorder"}}
+		{{#isnt data.is_aggr true}}
+			<li class="section">
+				<a href="#">
+					{{data.navTitle}}
+				</a>
+			</li>
+		{{/isnt}}
+	{{/withSort}}
+			<li class="site"><a href="#">Cups & Mugs</a></li>
+			<li class="site"><a href="#">Blue elements</a></li>
+		</ul>
+
+	</div>
+
+
+</nav>

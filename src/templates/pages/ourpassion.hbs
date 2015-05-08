@@ -1,0 +1,22 @@
+---
+title: Our passion for ...
+navTitle: Our passion
+sortorder: 4
+class: section-ourpassion
+---
+
+<h1>Our passion for &hellip;</h1>
+
+<ul class="passion-videos">
+
+{{#eachOptions passion}}
+	<li id="passion-{{this.key}}" class="{{this.value.class}}">
+		<h2><a href="#passion-{{this.key}}">{{this.value.title}}</a></h2>
+		<div class="elm-image" style="background-image:url({{@root.assets}}{{this.value.imgurl}})"><img src="{{@root.assets}}{{this.value.imgurl}}" alt="{{this.value.title}}" /></div>
+		<div class="elm-content">
+			{{{this.value.content}}}
+		</div>
+	</li>
+{{/eachOptions}}
+
+</ul>
