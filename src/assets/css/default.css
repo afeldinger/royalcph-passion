@@ -430,20 +430,19 @@ html {
   font-size: 1.6666666667vw; }
 
 body, table, thead, tbody, tfoot, input, textarea, button, select {
-  font-family: "Monotype Bodoni W01", "BodoniMTStd", "Bodoni MT", "Bodoni Std", Georgia, Garamond, "Times New Roman", serif; }
+  font-family: "Bodoni SvtyTwo ITC TT", "bodoni-svtytwo-1", Georgia, Garamond, "Times New Roman", serif; }
 
 body {
   color: #ffffff; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Monotype Bodoni W01", "BodoniMTStd", "Bodoni MT", "Bodoni Std", Georgia, Garamond, "Times New Roman", serif;
+  font-family: "Bodoni SvtyTwo ITC TT", "bodoni-svtytwo-1", Georgia, Garamond, "Times New Roman", serif;
   font-weight: 400;
   color: inherit; }
 
 h1 {
   font-size: 45px;
   font-size: 2.8125rem;
-  letter-spacing: -1px;
   line-height: 1em;
   margin: 0.8em 0;
   text-transform: uppercase; }
@@ -451,7 +450,6 @@ h1 {
 h2 {
   font-size: 30px;
   font-size: 1.875rem;
-  letter-spacing: -1px;
   line-height: 1.2em;
   margin: 0.6em 0; }
   h1 + h2 {
@@ -460,14 +458,12 @@ h2 {
 h3 {
   font-size: 25px;
   font-size: 1.5625rem;
-  letter-spacing: -1px;
   margin: 0 0 0; }
 
 h4 {
   font-size: 20px;
   font-size: 1.25rem;
-  margin: 0 0;
-  letter-spacing: -1px; }
+  margin: 0 0; }
 
 h5 {
   font-size: 16px;
@@ -507,8 +503,7 @@ a {
 
 .caps {
   text-transform: uppercase;
-  font-style: normal;
-  letter-spacing: -1px; }
+  font-style: normal; }
 
 @font-face {
   font-family: "icons";
@@ -785,7 +780,6 @@ body {
   .content-section > h2, .content-section > p {
     font-size: 30px;
     font-size: 1.875rem;
-    letter-spacing: -1px;
     font-style: italic; }
 
 /* generated with grunt-sass-globbing */
@@ -1803,8 +1797,7 @@ img.mfp-img {
     .blue-slider .elm-content > *:first-child {
       margin-top: 0; }
     .blue-slider .elm-content p {
-      font-style: italic;
-      letter-spacing: -1px; }
+      font-style: italic; }
   html.csstransforms3d .blue-slider .elm-content {
     -webkit-transform: translate3d(-50%, 0, 0);
             transform: translate3d(-50%, 0, 0);
@@ -1937,8 +1930,7 @@ img.mfp-img {
           -ms-flex-direction: column;
               flex-direction: column; }
   .inspiration-slider h2 {
-    text-transform: uppercase;
-    letter-spacing: -1px; }
+    text-transform: uppercase; }
     .inspiration-slider h2 + *:before {
       content: ' ';
       display: block;
@@ -1977,7 +1969,6 @@ img.mfp-img {
     font-size: 1.875rem;
     font-style: italic;
     line-height: 1.2em;
-    letter-spacing: -1px;
     text-transform: none;
     text-align: left; }
 
@@ -1987,7 +1978,6 @@ img.mfp-img {
     font-size: 55px;
     font-size: 3.4375rem;
     text-transform: uppercase;
-    letter-spacing: -1px;
     opacity: .3;
     transition: opacity .3s ease;
     margin: 0; }
