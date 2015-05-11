@@ -1,34 +1,49 @@
 [
 	{
-		"caption": "Lorem ipsum dolor sit amet",
 		"imgurl": "http://lorempixel.com/320/320/abstract/1/"
 	},
 	{
-		"caption": "Lorem ipsum dolor sit amet",
 		"imgurl": "http://lorempixel.com/320/320/abstract/2/"
 	},
 	{
-		"caption": "Lorem ipsum dolor sit amet",
 		"imgurl": "http://lorempixel.com/320/320/abstract/3/"
 	},
 	{
-		"caption": "Lorem ipsum dolor sit amet",
-		"class": "blue"
+		"caption": "<h2>Our most important legacy?</h2><p>240 years of making even simple moments unforgettable</p>",
+		"class": "white"
 	},
 	{
-		"caption": "Lorem ipsum dolor sit amet",
 		"imgurl": "http://lorempixel.com/320/320/abstract/5/"
 	},
 	{
-		"caption": "Lorem ipsum dolor sit amet",
 		"imgurl": "http://lorempixel.com/320/320/abstract/6/"
 	},
 	{
-		"caption": "Lorem ipsum dolor sit amet",
 		"imgurl": "http://lorempixel.com/320/320/abstract/7/"
 	},
 	{
-		"caption": "Lorem ipsum dolor sit amet",
+		"imgurl": "http://lorempixel.com/320/320/abstract/8/"
+	},
+	{
+		"imgurl": "http://lorempixel.com/320/320/abstract/2/"
+	},
+	{
+		"imgurl": "http://lorempixel.com/320/320/abstract/3/"
+	},
+	{
+		"caption": "<h2>Our most important legacy?</h2><p>240 years of making even simple moments unforgettable</p>",
+		"class": "blue"
+	},
+	{
+		"imgurl": "http://lorempixel.com/320/320/abstract/5/"
+	},
+	{
+		"imgurl": "http://lorempixel.com/320/320/abstract/6/"
+	},
+	{
+		"imgurl": "http://lorempixel.com/320/320/abstract/7/"
+	},
+	{
 		"imgurl": "http://lorempixel.com/320/320/abstract/8/"
 	}
 ]

@@ -17,9 +17,12 @@
 
 	> h1 {
 		@include adjust-font-size-to($size-xxxxl);
+		margin-bottom: 0;
 	}
 	> h2 {
 		@include adjust-font-size-to($size-xxxl);
+		font-style: normal;
+		margin-top:0 !important;
 		margin-bottom:0;
 	}
 	img {
@@ -27,7 +30,6 @@
 	}
 
 	video {
-		display:none;
 		
 		position: absolute;
 		margin:0;

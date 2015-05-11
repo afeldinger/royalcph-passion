@@ -7,7 +7,7 @@
 .products {
 	position:relative;
 	margin: 0 (-1 * vw-units($section-margin-h));
-	padding: vw-units($content-margin-px);
+	padding: 0 vw-units($content-margin-px);
 	color: $color-brand;
 
 	background:#fff;

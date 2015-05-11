@@ -1,32 +1,32 @@
 [
 	{
-		"imgurl":  "http://lorempixel.com/465/410/abstract/1/",
+		"imgurl":  "/img/products_01.jpg",
 		"series": "Blue Elements",
 		"name": "Bowl 160 cl",
-		"details": "Item No.: 1017056<br>Capacity: 160 cl<br>Main material: Porcelain<br>Design by: Louise Campbell<br>Production start: 2013"
+		"details": "Item No.: 1017056<br>Capacity: 160 cl"
 	},
 	{
-		"imgurl":  "http://lorempixel.com/465/410/abstract/2/",
+		"imgurl":  "/img/products_02.jpg",
 		"series": "Blue Elements",
 		"name": "Serving dish",
-		"details": "Item No.: 1017056<br>Capacity: 160 cl<br>Main material: Porcelain<br>Design by: Louise Campbell<br>Production start: 2013"
+		"details": "Item No.: 1017056<br>Capacity: 160 cl"
 	},
 	{
-		"imgurl":  "http://lorempixel.com/465/410/abstract/3/",
+		"imgurl":  "/img/products_03.jpg",
 		"series": "Blue Elements",
 		"name": "Sky-shaped dish",
-		"details": "Item No.: 1017056<br>Capacity: 160 cl<br>Main material: Porcelain<br>Design by: Louise Campbell<br>Production start: 2013"
+		"details": "Item No.: 1017056<br>Capacity: 160 cl"
 	},
 	{
-		"imgurl":  "http://lorempixel.com/465/410/abstract/4/",
+		"imgurl":  "/img/products_04.jpg",
 		"series": "Blue Elements",
 		"name": "Cup 25 cl",
-		"details": "Item No.: 1017056<br>Capacity: 160 cl<br>Main material: Porcelain<br>Design by: Louise Campbell<br>Production start: 2013"
+		"details": "Item No.: 1017056<br>Capacity: 160 cl"
 	},
 	{
-		"imgurl":  "http://lorempixel.com/465/410/abstract/5/",
+		"imgurl":  "/img/products_05.jpg",
 		"series": "Blue Elements",
 		"name": "Bowl 225 cl",
-		"details": "Item No.: 1017056<br>Capacity: 160 cl<br>Main material: Porcelain<br>Design by: Louise Campbell<br>Production start: 2013"
+		"details": "Item No.: 1017056<br>Capacity: 160 cl"
 	}
 ]

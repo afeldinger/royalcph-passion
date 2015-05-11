@@ -400,40 +400,27 @@ font-weight: 900;
 font-style: italic;
 }
 */
-/*
 @font-face {
   font-family: 'bodoni-svtytwo-1';
-  src: url('../fonts/BodoniSvtyTwoITCTTBook.eot'); // IE9 Compat Modes
-  src: url('../fonts/BodoniSvtyTwoITCTTBook.eot?#iefix') format('embedded-opentype'), // IE6-IE8 // format('eot') ?
-       url('../fonts/BodoniSvtyTwoITCTTBook.woff') format('woff'), // Modern Browsers
-       url('../fonts/BodoniSvtyTwoITCTTBook.ttf')  format('truetype'), // Safari, Android, iOS
-       url('../fonts/BodoniSvtyTwoITCTTBook.svg#1a565e8a76ea597cd4cd4388d4d08105') format('svg'); // Legacy iOS
-  font-style:   normal;
-  font-weight:  400;
-}
+  src: url('../fonts/BodoniSvtyTwoITCTTBook.eot');
+  src: url('../fonts/BodoniSvtyTwoITCTTBook.eot?#iefix') format('embedded-opentype'), url('../fonts/BodoniSvtyTwoITCTTBook.woff') format('woff'), url('../fonts/BodoniSvtyTwoITCTTBook.ttf') format('truetype'), url('../fonts/BodoniSvtyTwoITCTTBook.svg#1a565e8a76ea597cd4cd4388d4d08105') format('svg');
+  font-style: normal;
+  font-weight: 400; }
 
 @font-face {
   font-family: 'bodoni-svtytwo-1';
-  src: url('../fonts/BodoniSvtyTwoITCTTBold.eot'); // IE9 Compat Modes
-  src: url('../fonts/BodoniSvtyTwoITCTTBold.eot?#iefix') format('embedded-opentype'), // IE6-IE8
-       url('../fonts/BodoniSvtyTwoITCTTBold.woff') format('woff'), // Modern Browsers
-       url('../fonts/BodoniSvtyTwoITCTTBold.ttf')  format('truetype'), // Safari, Android, iOS
-       url('../fonts/BodoniSvtyTwoITCTTBold.svg#9aa64ce3c4781d177662f1291723ead4') format('svg'); // Legacy iOS
-  font-style:   normal;
-  font-weight:  700;
-}
+  src: url('../fonts/BodoniSvtyTwoITCTTBold.eot');
+  src: url('../fonts/BodoniSvtyTwoITCTTBold.eot?#iefix') format('embedded-opentype'), url('../fonts/BodoniSvtyTwoITCTTBold.woff') format('woff'), url('../fonts/BodoniSvtyTwoITCTTBold.ttf') format('truetype'), url('../fonts/BodoniSvtyTwoITCTTBold.svg#9aa64ce3c4781d177662f1291723ead4') format('svg');
+  font-style: normal;
+  font-weight: 700; }
 
 @font-face {
   font-family: 'bodoni-svtytwo-1';
-  src: url('../fonts/BodoniSvtyTwoITCTTBookIta.eot'); // IE9 Compat Modes
-  src: url('../fonts/BodoniSvtyTwoITCTTBookIta.eot?#iefix') format('embedded-opentype'), // IE6-IE8
-       url('../fonts/BodoniSvtyTwoITCTTBookIta.woff') format('woff'), // Modern Browsers
-       url('../fonts/BodoniSvtyTwoITCTTBookIta.ttf')  format('truetype'), // Safari, Android, iOS
-       url('../fonts/BodoniSvtyTwoITCTTBookIta.svg#db7b7489795eca1c2c221fea4c9f11a3') format('svg'); // Legacy iOS
-  font-style:   italic;
-  font-weight:  400;
-}
-*/
+  src: url('../fonts/BodoniSvtyTwoITCTTBookIta.eot');
+  src: url('../fonts/BodoniSvtyTwoITCTTBookIta.eot?#iefix') format('embedded-opentype'), url('../fonts/BodoniSvtyTwoITCTTBookIta.woff') format('woff'), url('../fonts/BodoniSvtyTwoITCTTBookIta.ttf') format('truetype'), url('../fonts/BodoniSvtyTwoITCTTBookIta.svg#db7b7489795eca1c2c221fea4c9f11a3') format('svg');
+  font-style: italic;
+  font-weight: 400; }
+
 *, *:before, *:after {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
@@ -770,15 +757,23 @@ html {
 
 body {
   background: #1d293e;
+  background-image: url(../img/bg_concrete_dark.jpg);
+  background-position: 50% 0;
+  background-size: 100% auto;
+  background-attachment: fixed;
   margin: 0;
   padding: 0;
   text-align: center; }
 
 .content-section {
   padding: 9.375vw 9.375vw;
-  background-image: url(../img/bg_concrete_dark.jpg);
-  background-position: 50% 0;
-  background-size: 100% auto; }
+  /*
+	background-image: url(../img/bg_concrete_dark.jpg);
+	background-position: 50% 0;
+	//background-size: 100% auto;
+	background-size: cover;
+	background-attachment: fixed;
+*/ }
   .content-section > h1, .content-section > h2, .content-section > p {
     margin: 9.375vw 0; }
     .content-section > h1 + h1, .content-section > h1 + h2, .content-section > h1 + p, .content-section > h2 + h1, .content-section > h2 + h2, .content-section > h2 + p, .content-section > p + h1, .content-section > p + h2, .content-section > p + p {
@@ -1081,7 +1076,8 @@ img.full-width {
   padding: 9.375vw 9.375vw;
   background-image: url(../img/bg_concrete_dark.jpg);
   background-position: 50% 100%;
-  background-size: 100% auto; }
+  background-size: 100% auto;
+  background-attachment: fixed; }
   .page-footer .icon + span {
     position: absolute;
     left: -9999em;
@@ -1131,6 +1127,259 @@ img.full-width {
 nav.sidenav {
   display: none; }
 
+/*
+== jquery thumbnail/image scroller ==
+Plugin URI: http://manos.malihu.gr/jquery-thumbnail-scroller/
+*/
+/*
+CONTENTS: 
+	1. BASIC STYLE - Plugin's basic/essential CSS properties (normally, should not be edited). 
+	2. SCROLLING BUTTONS STYLE - buttons size, background, color, positioning etc. 
+	3. THUMBNAILS STYLE - basic thumbnails CSS.
+	4. THEMES - Scroller colors, dimensions, backgrounds etc. via ready-to-use themes. 
+*/
+/* 
+------------------------------------------------------------------------------------------------------------------------
+1. BASIC STYLE  
+------------------------------------------------------------------------------------------------------------------------
+*/
+.mThumbnailScroller {
+  -ms-touch-action: none;
+  touch-action: none;
+  /* MSPointer events - direct all pointer events to js */ }
+
+.mThumbnailScroller.mTS_no_scroll {
+  -ms-touch-action: auto;
+  touch-action: auto; }
+
+.mTSWrapper {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  max-width: 100%;
+  outline: none;
+  direction: ltr; }
+
+.mTSContainer {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; }
+
+ul.mTSContainer, ol.mTSContainer {
+  list-style: none; }
+
+.mTSThumb, ul.mTSContainer > li img {
+  vertical-align: bottom; }
+
+.mTS_vertical .mTSContainer {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important; }
+
+.mTS_horizontal .mTSContainer {
+  margin-left: 0 !important;
+  margin-right: 0 !important; }
+
+/* 
+------------------------------------------------------------------------------------------------------------------------
+2. SCROLLING BUTTONS STYLE  
+------------------------------------------------------------------------------------------------------------------------
+*/
+.mTSButton {
+  /* button size (if changed, also change the buttons top and left margins below) */
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  padding: 14px;
+  /* ---------- */
+  overflow: hidden;
+  text-align: center;
+  background-color: #000;
+  /* button background */
+  color: #fff;
+  /* non-svg button icon color */
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* show button effect (fades-in button from zero size) */
+  opacity: 1;
+  transition: height 0s ease-out 0s, width 0s ease-out 0s, padding 0s ease-out 0s, opacity .2s ease-out 0s;
+  /* ---------- */ }
+
+/* buttons positioning */
+.mTSButtonDown {
+  top: auto;
+  bottom: 0; }
+
+.mTSButtonRight {
+  left: auto;
+  right: 0; }
+
+.mTSButtonUp, .mTSButtonDown {
+  /* margin is half the button size */
+  left: 50%;
+  margin-left: -24px; }
+
+.mTSButtonLeft, .mTSButtonRight {
+  /* margin is half the button size */
+  top: 50%;
+  margin-top: -24px; }
+
+.mTSButtonIconContainer {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  overflow: hidden; }
+
+.mTSButtonIcon {
+  /* SVG icon */
+  display: inline-block;
+  fill: #fff;
+  /* button icon color */
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+.mTSButton.mTS-hidden {
+  /* hide button effect (fades-out button to zero size) */
+  opacity: 0;
+  height: 0;
+  width: 0;
+  padding: 0;
+  transition: height 0s ease-out .2s, width 0s ease-out .2s, padding 0s ease-out .2s, opacity .2s ease-out;
+  /* ---------- */ }
+
+/* 
+------------------------------------------------------------------------------------------------------------------------
+3. THUMBNAILS STYLE  
+------------------------------------------------------------------------------------------------------------------------
+*/
+/* thumbnail container (default: li) */
+.mTS_horizontal .mTSThumbContainer, .mTS_horizontal ul.mTSContainer > li {
+  float: left; }
+
+/* 
+------------------------------------------------------------------------------------------------------------------------
+4. THEMES 
+------------------------------------------------------------------------------------------------------------------------
+*/
+/* theme: "buttons-in" */
+.mTS-buttons-in {
+  padding: 14px;
+  background-color: #000; }
+
+.mTS-buttons-in .mTSButtonIcon {
+  fill: #fff; }
+
+.mTS-buttons-in .mTSWrapper, .mTS-buttons-in .mTSButton {
+  background-color: inherit; }
+
+.mTS-buttons-in .mTSButtonLeft, .mTS-buttons-in .mTSButtonRight {
+  width: 24px;
+  height: 48px;
+  padding: 24px 4px 0 4px;
+  margin-top: -36px; }
+
+.mTS-buttons-in .mTSButtonUp, .mTS-buttons-in .mTSButtonDown {
+  width: 24px;
+  height: 24px;
+  padding: 4px 24px;
+  margin-left: -36px; }
+
+.mTS-buttons-in .mTSButton.mTS-hidden {
+  height: 0;
+  width: 0;
+  padding: 0; }
+
+.mTS-buttons-in .mTSButton:not(.mTS-hidden) {
+  opacity: .4; }
+
+.mTS-buttons-in:hover .mTSButton:not(.mTS-hidden) {
+  opacity: 1; }
+
+.mTS-buttons-in .mTS_vertical .mTSThumbContainer {
+  margin: 14px 0; }
+
+.mTS-buttons-in .mTS_vertical .mTSThumbContainer:first-child {
+  margin-top: 0; }
+
+.mTS-buttons-in .mTS_vertical .mTSThumbContainer:last-child {
+  margin-bottom: 0; }
+
+.mTS-buttons-in .mTS_horizontal .mTSThumbContainer {
+  margin: 0 7px; }
+
+.mTS-buttons-in .mTS_horizontal .mTSThumbContainer:first-child {
+  margin-left: 0; }
+
+.mTS-buttons-in .mTS_horizontal .mTSThumbContainer:last-child {
+  margin-right: 0; }
+
+/* ---------------------------------------- */
+/* theme: "buttons-out" */
+.mTS-buttons-out {
+  padding: 6px;
+  background: #000; }
+
+.mTS-buttons-out .mTSButtonIcon {
+  fill: #000; }
+
+.mTS-buttons-out .mTSButton {
+  background-color: transparent;
+  width: 36px;
+  height: 36px;
+  line-height: 42px;
+  padding: 6px; }
+
+.mTS-buttons-out .mTSButton.mTS-hidden {
+  height: 0;
+  width: 0;
+  padding: 0; }
+
+.mTS-buttons-out .mTS_vertical .mTSThumbContainer {
+  margin: 6px 0; }
+
+.mTS-buttons-out .mTS_vertical .mTSThumbContainer:first-child {
+  margin-top: 0; }
+
+.mTS-buttons-out .mTS_vertical .mTSThumbContainer:last-child {
+  margin-bottom: 0; }
+
+.mTS-buttons-out .mTS_horizontal .mTSThumbContainer {
+  margin: 0 3px; }
+
+.mTS-buttons-out .mTS_horizontal .mTSThumbContainer:first-child {
+  margin-left: 0; }
+
+.mTS-buttons-out .mTS_horizontal .mTSThumbContainer:last-child {
+  margin-right: 0; }
+
+/* ---------------------------------------- */
+/* theme: "hover-full" */
+.mTS-hover-full {
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.2); }
+
+.mTS-hover-full .mTS_vertical .mTSThumbContainer {
+  margin: 8px 0; }
+
+.mTS-hover-full .mTS_vertical .mTSThumbContainer:first-child {
+  margin-top: 40px; }
+
+.mTS-hover-full .mTS_vertical .mTSThumbContainer:last-child {
+  margin-bottom: 40px; }
+
+.mTS-hover-full .mTS_horizontal .mTSThumbContainer {
+  margin: 0 4px; }
+
+.mTS-hover-full .mTS_horizontal .mTSThumbContainer:first-child {
+  margin-left: 40px; }
+
+.mTS-hover-full .mTS_horizontal .mTSThumbContainer:last-child {
+  margin-right: 40px; }
+
+/* ---------------------------------------- */
 /* Magnific Popup CSS */
 .mfp-bg {
   top: 0;
@@ -1499,15 +1748,23 @@ img.mfp-img {
 .section-artproject {
   padding: 0;
   overflow: hidden;
-  background: linear-gradient(to right, transparent 0%, transparent 50%, #e6e6e6 50%, #e6e6e6 100%), url(../img/bg_concrete_dark.jpg) repeat-y 50% 0;
-  background-size: 100% auto, 100% 100%; }
+  /*
+	background: 
+		linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, $color-light-gray 50%, $color-light-gray 100%)
+		url(../img/bg_concrete_dark.jpg) repeat-y 50% 0
+	;
+	background-size: 100% auto, 100% 100%;
+*/
+  background: linear-gradient(to right, transparent 0%, transparent 50%, #e6e6e6 50%, #e6e6e6 100%); }
   .section-artproject .elm-content {
     float: left;
     width: 50%;
     padding: 6.25vw 9.375vw; }
     .section-artproject .elm-content svg {
       display: block;
-      height: 100%; }
+      margin: 0 auto;
+      width: 28.6458333333vw;
+      height: 39.9930747922vw; }
   .section-artproject .elm-image {
     float: right;
     width: 50%;
@@ -1515,21 +1772,26 @@ img.mfp-img {
     .section-artproject .elm-image img {
       width: 100%;
       height: auto; }
+    .section-artproject .elm-image svg {
+      border: 1px solid #002454;
+      margin: 5.2083333333vw auto 0;
+      width: 20.8333333333vw;
+      height: 4.1666666667vw; }
 
 .section-blue {
   padding-bottom: 0; }
 
-.blue {
+.blue-slider {
   margin: 0 -9.375vw; }
-  .blue ul.slides li {
+  .blue-slider li {
     overflow: hidden; }
-  .blue .flex-direction-nav a {
+  .blue-slider .flex-direction-nav a {
     color: #ffffff; }
-  .blue .flex-control-paging {
+  .blue-slider .flex-control-paging {
     display: none; }
-  .blue .elm-image {
+  .blue-slider .elm-image {
     position: relative; }
-  .blue .elm-content {
+  .blue-slider .elm-content {
     position: absolute;
     margin-top: -23.4375vw;
     overflow: hidden;
@@ -1538,11 +1800,43 @@ img.mfp-img {
     color: #002454;
     text-align: left;
     background: #fff; }
-    .blue .elm-content > *:first-child {
+    .blue-slider .elm-content > *:first-child {
       margin-top: 0; }
-    .blue .elm-content p {
+    .blue-slider .elm-content p {
       font-style: italic;
       letter-spacing: -1px; }
+  html.csstransforms3d .blue-slider .elm-content {
+    -webkit-transform: translate3d(-50%, 0, 0);
+            transform: translate3d(-50%, 0, 0);
+    opacity: 0;
+    transition-property: -webkit-transform, opacity;
+    transition-property: transform, opacity;
+    transition-duration: .4s;
+    transition-timing-function: ease;
+    transition-delay: .2s; }
+    html.csstransforms3d .blue-slider .elm-content > * {
+      opacity: 0;
+      -webkit-transform: translate3d(-30%, 0, 0);
+              transform: translate3d(-30%, 0, 0);
+      transition: .3s ease;
+      transition-property: opacity -webkit-transform;
+      transition-property: opacity transform; }
+  html.csstransforms3d .blue-slider .flex-active-transition .elm-content {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+    opacity: 1; }
+    html.csstransforms3d .blue-slider .flex-active-transition .elm-content > * {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0); }
+      html.csstransforms3d .blue-slider .flex-active-transition .elm-content > *:nth-child(1) {
+        transition-delay: .4s; }
+      html.csstransforms3d .blue-slider .flex-active-transition .elm-content > *:nth-child(2) {
+        transition-delay: .45s; }
+      html.csstransforms3d .blue-slider .flex-active-transition .elm-content > *:nth-child(3) {
+        transition-delay: .5s; }
+      html.csstransforms3d .blue-slider .flex-active-transition .elm-content > *:nth-child(4) {
+        transition-delay: .55s; }
 
 .section-front {
   position: relative;
@@ -1557,15 +1851,17 @@ img.mfp-img {
   z-index: -2; }
   .section-front > h1 {
     font-size: 65px;
-    font-size: 4.0625rem; }
+    font-size: 4.0625rem;
+    margin-bottom: 0; }
   .section-front > h2 {
     font-size: 45px;
     font-size: 2.8125rem;
+    font-style: normal;
+    margin-top: 0 !important;
     margin-bottom: 0; }
   .section-front img {
     margin: 0 auto; }
   .section-front video {
-    display: none;
     position: absolute;
     margin: 0;
     top: 0;
@@ -1588,9 +1884,81 @@ img.mfp-img {
   padding-left: 9.375vw;
   padding-right: 9.375vw;
   color: #002454;
-  background: #fff; }
+  background: #fff;
+  overflow: hidden; }
 
-.content-section.section-ourpassion {
+.inspiration-slider {
+  margin: 0 -9.375vw;
+  height: 320px;
+  overflow: hidden; }
+  .inspiration-slider ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+    white-space: nowrap;
+    width: 100%; }
+  .inspiration-slider li {
+    display: block;
+    position: relative;
+    width: 190px;
+    height: 320px;
+    margin: 0;
+    overflow: hidden;
+    text-align: center;
+    white-space: normal;
+    transition: width .3s ease;
+    cursor: pointer; }
+    .inspiration-slider li.active {
+      width: 320px; }
+  .inspiration-slider img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    max-width: none; }
+  .inspiration-slider .caption {
+    position: absolute;
+    left: -95px;
+    margin-left: 50%;
+    bottom: 0;
+    width: 190px;
+    padding: 20px 10px;
+    color: inherit; }
+    .flexbox .inspiration-slider .caption {
+      height: 100%;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column; }
+  .inspiration-slider h2 {
+    text-transform: uppercase;
+    letter-spacing: -1px; }
+    .inspiration-slider h2 + *:before {
+      content: ' ';
+      display: block;
+      width: 50%;
+      height: 1px;
+      margin: .2em auto .6em;
+      border-top: 2px solid #002454;
+      overflow: hidden; }
+  .inspiration-slider p {
+    font-style: italic; }
+  .inspiration-slider .white {
+    background: #ffffff url(../img/bg_texture_white.jpg) 0 50%;
+    color: #002454; }
+  .inspiration-slider .blue {
+    background: #002454 url(../img/bg_texture_blue.jpg) 0 50%;
+    color: #ffffff; }
+    .inspiration-slider .blue .caption h2 + *:before {
+      border-color: #ffffff; }
+
+.content-section.section-passion {
   position: relative;
   overflow: hidden;
   z-index: 1;
@@ -1603,7 +1971,7 @@ img.mfp-img {
 	background-size: cover;
 */
   transition: height .5s ease; }
-  .content-section.section-ourpassion > h1 {
+  .content-section.section-passion > h1 {
     position: absolute;
     font-size: 30px;
     font-size: 1.875rem;
@@ -1631,11 +1999,14 @@ img.mfp-img {
     left: 0;
     width: 100%;
     height: 100%;
-    background-size: 100% auto;
     background-position: 0 0;
+    background-attachment: scroll;
+    background-size: cover;
     opacity: 0;
     z-index: -1;
-    transition: opacity .3s ease; }
+    transition: opacity .3s ease .15s;
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0); }
     .passion-videos .elm-image img {
       display: none; }
   .passion-videos .elm-content {
@@ -1643,7 +2014,7 @@ img.mfp-img {
     overflow: hidden; }
     .passion-videos .elm-content img {
       margin: 1rem auto; }
-  .passion-videos:not(:hover) li.initial h2, .passion-videos:not(.has-active) li.initial h2 {
+  .passion-videos:not(.has-active):not(:hover) li.initial h2 {
     opacity: 1; }
   .passion-videos li.initial .elm-image {
     opacity: 1;
@@ -1665,6 +2036,73 @@ img.mfp-img {
       font-size: 30px;
       font-size: 1.875rem; }
 
+.section-pattern {
+  padding-bottom: 0; }
+
+.pattern {
+  margin: 0 -9.375vw; }
+  .pattern ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+  .pattern li {
+    display: block;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover; }
+    .pattern li:not(.active):first-of-type {
+      background-attachment: scroll; }
+    .pattern li.active:last-of-type {
+      background-attachment: scroll; }
+  .pattern .elm-content {
+    position: relative;
+    margin-left: 13%;
+    margin-top: 40vh;
+    /*
+		top: 0;
+		bottom: 0;
+		margin:auto;
+		height: 14em;
+		*/
+    width: 50%;
+    text-align: left; }
+    .pattern .elm-content:before {
+      content: '';
+      display: block;
+      height: 1.2em;
+      width: 1.2em;
+      margin-top: -0.6em;
+      border-radius: 50%;
+      box-shadow: 0 0 0 0.4em rgba(20, 32, 74, 0.5);
+      top: 3.2em;
+      left: 55%;
+      background-color: #002454;
+      position: absolute; }
+    .pattern .elm-content:after {
+      content: '';
+      display: block;
+      height: 1px;
+      width: 55%;
+      background: #ffffff;
+      background: linear-gradient(to right, #ffffff 0%, #14204a 100%);
+      top: 3.2em;
+      left: 0;
+      position: absolute; }
+  .pattern .light .elm-content {
+    color: #002454; }
+    .pattern .light .elm-content:after {
+      background: #002454; }
+  .pattern p {
+    font-style: italic;
+    margin: 0;
+    padding: 0;
+    max-width: 8em; }
+
 .section-products {
   position: relative;
   padding-bottom: 0; }
@@ -1672,7 +2110,7 @@ img.mfp-img {
 .products {
   position: relative;
   margin: 0 -9.375vw;
-  padding: 4.1666666667vw;
+  padding: 0 4.1666666667vw;
   color: #002454;
   background: #fff; }
   .products ul.slides {

@@ -5,19 +5,25 @@ sortorder: 3
 class: section-inspiration
 ---
 
-<h1>240 years of making every day extraordinary</h1>
+<h1>240 years of making<br>every day extraordinary</h1>
 <p>From our very first plate, we've had the privilege of helping you turn everyday moments into banquets and feasts worthy of kings and queens. With your passion for beautiful moments, you write new chapters in our story.</p>
 
-<ul class="inspiration">
-	{{#eachOptions inspiration}}
-		<li class="{{this.value.class}}">
-			<img src="{{this.value.imgurl}}" alt="{{this.value.name}}" />
-			<div class="caption">
-				{{this.value.caption}}
-			</div>
-		</li>
-	{{/eachOptions}}
-</ul>
+<div class="inspiration-slider">
+	<ul class="slides">
+		{{#eachOptions inspiration}}
+			<li class="{{this.value.class}}">
+			{{#if this.value.imgurl}}
+				<img src="{{this.value.imgurl}}" alt="{{this.value.name}}" />
+			{{/if}}
+			{{#if this.value.caption}}
+				<div class="caption">
+					{{{this.value.caption}}}
+				</div>
+			{{/if}}
+			</li>
+		{{/eachOptions}}
+	</ul>
+</div>
 
-<h1>What beauty will you create with Blue?</h1>
+<h1>What beauty will you<br>create with Blue?</h1>
 <p>Elevating the mundane to the sublime since 1775.</p>

@@ -11,7 +11,13 @@ html {
 
 
 body {
-	background: $color-background;;
+	background: $color-background;
+
+	background-image: url(../img/bg_concrete_dark.jpg);
+	background-position: 50% 0;
+	background-size: 100% auto;
+	background-attachment: fixed;
+
 	margin:0;
 	padding:0;
 	text-align:center;
@@ -20,10 +26,13 @@ body {
 
 .content-section {
 	padding: vw-units($section-margin-v) vw-units($section-margin-h);
+	/*
 	background-image: url(../img/bg_concrete_dark.jpg);
 	background-position: 50% 0;
-	background-size: 100% auto;
-
+	//background-size: 100% auto;
+	background-size: cover;
+	background-attachment: fixed;
+*/
 	> h1,
 	> h2,
 	> p {
