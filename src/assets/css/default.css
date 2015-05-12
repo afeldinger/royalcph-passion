@@ -1932,14 +1932,39 @@ img.mfp-img {
     white-space: normal;
     transition: width .3s ease;
     cursor: pointer; }
-    .inspiration-slider li.active {
+    .inspiration-slider li:not(.blue):not(.white).active {
       width: 320px; }
+    .inspiration-slider li:not(.blue):not(.white):after {
+      content: ' ';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      background: #002454;
+      opacity: .4;
+      z-index: 5;
+      transition: opacity .3s ease; }
+    .inspiration-slider li:not(.blue):not(.white):hover:after {
+      opacity: 0; }
   .inspiration-slider img {
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     max-width: none; }
+  .cssfilters .inspiration-slider img {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+    -webkit-filter: brightness(1.2) contrast(1.05) grayscale(1);
+            filter: brightness(1.2) contrast(1.05) grayscale(1);
+    transition: -webkit-filter .3s ease, filter .3s ease; }
+  .cssfilters .inspiration-slider li:hover img {
+    -webkit-filter: brightness(1) contrast(1) grayscale(0);
+            filter: brightness(1) contrast(1) grayscale(0); }
   .inspiration-slider .caption {
     position: absolute;
     left: -95px;
