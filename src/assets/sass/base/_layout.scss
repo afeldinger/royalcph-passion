@@ -63,5 +63,38 @@ body {
 
 	}
 
+	.csstransforms3d &:nth-of-type(n+2) {
+		> h1,
+		> h2,
+		> p {
+			opacity: 0;
+			transition-property: opacity transform;
+			transition-duration: .5s;
+			transition-timing-function: ease;
 
+			@for $i from 1 through 5 {
+				&:nth-child(#{$i}) {
+
+				@if $i % 2 == 1 {
+					transform: translate3d(-5%,0,0);
+				}
+				@else {
+					transform: translate3d(5%,0,0);
+				}
+				
+			  	transition-delay: #{.1 + $i * 0.05 }s;
+			  }
+			}
+		}
+
+		&.active {
+			> h1,
+			> h2,
+			> p {
+				transform: translate3d(0,0,0);
+				opacity: 1;
+			}
+		}
+
+	}
 }

@@ -2,7 +2,7 @@
 (function() {
     'use strict';
 
-
+/*
     // Returns a function, that, as long as it continues to be invoked, will not
     // be triggered. The function will be called after it stops being called for
     // N milliseconds. If `immediate` is passed, trigger the function on the
@@ -25,38 +25,42 @@
             }
         };
     }
-
+*/
 
     var body = $('html, body');
-    var scrollSections = $('.content-section, .pattern li');
-    var parallaxSpeed = -0.1;
+    var scrollSections = $('.content-section');
+    var scrollPlates = $('.pattern li');
+    var parallaxSpeed = -0.4;
 
     var scrollListener = function() {
         var cur_pos = $(window).scrollTop();
+        var winH = $(window).height();
 
         if (parallaxSpeed !== 0) {
             body.each(function() {
-                $(this).css('background-position', '50% ' + (cur_pos * parallaxSpeed) + 'px')
-            })
+                $(this).css('background-position', '50% ' + (cur_pos * parallaxSpeed) + 'px');
+            });
         }
-
 
         scrollSections.each(function() {
             var top = $(this).offset().top;
             var bottom = top + $(this).outerHeight();
 
-            $(this).toggleClass('active', cur_pos >= top && cur_pos <= bottom);
-            /*
+            $(this).toggleClass('active', cur_pos + winH * 0.75 >= top && cur_pos <= bottom);
             if (cur_pos >= top && cur_pos <= bottom) {
                 //nav.find('a').removeClass('active');
-                scrollSections.removeClass('active');
-                $(this).addClass('active');
                 //nav.find('a[href="#'+$(this).attr('id')+'"]').addClass('active');
             }
-            */
+        });
+
+        scrollPlates.each(function() {
+            var top = $(this).offset().top;
+            var bottom = top + $(this).outerHeight();
+            $(this).toggleClass('active', cur_pos >= top && cur_pos <= bottom);
         });
         
     };
+    scrollListener();
     window.addEventListener('scroll', scrollListener);
 
 

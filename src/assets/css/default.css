@@ -781,6 +781,36 @@ body {
     font-size: 30px;
     font-size: 1.875rem;
     font-style: italic; }
+  .csstransforms3d .content-section:nth-of-type(n+2) > h1, .csstransforms3d .content-section:nth-of-type(n+2) > h2, .csstransforms3d .content-section:nth-of-type(n+2) > p {
+    opacity: 0;
+    transition-property: opacity -webkit-transform;
+    transition-property: opacity transform;
+    transition-duration: .5s;
+    transition-timing-function: ease; }
+    .csstransforms3d .content-section:nth-of-type(n+2) > h1:nth-child(1), .csstransforms3d .content-section:nth-of-type(n+2) > h2:nth-child(1), .csstransforms3d .content-section:nth-of-type(n+2) > p:nth-child(1) {
+      -webkit-transform: translate3d(-5%, 0, 0);
+              transform: translate3d(-5%, 0, 0);
+      transition-delay: .15s; }
+    .csstransforms3d .content-section:nth-of-type(n+2) > h1:nth-child(2), .csstransforms3d .content-section:nth-of-type(n+2) > h2:nth-child(2), .csstransforms3d .content-section:nth-of-type(n+2) > p:nth-child(2) {
+      -webkit-transform: translate3d(5%, 0, 0);
+              transform: translate3d(5%, 0, 0);
+      transition-delay: .2s; }
+    .csstransforms3d .content-section:nth-of-type(n+2) > h1:nth-child(3), .csstransforms3d .content-section:nth-of-type(n+2) > h2:nth-child(3), .csstransforms3d .content-section:nth-of-type(n+2) > p:nth-child(3) {
+      -webkit-transform: translate3d(-5%, 0, 0);
+              transform: translate3d(-5%, 0, 0);
+      transition-delay: .25s; }
+    .csstransforms3d .content-section:nth-of-type(n+2) > h1:nth-child(4), .csstransforms3d .content-section:nth-of-type(n+2) > h2:nth-child(4), .csstransforms3d .content-section:nth-of-type(n+2) > p:nth-child(4) {
+      -webkit-transform: translate3d(5%, 0, 0);
+              transform: translate3d(5%, 0, 0);
+      transition-delay: .3s; }
+    .csstransforms3d .content-section:nth-of-type(n+2) > h1:nth-child(5), .csstransforms3d .content-section:nth-of-type(n+2) > h2:nth-child(5), .csstransforms3d .content-section:nth-of-type(n+2) > p:nth-child(5) {
+      -webkit-transform: translate3d(-5%, 0, 0);
+              transform: translate3d(-5%, 0, 0);
+      transition-delay: .35s; }
+  .csstransforms3d .content-section:nth-of-type(n+2).active > h1, .csstransforms3d .content-section:nth-of-type(n+2).active > h2, .csstransforms3d .content-section:nth-of-type(n+2).active > p {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+    opacity: 1; }
 
 /* generated with grunt-sass-globbing */
 img {
