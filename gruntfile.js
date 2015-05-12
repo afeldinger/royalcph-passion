@@ -103,6 +103,15 @@ module.exports = function(grunt) {
     },
 
     prettify: {
+      options: {
+        indent: 4,
+        condense: true,
+        indent_inner_html: true,
+        unformatted: [
+          //"a",
+          "pre"
+        ]
+      },
       dist: {
         files: [{
             expand: true,
@@ -130,6 +139,24 @@ module.exports = function(grunt) {
                 dest: 'dist/assets/img/'
             }]
         }
+    },
+
+    svgstore: {
+      options: {
+        //prefix : 'icon-', // This will prefix each ID
+        svg: { // will add and overide the the default xmlns="http://www.w3.org/2000/svg" attribute to the resulting SVG
+          viewBox : '0 0 100 100',
+          xmlns: 'http://www.w3.org/2000/svg'
+        },
+        formatting : {
+          indent_size : 2
+        }
+      },
+      default : {
+        files: {
+          'src/assets/img/svgdefs.svg': ['src/assets/img/svgdefs/*.svg'],
+        },
+      },
     },
 
     svgmin: {
@@ -251,7 +278,8 @@ module.exports = function(grunt) {
           patterns: [
             {
               match: /(\.\.\/src\/assets\/|src\/assets\/|assets\/)/g,
-              replacement: 'http://git.krympevaerk.dk/royalcph/passion/dist/assets/',
+              //replacement: 'http://git.krympevaerk.dk/royalcph/passion/dist/assets/',
+              replacement: 'assets/',
             },
           ]
         },
@@ -260,7 +288,7 @@ module.exports = function(grunt) {
             expand: true, 
             //flatten: true, 
             cwd: 'dist',
-            src: ['**/*.{html,css}'],
+            src: ['**/*.html'],
             dest: 'dist/.'
           }
         ]
@@ -292,8 +320,7 @@ module.exports = function(grunt) {
     'uglify',
     'usemin',
     'copy:dist',
-    //'replace:dist',
-
+    'replace:dist',
   ]);
 
 };

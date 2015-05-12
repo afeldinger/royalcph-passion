@@ -6,6 +6,7 @@
 	padding-top: vw-units(145px);
 	padding-bottom: vw-units(190px);
 
+
 	color: $color-brand;
 
 	background: url(../img/frontpage_bg.jpg) no-repeat 50% 50%;
@@ -43,5 +44,15 @@
 		background-size: cover;
 		z-index: -1;
 		transition: 1s opacity;
+	}
+
+	.flexbox & {
+		min-height: 100vh;
+		padding-top: vw-units(75px);
+		padding-bottom: vw-units(120px);
+		
+		display:flex;
+		flex-direction: column;
+		justify-content: center;
 	}
 }
