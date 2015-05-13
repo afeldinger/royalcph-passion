@@ -58,10 +58,17 @@
 nav#sidenav {
 	
 	position: fixed;
+
+	.nav {
+		overflow-y: scroll;
+		max-height: 100%;
+		padding: vw-units(45px) vw-units(30px);
+	}
+
 	width: vw-units(250px);
 	height: 100vh;
 	background: $color-white;
-	padding: vw-units(45px) vw-units(30px);
+
 
 	color: $color-brand;
 	@include adjust-font-size-to($size-lg);
@@ -72,6 +79,8 @@ nav#sidenav {
 	svg {
 		width: vw-units(45px);
 		height: vw-units(50px);
+		color: $color-gold;
+		fill: $color-brand;
 	}
 
 	ul {
@@ -106,7 +115,6 @@ nav#sidenav {
 		right: 20px;
 		width: 30px;
 		height: 30px;
-		overflow: hidden;
 		border: 1px solid $color-brand;
 		text-indent: -9999em;
 

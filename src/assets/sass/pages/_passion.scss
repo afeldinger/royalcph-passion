@@ -2,7 +2,7 @@
 	position:relative;
 	overflow:hidden;
 	z-index:1;
-	min-height: vw-units(540px);
+	min-height: 100vh;
 	padding-top: $section-margin-v / 2;
 	padding-bottom: $section-margin-v / 2;
 /*
@@ -10,6 +10,12 @@
 	background-attachment: fixed;
 	background-size: cover;
 */
+
+	
+	.flexbox & {
+		display:flex;
+	}
+
 
 	> h1 {
 		position:absolute;
@@ -21,12 +27,15 @@
 		text-align: left;
 	}
 
-	transition: height .5s ease;
 }
 
 .passion-videos {
 	overflow:hidden;
 
+	.flexbox & {
+		align-self: center;
+		flex-grow: 100;
+	}
 
 	h2 {
 		@include adjust-font-size-to(55px);
@@ -73,6 +82,7 @@
 		
 		img {
 			margin: 1rem auto;
+			width: vw-units(480px)
 		}
 	}
 

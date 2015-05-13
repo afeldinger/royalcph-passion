@@ -1,10 +1,11 @@
-
+/*
 #logo-royalcph-crown-crown {
 	fill: $color-gold;
 }
 #logo-royalcph-crown-waves {
 	fill: $color-brand;
 }
+*/
 
 .section-front {
 	position:relative;
@@ -19,7 +20,8 @@
 
 	background: url(../img/frontpage_bg.jpg) no-repeat 50% 50%;
 	background-attachment: fixed;
-	background-size: cover;
+
+	@include background-cover;
 
 	z-index:-2;
 
@@ -30,6 +32,10 @@
 		height: vw-units(60px);
 		min-width: 50px;
 		min-height: 60px;
+
+
+		color: $color-gold;
+		fill: $color-brand;
 
 	}
 

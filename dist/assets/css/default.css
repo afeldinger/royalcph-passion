@@ -1085,15 +1085,20 @@ nav#sidenav {
   width: 26.0417vw;
   height: 100vh;
   background: #ffffff;
-  padding: 4.6875vw 3.125vw;
   color: #002454;
   font-size: 20px;
   font-size: 1.25rem;
   text-transform: uppercase;
   z-index: 1000; }
+  nav#sidenav .nav {
+    overflow-y: scroll;
+    max-height: 100%;
+    padding: 4.6875vw 3.125vw; }
   nav#sidenav svg {
     width: 4.6875vw;
-    height: 5.2083vw; }
+    height: 5.2083vw;
+    color: #B4975A;
+    fill: #002454; }
   nav#sidenav ul {
     margin: 1rem 0 0;
     text-align: left; }
@@ -1114,7 +1119,6 @@ nav#sidenav {
     right: 20px;
     width: 30px;
     height: 30px;
-    overflow: hidden;
     border: 1px solid #002454;
     text-indent: -9999em;
     background: #ccc url('../img/svgdefs.svg#icon-close');
@@ -1848,12 +1852,14 @@ img.mfp-img {
       html.csstransforms3d .blue-slider .flex-active-transition .elm-content > *:nth-child(4) {
         transition-delay: .55s; }
 
+/*
 #logo-royalcph-crown-crown {
-  fill: #B4975A; }
-
+	fill: $color-gold;
+}
 #logo-royalcph-crown-waves {
-  fill: #002454; }
-
+	fill: $color-brand;
+}
+*/
 .section-front {
   position: relative;
   overflow: hidden;
@@ -1865,13 +1871,17 @@ img.mfp-img {
   background-attachment: fixed;
   background-size: cover;
   z-index: -2; }
+  .touch .section-front {
+    background-attachment: scroll; }
   .section-front svg {
     display: block;
     margin: 0 auto 0.8rem;
     width: 5.2083vw;
     height: 6.25vw;
     min-width: 50px;
-    min-height: 60px; }
+    min-height: 60px;
+    color: #B4975A;
+    fill: #002454; }
   .section-front > h1 {
     font-size: 65px;
     font-size: 4.0625rem;
@@ -2022,15 +2032,18 @@ img.mfp-img {
   position: relative;
   overflow: hidden;
   z-index: 1;
-  min-height: 56.25vw;
+  min-height: 100vh;
   padding-top: 45px;
   padding-bottom: 45px;
   /*
 	background: url(../img/bg_ourpassion.jpg) no-repeat 50% 50%;
 	background-attachment: fixed;
 	background-size: cover;
-*/
-  transition: height .5s ease; }
+*/ }
+  .flexbox .content-section.section-passion {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; }
   .content-section.section-passion > h1 {
     position: absolute;
     font-size: 30px;
@@ -2042,6 +2055,13 @@ img.mfp-img {
 
 .passion-videos {
   overflow: hidden; }
+  .flexbox .passion-videos {
+    -webkit-align-self: center;
+        -ms-flex-item-align: center;
+            align-self: center;
+    -webkit-flex-grow: 100;
+        -ms-flex-positive: 100;
+            flex-grow: 100; }
   .passion-videos h2 {
     font-size: 55px;
     font-size: 3.4375rem;
@@ -2071,7 +2091,8 @@ img.mfp-img {
     max-height: 0;
     overflow: hidden; }
     .passion-videos .elm-content img {
-      margin: 1rem auto; }
+      margin: 1rem auto;
+      width: 50vw; }
   .passion-videos:not(.has-active):not(:hover) li.initial h2 {
     opacity: 1; }
   .passion-videos li.initial .elm-image {
@@ -2113,6 +2134,8 @@ img.mfp-img {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover; }
+    .touch .pattern li {
+      background-attachment: scroll; }
     .pattern li:not(.active):first-of-type {
       background-attachment: scroll; }
     .pattern li.active:last-of-type {

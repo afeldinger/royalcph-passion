@@ -41,3 +41,12 @@
 @mixin letter-spacing-sm {
   //letter-spacing: -1px;
 }
+
+
+@mixin background-cover {
+	background-size: cover;
+
+	.touch & {
+		background-attachment: scroll;
+	}
+}
