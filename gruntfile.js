@@ -31,7 +31,7 @@ module.exports = function(grunt) {
       },
       svgdefs: {
         files: ['src/assets/img/svgdefs/*.svg'],
-        tasks: ['svgstore'],
+        tasks: ['svgstore', 'svgmin'],
         options: {
           spawn: false,
         }
@@ -172,7 +172,7 @@ module.exports = function(grunt) {
       },
       default : {
         files: {
-          'dist/assets/img/svgdefs.svg': ['src/assets/img/svgdefs/*.svg'],
+          'src/assets/img/svgdefs.svg': ['src/assets/img/svgdefs/*.svg'],
         },
       },
     },
@@ -196,7 +196,7 @@ module.exports = function(grunt) {
                 src: [
                   '**/*.svg',
                   '!svgdefs/*',
-                  '!svgdefs.svg',
+                  //'!svgdefs.svg',
                 ],
                 dest: 'dist/assets/img/'
             }]
@@ -330,7 +330,7 @@ module.exports = function(grunt) {
   require('matchdep').filterDev(['grunt-*', 'assemble']).forEach(grunt.loadNpmTasks);
 
 
-  grunt.registerTask('common', ['assemble', 'prettify', 'sass_globbing', 'sass:dev', 'autoprefixer', 'svgmin', 'svgstore', 'imagemin', 'copy:assets']);
+  grunt.registerTask('common', ['assemble', 'prettify', 'sass_globbing', 'sass:dev', 'autoprefixer', 'svgstore', 'svgmin', 'imagemin', 'copy:assets']);
 
   // Default task(s).
   grunt.registerTask('default', ['clean:dist', 'common', 'watch']);
@@ -348,7 +348,7 @@ module.exports = function(grunt) {
     'uglify',
     'usemin',
     'copy:favicons',
-    'replace:dist',
+    //'replace:dist',
   ]);
 
 };

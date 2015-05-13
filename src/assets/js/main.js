@@ -31,12 +31,14 @@
     var scrollSections = $('.content-section');
     var scrollPlates = $('.pattern li');
     var parallaxSpeed = -0.4;
+    var nav = $('nav.sidenav');
 
     var scrollListener = function() {
         var cur_pos = $(window).scrollTop();
         var winH = $(window).height();
 
-        if (parallaxSpeed !== 0) {
+
+        if (!Modernizr.touch && parallaxSpeed !== 0) {
             body.each(function() {
                 $(this).css('background-position', '50% ' + (cur_pos * parallaxSpeed) + 'px');
             });
@@ -47,10 +49,14 @@
             var bottom = top + $(this).outerHeight();
 
             $(this).toggleClass('active', cur_pos + winH * 0.75 >= top && cur_pos <= bottom);
+            nav.find('a[href="#'+$(this).attr('id')+'"]').toggleClass('active', cur_pos >= top && cur_pos < bottom);
+
+            /*
             if (cur_pos >= top && cur_pos <= bottom) {
-                //nav.find('a').removeClass('active');
-                //nav.find('a[href="#'+$(this).attr('id')+'"]').addClass('active');
+                nav.find('a').removeClass('active');
+                nav.find('a[href="#'+$(this).attr('id')+'"]').addClass('active');
             }
+            */
         });
 
         scrollPlates.each(function() {
@@ -64,10 +70,23 @@
     window.addEventListener('scroll', scrollListener);
 
 
-    $('#sidenav a.open-nav').click(function(event) {
-        event.preventDefault();
-        $(this).closest('#sidenav').toggleClass('active');
-    })
+    $('.sidenav').each(function() {
+        $(this).find('a.open-nav').click(function(event) {
+            event.preventDefault();
+            $(this).closest('.sidenav').toggleClass('active');
+        });
+        $(this).find('li a').click(function(event) {
+            event.preventDefault();
+
+            var $el = $(this), 
+                id = $el.attr('href');
+
+            $('html, body').animate({
+                scrollTop: $(id).offset().top
+            }, 500);
+             
+        });
+    });
 
     $('.passion-videos li a').click(function(event) {
     	event.preventDefault();
@@ -88,8 +107,10 @@
 	$('.flexslider').flexslider({
 		animation: 'slide',
 		slideshow: false,
+        controlNav: false,
         start: function(slider) {
             slider.slides.eq(slider.currentSlide).addClass('flex-active-transition');
+            slider.attr('data-current-slide', slider.currentSlide);
         },
         before: function(slider) {
             slider.slides.eq(slider.currentSlide).removeClass('flex-active-transition');
@@ -97,6 +118,7 @@
         after: function(slider) {
             //setTimeout(function() {
                 slider.slides.eq(slider.currentSlide).addClass('flex-active-transition');
+                slider.attr('data-current-slide', slider.currentSlide);
             //}, 500);
         }
 	});

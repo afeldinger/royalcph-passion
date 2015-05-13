@@ -80,11 +80,19 @@ nav#sidenav {
 	}
 
 	li {
-		padding: vw-units(10px);
 		border-bottom: 1px solid $color-borders;
 
 		&:first-of-type {
 			border-top: 1px solid $color-borders;
+		}
+	}
+
+	li a {
+		display:block;
+		padding: vw-units(10px);
+		
+		&.active {
+			font-weight: $weight-bold;
 		}
 	}
 
@@ -102,9 +110,10 @@ nav#sidenav {
 		border: 1px solid $color-brand;
 		text-indent: -9999em;
 
-		background: #ccc url('../../../dist/assets/img/svgdefs.svg#icon-close');
+		background: #ccc url('../img/svgdefs.svg#icon-close');
 		background-size: 30px 30px;
 	}
+
 
 	.csstransforms3d & {
 		transform: translate3d(-100%, 0, 0);

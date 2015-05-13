@@ -18,6 +18,14 @@
 			color: $color-primary;
 		}
 	}
+
+	&[data-current-slide="2"] {
+		.flex-direction-nav {
+			a{
+				color: $color-brand;
+			}
+		}
+	}
 	.flex-control-paging {
 		display: none;
 	}
