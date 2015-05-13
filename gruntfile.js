@@ -22,6 +22,21 @@ module.exports = function(grunt) {
           spawn: false,
         }
       },
+      svg: {
+        files: ['src/assets/img/*.svg'],
+        tasks: ['svgmin'],
+        options: {
+          spawn: false,
+        }
+      },
+      svgdefs: {
+        files: ['src/assets/img/svgdefs/*.svg'],
+        tasks: ['svgstore'],
+        options: {
+          spawn: false,
+        }
+      },
+
 
       globbing: {
         files: ['src/assets/sass/**/*.scss'],
@@ -30,7 +45,6 @@ module.exports = function(grunt) {
           event: ['added', 'deleted'],
         },
       },
-
       styles: {
         files: ['src/assets/sass/**/*.scss'],
         tasks: ['sass:dev', 'autoprefixer:dev'],
@@ -148,13 +162,17 @@ module.exports = function(grunt) {
           viewBox : '0 0 100 100',
           xmlns: 'http://www.w3.org/2000/svg'
         },
-        formatting : {
+        formatting: {
           indent_size : 2
-        }
+        },
+        cleanup: [
+          'stroke',
+          'fill'
+        ]
       },
       default : {
         files: {
-          'src/assets/img/svgdefs.svg': ['src/assets/img/svgdefs/*.svg'],
+          'dist/assets/img/svgdefs.svg': ['src/assets/img/svgdefs/*.svg'],
         },
       },
     },
@@ -163,6 +181,8 @@ module.exports = function(grunt) {
         options: {
             plugins: [
                 {
+                    cleanupIDs: false
+                }, {
                     removeViewBox: false
                 }, {
                     removeUselessStrokeAndFill: false
@@ -173,7 +193,11 @@ module.exports = function(grunt) {
             files: [{
                 expand: true,
                 cwd: 'src/assets/img/',
-                src: ['**/*.svg'],
+                src: [
+                  '**/*.svg',
+                  '!svgdefs/*',
+                  '!svgdefs.svg',
+                ],
                 dest: 'dist/assets/img/'
             }]
         }
@@ -187,14 +211,18 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'src/assets/sass',
           src: ['**/*.scss'],
-          dest: 'src/assets/css',
+          dest: 'dist/assets/css',
           ext: '.css'
         }]
       },
       options: {
-        sourceMap: true, 
+        sourceMap: false,
+        //sourceMap: 'dist/assets/css/default.css.map', 
+        //sourceMapRoot: 'src/assets/sass/',
+        //outFile: 'dist/assets/css',
         outputStyle: 'nested', 
         imagePath: "../img/",
+        precision: 4,
       }
     },
 
@@ -221,7 +249,7 @@ module.exports = function(grunt) {
         },
         dev: {
             files: {
-                'src/assets/css/default.css': 'src/assets/css/default.css',
+                'dist/assets/css/default.css': 'dist/assets/css/default.css',
             },
         },
     },
@@ -233,22 +261,22 @@ module.exports = function(grunt) {
     },
 
     copy: {
-      dist: {
+      assets: {
         files: [
           {
             expand: true, 
             cwd: 'src/assets/fonts/', 
-            src: ['*.{svg,woff,eot,ttf}'],
-            dest: 'dist/assets/fonts/',
-          },
-          {
-            expand: true,
-            cwd: 'src/assets/js/',
             src: [
-              'libs/modernizr.min.js'
+              //'*.{svg,woff,eot,ttf}',
+              'icons.*',
+              'BodoniSvtyTwo*.*',
             ],
-            dest: 'dist/assets/js/',
-          },
+            dest: 'dist/assets/fonts/',
+          }
+        ],
+      },
+      favicons: {
+        files: [
           {
             expand: true,
             cwd: 'src/assets/favicons/',
@@ -302,7 +330,7 @@ module.exports = function(grunt) {
   require('matchdep').filterDev(['grunt-*', 'assemble']).forEach(grunt.loadNpmTasks);
 
 
-  grunt.registerTask('common', ['assemble', 'prettify', 'sass_globbing', 'sass:dev', 'autoprefixer']);
+  grunt.registerTask('common', ['assemble', 'prettify', 'sass_globbing', 'sass:dev', 'autoprefixer', 'svgmin', 'svgstore', 'imagemin', 'copy:assets']);
 
   // Default task(s).
   grunt.registerTask('default', ['clean:dist', 'common', 'watch']);
@@ -312,14 +340,14 @@ module.exports = function(grunt) {
     'clean:dist',
     'common',
     //'htmlmin', 
-    'imagemin',
-    'svgmin',
+    //'imagemin',
+    //'svgmin',
     'useminPrepare', 
     'concat',
     'cssmin',
     'uglify',
     'usemin',
-    'copy:dist',
+    'copy:favicons',
     'replace:dist',
   ]);
 

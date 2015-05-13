@@ -43,47 +43,50 @@
 	</h1>
 </header>
 -->
-        <nav class="sidenav">
-            <a href="#">Open navigation</a>
+        <nav id="sidenav" class="sidenav">
+            <a class="open-nav" href="#sidenav">Open navigation</a>
             <div class="nav">
+                <svg>
+                    <use xlink:href="assets/img/svgdefs.svg#logo-royalcph-crown"></use>
+                </svg>
                 <ul>
                     <li class="section">
-                        <a href="#">
+                        <a href="#frontpage">
                             Frontpage
                         </a>
                     </li>
                     <li class="section">
-                        <a href="#">
+                        <a href="#history">
                             History
                         </a>
                     </li>
                     <li class="section">
-                        <a href="#">
+                        <a href="#inspiration">
                             Inspiration
                         </a>
                     </li>
                     <li class="section">
-                        <a href="#">
+                        <a href="#passion">
                             A passion for ...
                         </a>
                     </li>
                     <li class="section">
-                        <a href="#">
+                        <a href="#blue">
                             Blue
                         </a>
                     </li>
                     <li class="section">
-                        <a href="#">
+                        <a href="#artproject">
                             The Art Project
                         </a>
                     </li>
                     <li class="section">
-                        <a href="#">
+                        <a href="#pattern">
                             Pattern no. 1
                         </a>
                     </li>
                     <li class="section">
-                        <a href="#">
+                        <a href="#products">
                             Products
                         </a>
                     </li>
@@ -101,9 +104,12 @@
 	<span class="icon icon-scroll-down" aria-hidden="true"></span>
 </div>
 -->
-        <section class="content-section section-front">
+        <section id="frontpage" class="content-section section-front">
             <h1>
-                <img src="assets/img/logo_royalcph_crown.png" alt="Royal Copenhagen"> A Passion for Blue
+                <svg>
+                    <use xlink:href="assets/img/svgdefs.svg#logo-royalcph-crown"></use>
+                </svg>
+                A Passion for Blue
             </h1>
             <h2>
                 Since 1775
@@ -115,7 +121,7 @@
 </video>
 -->
         </section>
-        <section class="content-section section-history">
+        <section id="history" class="content-section section-history">
             <h1>
                 Take part in 240 years of passion for quality and beauty
             </h1>
@@ -228,7 +234,7 @@
                 </ul>
             </div>
         </section>
-        <section class="content-section section-inspiration">
+        <section id="inspiration" class="content-section section-inspiration">
             <h1>240 years of making
                 <br>every day extraordinary</h1>
             <p>From our very first plate, we've had the privilege of helping you turn everyday moments into banquets and feasts worthy of kings and queens. With your passion for beautiful moments, you write new chapters in our story.</p>
@@ -291,7 +297,7 @@
                 <br>create with Blue?</h1>
             <p>Elevating the mundane to the sublime since 1775.</p>
         </section>
-        <section class="content-section section-passion">
+        <section id="passion" class="content-section section-passion">
             <h1>A passion for &hellip;</h1>
             <ul class="passion-videos">
                 <li id="passion-0" class="">
@@ -351,7 +357,7 @@
                 </li>
             </ul>
         </section>
-        <section class="content-section section-blue">
+        <section id="blue" class="content-section section-blue">
             <h1>In the beginning
                 <br>there was blue</h1>
             <div class="blue-slider flexslider">
@@ -411,22 +417,22 @@
                 </ul>
             </div>
         </section>
-        <section class="content-section section-artproject">
+        <section id="artproject" class="content-section section-artproject">
             <div class="elm-content">
-                <svg viewBox="0 0 361.128 504.538" width="361.128px" height="504.538px">
-                    <use xlink:href="assets/img/artproject.svg#artproject"></use>
+                <svg>
+                    <use xlink:href="assets/img/svgdefs.svg#section-artproject"></use>
                 </svg>
             </div>
             <div class="elm-image">
                 <img src="assets/img/artproject_picture.jpg" alt="">
                 <a href="#">
-                    <svg viewBox="0 0 197 38">
-                        <use xlink:href="assets/img/artproject_button.svg#artproject-button"></use>
+                    <svg>
+                        <use xlink:href="assets/img/svgdefs.svg#section-artproject-button"></use>
                     </svg>
                 </a>
             </div>
         </section>
-        <section class="content-section section-pattern">
+        <section id="pattern" class="content-section section-pattern">
             <h1>One intricate pattern</h1>
             <h2>240 years of reimagination.</h2>
             <div class="pattern">
@@ -484,7 +490,7 @@
                 </ul>
             </div>
         </section>
-        <section class="content-section section-products">
+        <section id="products" class="content-section section-products">
             <h1>Paint your world
                 <br>in blue with&hellip;</h1>
             <div class="products flexslider">
@@ -580,7 +586,9 @@
         </section>
         <footer class="page-footer">
             <div class="royalcph-logo">
-                <span class="icon logo-royalcph" aria-hidden="true"></span>
+                <svg>
+                    <use xlink:href="assets/img/svgdefs.svg#logo-royalcph"></use>
+                </svg>
                 <span>Royal Copenhagen</span>
             </div>
         </footer>

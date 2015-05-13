@@ -17,16 +17,20 @@
 
 </header>
 -->
-<nav class="sidenav">
-	<a href="#">Open navigation</a>
-
+<nav id="sidenav" class="sidenav">
+	<a class="open-nav" href="#sidenav">Open navigation</a>
 
 	<div class="nav">
+
+		<svg>
+		   <use xlink:href="assets/img/svgdefs.svg#logo-royalcph-crown"></use>
+		</svg>
+
 		<ul>
 	{{#withSort pages "data.sortorder"}}
 		{{#isnt data.is_aggr true}}
 			<li class="section">
-				<a href="#">
+				<a href="#{{basename}}">
 					{{data.navTitle}}
 				</a>
 			</li>

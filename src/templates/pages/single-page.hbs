@@ -11,7 +11,7 @@ sortorder: 0
 -->
 {{#withSort pages "data.sortorder"}}
 	{{#isnt data.is_aggr true}}
-		<section class="content-section {{default data.class ''}}">
+		<section id="{{basename}}" class="content-section {{default data.class ''}}">
 			{{{aggregate this.src}}}
 		</section>
 	{{/isnt}}

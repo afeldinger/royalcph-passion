@@ -64,6 +64,11 @@
     window.addEventListener('scroll', scrollListener);
 
 
+    $('#sidenav a.open-nav').click(function(event) {
+        event.preventDefault();
+        $(this).closest('#sidenav').toggleClass('active');
+    })
+
     $('.passion-videos li a').click(function(event) {
     	event.preventDefault();
         var isActive = $(this).closest('li').hasClass('active');

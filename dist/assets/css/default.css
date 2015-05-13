@@ -427,7 +427,7 @@ font-style: italic;
 
 html {
   font-size: 16px;
-  font-size: 1.6666666667vw; }
+  font-size: 1.6667vw; }
 
 body, table, thead, tbody, tfoot, input, textarea, button, select {
   font-family: "Bodoni SvtyTwo ITC TT", "bodoni-svtytwo-1", Georgia, Garamond, "Times New Roman", serif; }
@@ -955,9 +955,9 @@ img.full-width {
   .flex-direction-nav a {
     text-decoration: none;
     display: block;
-    width: 4.1666666667vw;
-    height: 4.1666666667vw;
-    margin: -2.0833333333vw 0 0;
+    width: 4.1667vw;
+    height: 4.1667vw;
+    margin: -2.0833vw 0 0;
     position: absolute;
     top: 50%;
     z-index: 10;
@@ -974,8 +974,8 @@ img.full-width {
     line-height: 1;
     -webkit-font-smoothing: antialiased; }
     .flex-direction-nav a:before {
-      font-size: 4.1666666667vw;
-      line-height: 4.1666666667vw;
+      font-size: 4.1667vw;
+      line-height: 4.1667vw;
       display: block; }
     .flex-direction-nav a:before {
       content: "\e012"; }
@@ -991,11 +991,11 @@ img.full-width {
       .flex-direction-nav a.flex-next:before {
         content: "\e011"; }
   .flex-direction-nav .flex-prev {
-    left: 4.1666666667vw;
+    left: 4.1667vw;
     opacity: .3;
     text-align: left; }
   .flex-direction-nav .flex-next {
-    right: 4.1666666667vw;
+    right: 4.1667vw;
     opacity: .3;
     text-align: right; }
   .flexslider:hover .flex-direction-nav {
@@ -1102,15 +1102,21 @@ img.full-width {
   background-position: 50% 100%;
   background-size: 100% auto;
   background-attachment: fixed; }
-  .page-footer .icon + span {
-    position: absolute;
-    left: -9999em;
-    opacity: 0; }
   .page-footer .royalcph-logo {
     margin: 0 0;
     text-align: center;
     font-size: 45px;
     font-size: 2.8125rem; }
+  .page-footer svg {
+    fill: #ffffff;
+    width: 15.625vw;
+    height: 5.2083vw;
+    min-width: 150px;
+    min-height: 50px; }
+  .page-footer svg + span {
+    position: absolute;
+    left: -9999em;
+    opacity: 0; }
 
 .page-header {
   margin-top: 0;
@@ -1148,8 +1154,55 @@ img.full-width {
     .page-header nav.country a.active {
       text-decoration: underline; }
 
-nav.sidenav {
-  display: none; }
+nav#sidenav {
+  position: fixed;
+  width: 26.0417vw;
+  height: 100vh;
+  background: #ffffff;
+  padding: 4.6875vw 3.125vw;
+  color: #002454;
+  font-size: 20px;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  z-index: 1000; }
+  nav#sidenav svg {
+    width: 4.6875vw;
+    height: 5.2083vw; }
+  nav#sidenav ul {
+    margin: 1rem 0 0;
+    text-align: left; }
+  nav#sidenav li {
+    padding: 1.0417vw;
+    border-bottom: 1px solid #999; }
+    nav#sidenav li:first-of-type {
+      border-top: 1px solid #999; }
+  nav#sidenav .site {
+    color: #a7a7a7; }
+  nav#sidenav .open-nav {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    border: 1px solid #002454;
+    text-indent: -9999em;
+    background: #ccc url('../../../dist/assets/img/svgdefs.svg#icon-close');
+    background-size: 30px 30px; }
+  .csstransforms3d nav#sidenav {
+    -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+    transition: -webkit-transform .3s ease;
+    transition: transform .3s ease; }
+    .csstransforms3d nav#sidenav .open-nav {
+      -webkit-transform: translate3d(50px, 0, 0);
+              transform: translate3d(50px, 0, 0); }
+    .csstransforms3d nav#sidenav.active {
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0); }
+      .csstransforms3d nav#sidenav.active .open-nav {
+        -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0); }
 
 /*
 == jquery thumbnail/image scroller ==
@@ -1785,22 +1838,24 @@ img.mfp-img {
     width: 50%;
     padding: 6.25vw 9.375vw; }
     .section-artproject .elm-content svg {
+      fill: #ffffff;
       display: block;
       margin: 0 auto;
-      width: 28.6458333333vw;
-      height: 39.9930747922vw; }
+      width: 28.6458vw;
+      height: 39.9931vw; }
   .section-artproject .elm-image {
     float: right;
     width: 50%;
-    padding: 5.2083333333vw; }
+    padding: 5.2083vw; }
     .section-artproject .elm-image img {
       width: 100%;
       height: auto; }
     .section-artproject .elm-image svg {
+      fill: #002454;
       border: 1px solid #002454;
-      margin: 5.2083333333vw auto 0;
-      width: 20.8333333333vw;
-      height: 4.1666666667vw; }
+      margin: 5.2083vw auto 0;
+      width: 20.8333vw;
+      height: 4.1667vw; }
 
 .section-blue {
   padding-bottom: 0; }
@@ -1819,8 +1874,8 @@ img.mfp-img {
     position: absolute;
     margin-top: -23.4375vw;
     overflow: hidden;
-    width: 42.7083333333vw;
-    padding: 3.125vw 4.1666666667vw;
+    width: 42.7083vw;
+    padding: 3.125vw 4.1667vw;
     color: #002454;
     text-align: left;
     background: #fff; }
@@ -1861,17 +1916,30 @@ img.mfp-img {
       html.csstransforms3d .blue-slider .flex-active-transition .elm-content > *:nth-child(4) {
         transition-delay: .55s; }
 
+#logo-royalcph-crown-crown {
+  fill: #B4975A; }
+
+#logo-royalcph-crown-waves {
+  fill: #002454; }
+
 .section-front {
   position: relative;
   overflow: hidden;
   background: none;
-  padding-top: 15.1041666667vw;
-  padding-bottom: 19.7916666667vw;
+  padding-top: 15.1042vw;
+  padding-bottom: 19.7917vw;
   color: #002454;
   background: url(../img/frontpage_bg.jpg) no-repeat 50% 50%;
   background-attachment: fixed;
   background-size: cover;
   z-index: -2; }
+  .section-front svg {
+    display: block;
+    margin: 0 auto 0.8rem;
+    width: 5.2083vw;
+    height: 6.25vw;
+    min-width: 50px;
+    min-height: 60px; }
   .section-front > h1 {
     font-size: 65px;
     font-size: 4.0625rem;
@@ -2168,7 +2236,7 @@ img.mfp-img {
 .products {
   position: relative;
   margin: 0 -9.375vw;
-  padding: 0 4.1666666667vw;
+  padding: 0 4.1667vw;
   color: #002454;
   background: #fff; }
   .products ul.slides {
@@ -2211,7 +2279,7 @@ img.mfp-img {
           vertical-align: middle;
           margin: 0; }
         .products .product .elm-image {
-          width: 59.8958333333%;
+          width: 59.8958%;
           padding-right: 15px;
           text-align: right; }
         .products .product .elm-content {
@@ -2249,8 +2317,8 @@ img.mfp-img {
       .store-locator:before {
         content: '';
         position: absolute;
-        top: 4.1666666667vw;
-        left: 4.1666666667vw;
+        top: 4.1667vw;
+        left: 4.1667vw;
         width: 200%;
         height: 200%;
         -webkit-transform: rotate(45deg);
@@ -2263,7 +2331,7 @@ img.mfp-img {
         right: 0;
         padding: 0;
         display: block;
-        width: 10.4166666667vw;
+        width: 10.4167vw;
         color: #fff;
         text-align: center;
         z-index: 5;

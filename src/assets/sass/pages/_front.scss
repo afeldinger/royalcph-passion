@@ -1,3 +1,11 @@
+
+#logo-royalcph-crown-crown {
+	fill: $color-gold;
+}
+#logo-royalcph-crown-waves {
+	fill: $color-brand;
+}
+
 .section-front {
 	position:relative;
 	overflow:hidden;
@@ -15,6 +23,15 @@
 
 	z-index:-2;
 
+	svg {
+		display:block;
+		margin:0 auto 0.8rem;
+		width: vw-units(50px);
+		height: vw-units(60px);
+		min-width: 50px;
+		min-height: 60px;
+
+	}
 
 	> h1 {
 		@include adjust-font-size-to($size-xxxxl);
@@ -50,7 +67,7 @@
 		min-height: 100vh;
 		padding-top: vw-units(75px);
 		padding-bottom: vw-units(120px);
-		
+
 		display:flex;
 		flex-direction: column;
 		justify-content: center;

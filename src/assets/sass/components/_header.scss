@@ -55,6 +55,72 @@
 	}
 }
 
-nav.sidenav {
-	display: none;
+nav#sidenav {
+	
+	position: fixed;
+	width: vw-units(250px);
+	height: 100vh;
+	background: $color-white;
+	padding: vw-units(45px) vw-units(30px);
+
+	color: $color-brand;
+	@include adjust-font-size-to($size-lg);
+	text-transform: uppercase;
+
+	z-index:1000;
+
+	svg {
+		width: vw-units(45px);
+		height: vw-units(50px);
+	}
+
+	ul {
+		margin:1rem 0 0;
+		text-align:left;
+	}
+
+	li {
+		padding: vw-units(10px);
+		border-bottom: 1px solid $color-borders;
+
+		&:first-of-type {
+			border-top: 1px solid $color-borders;
+		}
+	}
+
+	.site {
+		color: $color-text-light;
+	}
+
+	.open-nav {
+		position:absolute;
+		top: 20px;
+		right: 20px;
+		width: 30px;
+		height: 30px;
+		overflow: hidden;
+		border: 1px solid $color-brand;
+		text-indent: -9999em;
+
+		background: #ccc url('../../../dist/assets/img/svgdefs.svg#icon-close');
+		background-size: 30px 30px;
+	}
+
+	.csstransforms3d & {
+		transform: translate3d(-100%, 0, 0);
+		transition: transform .3s ease;
+
+		.open-nav {
+			transform: translate3d(50px, 0, 0);
+		}
+
+		&.active {
+			transform: translate3d(0,0,0);
+
+			.open-nav {
+				transform: translate3d(0,0,0);
+			}
+		}
+
+	}
 }

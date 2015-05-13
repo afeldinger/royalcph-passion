@@ -17,6 +17,7 @@
 		padding: vw-units(60px) vw-units($section-margin-h);
 		
 		svg {
+			fill:$color-white;
 			display:block;
 			margin: 0 auto;
 			width: vw-units(275px);
@@ -34,6 +35,7 @@
 		}
 
 		svg {
+			fill:$color-brand;
 			border: 1px solid $color-brand;
 			margin: vw-units(50px) auto 0;
 			width: vw-units(200px);

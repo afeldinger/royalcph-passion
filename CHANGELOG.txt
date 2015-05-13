@@ -1,5 +1,11 @@
 
+2015-05-13 11:00
+	* Changed logos in header and footer to use SVG
+	* Added logo to nav
 
+2015-05-12 21:00
+	* Changed SVG references to a single svg file
+	* Added targets to nav and ID tags to sections
 
 2015-05-12 13:00
-	Initial commit to github
+	* Initial commit to github
