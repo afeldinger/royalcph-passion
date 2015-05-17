@@ -4,14 +4,144 @@
 }
 
 .history {
-	margin-left:-1 * vw-units($section-margin-h);
-	margin-right:-1 * vw-units($section-margin-h);
-	padding-left: vw-units($section-margin-h);
-	padding-right: vw-units($section-margin-h);
+
+	position: relative;
+	overflow: hidden;
 
 	color: $color-brand;
 	background:#fff;
 	
-	overflow:hidden;
+	margin-left:-1 * vw-units($section-margin-h);
+	margin-right:-1 * vw-units($section-margin-h);
+
+	padding-bottom: vw-units($section-margin-v);
+
+	.years {
+		position: absolute;
+		z-index: 5;
+		bottom: vw-units($section-margin-v / 2);
+		transform: translateY(50%);
+		left: 0;
+		width: 100%;
+
+		white-space: nowrap;
+		text-align: left;
+		
+		li {
+			display: inline-block;
+			vertical-align: top;
+			width: 100% / 14 * 4;
+
+			&:first-of-type {
+				width: 100% / 14 * 2;
+				margin-left:50%;
+			}
+			&:last-of-type {
+				margin-right:50%;
+			}
+
+			&:before {
+				content: '';
+				display:block;
+				border-top: 1px solid $color-brand;
+			}
+		}
+
+		a {
+			position:relative;
+
+			display:inline-block;
+			padding-top: vw-units(20px);
+			min-width: 40%;
+			min-height: vw-units(50px);
+			text-align: center;
+
+			@include adjust-font-size-to($size-xs);
+
+			&:before {
+				content: '';
+				position:absolute;
+				top:0;
+				left:50%;
+				transform: translate3d(-50%, -50%, 0) scale(.5);
+				display:block;
+				width: vw-units(16px);
+				height: vw-units(16px);
+				border-radius: vw-units(8px);
+				background: $color-brand;
+				box-shadow: 0 0 0 8px rgba($color-brand, .3);
+				transition: transform .2s ease;
+			}
+
+			&:hover {
+				&:before {
+					transform: translate3d(-50%, -50%, 0) scale(1);
+				}
+			}
+
+			.year {
+				@include adjust-font-size-to($size-lg);
+				&:after {
+					content:"\A"; white-space:pre; 
+				}
+			}
+
+			transform: translate3d(-50%, 0, 0);
+
+		}
+	}
+
+	.flexslider {
+		overflow:hidden;
+		padding: vw-units($section-margin-v) vw-units($section-margin-h);
+	}
+	
+
+	.elm-content {
+		display:inline;
+		float:left;
+		width: 50%;
+		margin-right: -100%;
+		padding: 0 vw-units($content-margin-px);
+		text-align: left;
+	}
+
+	.elm-image {
+		display:inline;
+		float:right;
+		width: 50%;
+		padding-right: vw-units($content-margin-px);
+	}
+
+
+	h3.year {
+		@include adjust-font-size-to($size-lg);
+		line-height: 1em;
+		margin:0;
+		padding: 0 0 0.1em;
+		border-bottom: 1px solid $color-brand;
+
+		display:inline;
+		&:after {
+			content:"\A"; white-space:pre; 
+		}
+
+
+	}
+
+	h2 {
+		margin-top:0;
+		margin-bottom: 1em;
+		text-transform: uppercase;
+
+	}
+
+	h3.year + h2 {
+		margin-top:0.2em;
+	}
+
+	p {
+		font-style: italic;
+	}
 
 }

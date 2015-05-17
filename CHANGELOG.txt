@@ -1,4 +1,7 @@
 
+2015-05-17
+	* Changed markup for history section slides
+
 2015-05-13 11:00
 	* Changed logos in header and footer to use SVG
 	* Added logo to nav

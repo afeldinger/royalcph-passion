@@ -9,7 +9,7 @@ class: section-history
 	Take part in 240 years of passion for quality and beauty
 </h1>
 
-<div class="history flexslider">
+<div class="history">
 	<ul class="years">
 	{{#eachOptions history}}
 		<li>
@@ -27,29 +27,28 @@ class: section-history
 	{{/eachOptions}}
 	</ul>
 	
-	<ul class="slides">
-	{{#eachOptions history}}
-		<li>
-			<h2>
-			{{#if this.value.year}}
-				<span class="year">{{this.value.year}}</span>
-			{{/if}}
-				{{this.value.title}}
-			</h2>
-			<article class="product">
-				<div class="elm-image"><img src="{{this.value.imgurl}}" alt="{{this.value.name}}" /></div>
+	<div class="flexslider">
+		<ul class="slides">
+		{{#eachOptions history}}
+			<li>
+
+				<div class="elm-image"><img src="{{this.value.imgurl}}" alt="{{this.value.title}}" /></div>
 				<div class="elm-content">
-					<h3>
-						<span class="product-series">{{this.value.series}}</span><br>
-						<span class="product-name">{{this.value.name}}</span>
-					</h3>
-					<p class="product-details">
-						{{{this.value.details}}}
+				{{#if this.value.year}}
+					<h3 class="year">{{this.value.year}}</h3>
+				{{/if}}
+					<h2>
+						{{this.value.title}}
+					</h2>
+					{{# if this.value.text}}
+					<p>
+						{{this.value.text}}
 					</p>
+					{{/if}}
 				</div>
-			</article>
-		</li>
-	{{/eachOptions}}
-	</ul>
+			</li>
+		{{/eachOptions}}
+		</ul>
+	</div>
 
 </div>
