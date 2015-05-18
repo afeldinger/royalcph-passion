@@ -2,7 +2,7 @@
 (function() {
     'use strict';
 
-/*
+
     // Returns a function, that, as long as it continues to be invoked, will not
     // be triggered. The function will be called after it stops being called for
     // N milliseconds. If `immediate` is passed, trigger the function on the
@@ -25,7 +25,7 @@
             }
         };
     }
-*/
+
 
     var body = $('html, body');
     var scrollSections = $('.content-section');
@@ -64,6 +64,18 @@
     window.addEventListener('scroll', scrollListener);
 
 
+    var resizeListener = debounce(function() {
+        history_calc_stops();
+
+        var opts = $(history_pep).data('plugin_pep').options;
+        //$('.pep').constrainTo = [top, right, bottom, left];
+        opts.stops = history_stops;
+        opts.constrainTo = history_constrain_to;
+
+    }, 200);
+    window.addEventListener('resize', resizeListener);
+
+
     $('.sidenav').each(function() {
         $(this).find('a.open-nav').click(function(event) {
             event.preventDefault();
@@ -98,24 +110,108 @@
     });
 
 	// init flexsliders on page
-	$('.flexslider').flexslider({
+
+    var flexslider_start = function(slider) {
+        slider.slides.eq(slider.currentSlide).addClass('flex-active-transition');
+        slider.attr('data-current-slide', slider.currentSlide);
+    },
+    flexslider_before = function(slider) {
+        slider.slides.eq(slider.currentSlide).removeClass('flex-active-transition');
+    },
+    flexslider_after = function(slider) {
+        //setTimeout(function() {
+            slider.slides.eq(slider.currentSlide).addClass('flex-active-transition');
+            slider.attr('data-current-slide', slider.currentSlide);
+        //}, 500);
+    };
+
+	$('.blue-slider, .products').flexslider({
 		animation: 'slide',
 		slideshow: false,
         controlNav: false,
-        start: function(slider) {
-            slider.slides.eq(slider.currentSlide).addClass('flex-active-transition');
-            slider.attr('data-current-slide', slider.currentSlide);
-        },
-        before: function(slider) {
-            slider.slides.eq(slider.currentSlide).removeClass('flex-active-transition');
-        },
-        after: function(slider) {
-            //setTimeout(function() {
-                slider.slides.eq(slider.currentSlide).addClass('flex-active-transition');
-                slider.attr('data-current-slide', slider.currentSlide);
-            //}, 500);
-        }
+        start: flexslider_start,
+        before: flexslider_before,
+        after: flexslider_after
 	});
+
+    $('.history .flexslider').flexslider({
+        animation: 'slide',
+        slideshow: false,
+        controlNav: false,
+        directionNav: false,
+        start: flexslider_start,
+        before: flexslider_before,
+        after: flexslider_after,
+        manualControls: '.history .years li a',
+    });
+
+
+    var history_pep = $('.history .years ul'),
+        history_last_stop = 0,
+        history_stop_elms = history_pep.find('li'),
+        history_stops = [],
+        history_constrain_to = [],
+        history_calc_stops = function() {
+
+            var offset = $(window).width() / 2;
+
+            history_stops = [];
+            history_last_stop = 0;
+
+            history_stop_elms.each(function() {
+                history_last_stop = offset - $(this).offset().left;
+                history_stops.push(history_last_stop);
+            });
+
+            history_constrain_to = [0,0,0,history_last_stop];
+        };
+
+
+    history_pep.each(function() {
+
+        history_calc_stops();
+
+        $(this).find('a').each(function(i) {
+            $(this).click(function(event) {
+                event.stopPropagation();
+                event.preventDefault();
+                $('.history .flexslider').flexslider(i);
+                $(this).closest('li').addClass('active').siblings('li').removeClass('active');
+            });
+        }).filter(':first').closest('li').addClass('active');
+
+        $(this).pep({
+            axis: 'x',
+            constrainTo: history_constrain_to,
+            stops: history_stops,
+            moveTo: function(x,y) {
+                if (this.easing && this.options.stops !== 'undefined') {
+
+                    // snap to nearest stop when easing
+                    var dx = 0;
+                    if (typeof x === 'string' && x.indexOf('=') !== false) {
+                        dx = parseInt(this.$el.css('left'), 10);
+                        eval('dx' + x);
+                    } else {
+                        dx = x;
+                    }
+                    var xClosest = 0;
+                    $.each(this.options.stops, function(){
+                        if (xClosest === null || Math.abs(this - dx) < Math.abs(xClosest - dx)) {
+                            xClosest = this;
+                        }
+                    });
+
+                    x = xClosest;
+                    //console.log('easing', x);
+                }
+                this.$el.stop(true, false).css({ top: y , left: x });
+            },
+
+        });
+
+    });
+
 
 })();
 

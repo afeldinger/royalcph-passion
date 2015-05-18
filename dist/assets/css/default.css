@@ -1931,31 +1931,36 @@ img.mfp-img {
   background: #fff;
   margin-left: -9.375vw;
   margin-right: -9.375vw;
-  padding-bottom: 9.375vw; }
+  padding-bottom: 4.1667vw; }
   .history .years {
     position: absolute;
     z-index: 5;
-    bottom: 4.6875vw;
-    -webkit-transform: translateY(50%);
-        -ms-transform: translateY(50%);
-            transform: translateY(50%);
+    bottom: 9.375vw;
     left: 0;
-    width: 100%;
-    white-space: nowrap;
     text-align: left; }
+    .history .years ul {
+      position: relative;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      white-space: nowrap;
+      cursor: move; }
     .history .years li {
       display: inline-block;
       vertical-align: top;
-      width: 28.5714%; }
-      .history .years li:first-of-type {
-        width: 14.2857%;
-        margin-left: 50%; }
-      .history .years li:last-of-type {
-        margin-right: 50%; }
+      width: 35.7143vw; }
       .history .years li:before {
         content: '';
         display: block;
         border-top: 1px solid #002454; }
+      .history .years li:first-of-type {
+        width: 14.2857vw;
+        margin-left: 50vw; }
+      .history .years li:last-of-type {
+        margin-right: 0;
+        width: 50vw; }
+        .history .years li:last-of-type:before {
+          display: none; }
     .history .years a {
       position: relative;
       display: inline-block;
@@ -1963,10 +1968,10 @@ img.mfp-img {
       min-width: 40%;
       min-height: 5.2083vw;
       text-align: center;
-      font-size: 11px;
-      font-size: 0.6875rem;
       -webkit-transform: translate3d(-50%, 0, 0);
-              transform: translate3d(-50%, 0, 0); }
+              transform: translate3d(-50%, 0, 0);
+      font-size: 11px;
+      font-size: 0.6875rem; }
       .history .years a:before {
         content: '';
         position: absolute;
@@ -1982,15 +1987,15 @@ img.mfp-img {
         box-shadow: 0 0 0 8px rgba(0, 36, 84, 0.3);
         transition: -webkit-transform .2s ease;
         transition: transform .2s ease; }
-      .history .years a:hover:before {
-        -webkit-transform: translate3d(-50%, -50%, 0) scale(1);
-                transform: translate3d(-50%, -50%, 0) scale(1); }
       .history .years a .year {
         font-size: 20px;
         font-size: 1.25rem; }
         .history .years a .year:after {
           content: "\A";
           white-space: pre; }
+    .history .years li.active a:before, .history .years a:hover:before {
+      -webkit-transform: translate3d(-50%, -50%, 0) scale(1);
+              transform: translate3d(-50%, -50%, 0) scale(1); }
   .history .flexslider {
     overflow: hidden;
     padding: 9.375vw 9.375vw; }

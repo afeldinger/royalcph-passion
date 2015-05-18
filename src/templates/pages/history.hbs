@@ -10,22 +10,24 @@ class: section-history
 </h1>
 
 <div class="history">
-	<ul class="years">
-	{{#eachOptions history}}
-		<li>
-			<a href="#">
-			{{#if this.value.year}}
-				<span class="year">{{this.value.year}}</span>
-			{{/if}}
-			{{#if this.value.navTitle}}
-				{{this.value.navTitle}}
-			{{else}}
-				&nbsp;
-			{{/if}}
-			</a>
-		</li>
-	{{/eachOptions}}
-	</ul>
+	<div class="years">
+		<ul>
+		{{#eachOptions history}}
+			<li>
+				<a href="#">
+				{{#if this.value.year}}
+					<span class="year">{{this.value.year}}</span>
+				{{/if}}
+				{{#if this.value.navTitle}}
+					{{this.value.navTitle}}
+				{{else}}
+					&nbsp;
+				{{/if}}
+				</a>
+			</li>
+		{{/eachOptions}}
+		</ul>
+	</div>
 	
 	<div class="flexslider">
 		<ul class="slides">

@@ -24,5 +24,19 @@
 		"title": "A feminine touch",
 		"text": "The first female blue painter is employed a the now privatised Royal Danish Porcelain Factory. This begins a long tradition of strong female artists in Royal Copenhagen, as blue-painting gradually becomes women's work.",
 		"imgurl": "http://lorempixel.com/360/265/abstract/4/"
+	},
+	{
+		"year": 1775,
+		"navTitle": "Born of blue blood",
+		"title": "Born of blue blood",
+		"text": "From the very beginning, Queen Juliane Marie insists that the porcelain from the new royal factory is marked with a unique national symbol: The three waves symbolising the waters of Denmark, the Great Belt, Little Belt and the Sound. The hand-painted waves still adorn every piece - always blue, of course.",
+		"imgurl": "http://lorempixel.com/360/265/abstract/2/"
+	},
+	{
+		"year": 1779,
+		"navTitle": "The Royal Danish Porcelain Factory",
+		"title": "What's in a name",
+		"text": "The Royal Chartered Porcelain Factory changes its name and becomes The Royal Danish Porcelain Factory.",
+		"imgurl": "http://lorempixel.com/360/265/abstract/3/"
 	}
 ]

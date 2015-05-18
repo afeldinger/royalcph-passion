@@ -14,37 +14,48 @@
 	margin-left:-1 * vw-units($section-margin-h);
 	margin-right:-1 * vw-units($section-margin-h);
 
-	padding-bottom: vw-units($section-margin-v);
+	padding-bottom: vw-units($content-margin-px);
 
 	.years {
 		position: absolute;
 		z-index: 5;
-		bottom: vw-units($section-margin-v / 2);
-		transform: translateY(50%);
+		bottom: vw-units($section-margin-v);
 		left: 0;
-		width: 100%;
-
-		white-space: nowrap;
 		text-align: left;
+
+		ul {
+			position:relative;
+			margin:0;
+			padding:0;
+			list-style: none;
+			white-space: nowrap;
+			cursor: move;
+		}
 		
 		li {
 			display: inline-block;
 			vertical-align: top;
-			width: 100% / 14 * 4;
-
-			&:first-of-type {
-				width: 100% / 14 * 2;
-				margin-left:50%;
-			}
-			&:last-of-type {
-				margin-right:50%;
-			}
+			width: 100vw / 14 * 5;
 
 			&:before {
 				content: '';
 				display:block;
 				border-top: 1px solid $color-brand;
 			}
+
+			&:first-of-type {
+				width: 100vw / 14 * 2;
+				margin-left:50vw;
+			}
+			&:last-of-type {
+				margin-right:0;
+				width: 50vw;
+
+				&:before {
+					display: none;
+				}
+			}
+
 		}
 
 		a {
@@ -55,6 +66,8 @@
 			min-width: 40%;
 			min-height: vw-units(50px);
 			text-align: center;
+			transform: translate3d(-50%, 0, 0);
+			
 
 			@include adjust-font-size-to($size-xs);
 
@@ -73,12 +86,6 @@
 				transition: transform .2s ease;
 			}
 
-			&:hover {
-				&:before {
-					transform: translate3d(-50%, -50%, 0) scale(1);
-				}
-			}
-
 			.year {
 				@include adjust-font-size-to($size-lg);
 				&:after {
@@ -86,8 +93,14 @@
 				}
 			}
 
-			transform: translate3d(-50%, 0, 0);
 
+		}
+
+		li.active a,
+		a:hover {
+			&:before {
+				transform: translate3d(-50%, -50%, 0) scale(1);
+			}
 		}
 	}
 
