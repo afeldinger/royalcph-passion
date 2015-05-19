@@ -1,4 +1,9 @@
 
+2015-05-19
+	* Link added to art project section
+	* Correct images added to passion (videos)
+	* Video links added to passion
+
 2015-05-17
 	* Changed markup for history section slides
 

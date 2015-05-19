@@ -94,7 +94,7 @@
         });
     });
 
-    $('.passion-videos li a').click(function(event) {
+    $('.passion-videos li h2 a').click(function(event) {
     	event.preventDefault();
         var isActive = $(this).closest('li').hasClass('active');
         $(this).closest('li').toggleClass('active', !isActive).siblings('li').removeClass('active').parents('ul:first').toggleClass('has-active', !isActive).each(function() {
@@ -146,8 +146,13 @@
         //directionNav: false,
         start: flexslider_start,
         before: flexslider_before,
-        after: flexslider_after,
-        manualControls: '.history .years li a',
+        after: function(slider) {
+            flexslider_after(slider);
+
+            
+            history_stop_elms.filter(':nth('+slider.currentSlide+')').find('a').click();
+        },
+        //manualControls: '.history .years li a',
     });
 
 
@@ -191,7 +196,7 @@
                 });
             }).filter(':first').closest('li').addClass('active');
 
-            $.pep.unbind($(this));
+            //$.pep.unbind($(this));
 
             $(this).pep({
                 axis: 'x',

@@ -2,41 +2,69 @@
 	{
 		"title": "Once upon a time there was a queen",
 		"text": "It sounds like the beginning of a fairy tale; yet so begins the story of how porcelain came to Copenhagen, how it became royal, and how the patronage of a Queen in 1775 launched 240 years of passion for extraordinary quality and design that lives happily ever after ...",
-		"imgurl": "http://lorempixel.com/360/265/abstract/1/"
+		"imgurl": "assets/img/history/0001.jpg"
 	},
 	{
 		"year": 1775,
 		"navTitle": "Born of blue blood",
 		"title": "Born of blue blood",
 		"text": "From the very beginning, Queen Juliane Marie insists that the porcelain from the new royal factory is marked with a unique national symbol: The three waves symbolising the waters of Denmark, the Great Belt, Little Belt and the Sound. The hand-painted waves still adorn every piece - always blue, of course.",
-		"imgurl": "http://lorempixel.com/360/265/abstract/2/"
+		"imgurl": "assets/img/history/1775.jpg"
 	},
 	{
 		"year": 1779,
 		"navTitle": "The Royal Danish Porcelain Factory",
 		"title": "What's in a name",
 		"text": "The Royal Chartered Porcelain Factory changes its name and becomes The Royal Danish Porcelain Factory.",
-		"imgurl": "http://lorempixel.com/360/265/abstract/3/"
+		"imgurl": "assets/img/history/1779.jpg"
 	},
 	{
 		"year": 1868,
 		"navTitle": "First female painter",
 		"title": "A feminine touch",
 		"text": "The first female blue painter is employed a the now privatised Royal Danish Porcelain Factory. This begins a long tradition of strong female artists in Royal Copenhagen, as blue-painting gradually becomes women's work.",
-		"imgurl": "http://lorempixel.com/360/265/abstract/4/"
+		"imgurl": "assets/img/history/1868.jpg"
 	},
 	{
-		"year": 1775,
-		"navTitle": "Born of blue blood",
-		"title": "Born of blue blood",
-		"text": "From the very beginning, Queen Juliane Marie insists that the porcelain from the new royal factory is marked with a unique national symbol: The three waves symbolising the waters of Denmark, the Great Belt, Little Belt and the Sound. The hand-painted waves still adorn every piece - always blue, of course.",
-		"imgurl": "http://lorempixel.com/360/265/abstract/2/"
+		"year": 1885,
+		"navTitle": "First female painter",
+		"title": "A feminine touch",
+		"text": "The first female blue painter is employed a the now privatised Royal Danish Porcelain Factory. This begins a long tradition of strong female artists in Royal Copenhagen, as blue-painting gradually becomes women's work.",
+		"imgurl": "assets/img/history/1885.jpg"
 	},
 	{
-		"year": 1779,
-		"navTitle": "The Royal Danish Porcelain Factory",
-		"title": "What's in a name",
-		"text": "The Royal Chartered Porcelain Factory changes its name and becomes The Royal Danish Porcelain Factory.",
-		"imgurl": "http://lorempixel.com/360/265/abstract/3/"
+		"year": 1889,
+		"navTitle": "First female painter",
+		"title": "A feminine touch",
+		"text": "The first female blue painter is employed a the now privatised Royal Danish Porcelain Factory. This begins a long tradition of strong female artists in Royal Copenhagen, as blue-painting gradually becomes women's work.",
+		"imgurl": "assets/img/history/1889.jpg"
+	},
+	{
+		"year": 1911,
+		"navTitle": "First female painter",
+		"title": "A feminine touch",
+		"text": "The first female blue painter is employed a the now privatised Royal Danish Porcelain Factory. This begins a long tradition of strong female artists in Royal Copenhagen, as blue-painting gradually becomes women's work.",
+		"imgurl": "assets/img/history/1911.jpg"
+	},
+	{
+		"year": 2000,
+		"navTitle": "First female painter",
+		"title": "A feminine touch",
+		"text": "The first female blue painter is employed a the now privatised Royal Danish Porcelain Factory. This begins a long tradition of strong female artists in Royal Copenhagen, as blue-painting gradually becomes women's work.",
+		"imgurl": "assets/img/history/2000.jpg"
+	},
+	{
+		"year": 2008,
+		"navTitle": "First female painter",
+		"title": "A feminine touch",
+		"text": "The first female blue painter is employed a the now privatised Royal Danish Porcelain Factory. This begins a long tradition of strong female artists in Royal Copenhagen, as blue-painting gradually becomes women's work.",
+		"imgurl": "assets/img/history/2008.jpg"
+	},
+	{
+		"year": "Today",
+		"navTitle": "First female painter",
+		"title": "A feminine touch",
+		"text": "The first female blue painter is employed a the now privatised Royal Danish Porcelain Factory. This begins a long tradition of strong female artists in Royal Copenhagen, as blue-painting gradually becomes women's work.",
+		"imgurl": "assets/img/history/today.jpg"
 	}
 ]
