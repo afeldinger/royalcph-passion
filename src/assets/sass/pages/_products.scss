@@ -7,11 +7,15 @@
 .products {
 	position:relative;
 	margin: 0 (-1 * vw-units($section-margin-h));
-	padding: 0 vw-units($content-margin-px);
+	padding: 0 vw-units($content-margin-px) vw-units($section-margin-v);
 	color: $color-brand;
 
 	background:#fff;
 	
+	@include breakpoint($xs) {
+		padding-bottom: 0;
+	}
+
 	ul.slides {
 		margin:0;
 		padding:0;
@@ -29,11 +33,15 @@
 
 	.product {
 
-		text-align: left;
+		text-align:left;
 		
 		.elm-image,
 		.elm-content {
 			padding: 0 30px;
+		}
+
+		.elm-content {
+			margin: 0 vw-units($section-margin-h);
 		}
 
 		img {

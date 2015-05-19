@@ -2,29 +2,29 @@
 	{
 		"title": "1775 - 1779",
 		"text": "Lorem ipsum dolor sit amet, consectuer adipiscing elit avet.",
-		"imgurl": "/img/pattern_01.jpg",
+		"imgurl": "assets/img/pattern/1.jpg",
 		"class": "light"
 	},
 	{
 		"title": "1775 - 1779",
 		"text": "Lorem ipsum dolor sit amet, consectuer adipiscing elit avet.",
-		"imgurl": "/img/pattern_02.jpg"
+		"imgurl": "assets/img/pattern/2.jpg"
 	},
 	{
 		"title": "1775 - 1779",
 		"text": "Lorem ipsum dolor sit amet, consectuer adipiscing elit avet.",
-		"imgurl": "/img/pattern_01.jpg",
+		"imgurl": "assets/img/pattern/3.jpg",
 		"class": "light"
 	},
 	{
 		"title": "1775 - 1779",
 		"text": "Lorem ipsum dolor sit amet, consectuer adipiscing elit avet.",
-		"imgurl": "/img/pattern_02.jpg"
+		"imgurl": "assets/img/pattern/4.jpg"
 	},
 	{
 		"title": "1775 - 1779",
 		"text": "Lorem ipsum dolor sit amet, consectuer adipiscing elit avet.",
-		"imgurl": "/img/pattern_01.jpg",
+		"imgurl": "assets/img/pattern/5.jpg",
 		"class": "light"
 	}
 ]

@@ -1,33 +1,33 @@
 [
 	{
 		"title": "Craft",
-		"thumb": "assets/img/ourpassion_thumb_blue.jpg",
-		"imgurl": "/img/ourpassion_craft.jpg",
+		"thumb": "assets/img/passion/thumb_blue.jpg",
+		"imgurl": "assets/img/passion/craft.jpg",
 		"videoUrl": "https://player.vimeo.com/video/125015747"
 	},
 	{
 		"title": "Design",
-		"thumb": "assets/img/ourpassion_thumb_blue.jpg",
-		"imgurl": "/img/ourpassion_design.jpg",
+		"thumb": "assets/img/passion/thumb_blue.jpg",
+		"imgurl": "assets/img/passion/design.jpg",
 		"videoUrl": "https://player.vimeo.com/video/125015747"
 	},
 	{
 		"title": "Blue",
-		"thumb": "assets/img/ourpassion_thumb_blue.jpg",
-		"imgurl": "/img/ourpassion_blue.jpg",
+		"thumb": "assets/img/passion/thumb_blue.jpg",
+		"imgurl": "assets/img/passion/blue.jpg",
 		"videoUrl": "https://player.vimeo.com/video/125015747",
 		"class": "initial"
 	},
 	{
 		"title": "History",
-		"thumb": "assets/img/ourpassion_thumb_blue.jpg",
-		"imgurl": "/img/ourpassion_history.jpg",
+		"thumb": "assets/img/passion/thumb_blue.jpg",
+		"imgurl": "assets/img/passion/history.jpg",
 		"videoUrl": "https://player.vimeo.com/video/125015747"
 	},
 	{
 		"title": "Innovation",
-		"thumb": "assets/img/ourpassion_thumb_blue.jpg",
-		"imgurl": "/img/ourpassion_innovation.jpg",
+		"thumb": "assets/img/passion/thumb_blue.jpg",
+		"imgurl": "assets/img/passion/innovation.jpg",
 		"videoUrl": "https://player.vimeo.com/video/125015747"
 	}
 ]

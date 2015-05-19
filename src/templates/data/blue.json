@@ -2,21 +2,21 @@
 	{
 		"title": "Our love affair with blue",
 		"text": "Cobalt zinc silicate: The blue of the evening sky, of secrets, dreams and the deep waters",
-		"imgurl": "/img/blue_paste.jpg"
+		"imgurl": "assets/img/blue/blue_paste.jpg"
 	},
 	{
 		"title": "Lorem ipsum dolor sit amet",
 		"text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod",
-		"imgurl": "/img/blue_paint.jpg"
+		"imgurl": "assets/img/blue/blue_paint.jpg"
 	},
 	{
 		"title": "Lorem ipsum dolor sit amet",
 		"text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod",
-		"imgurl": "/img/blue_stroke.jpg"
+		"imgurl": "assets/img/blue/blue_stroke.jpg"
 	},
 	{
 		"title": "Lorem ipsum dolor sit amet",
 		"text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod",
-		"imgurl": "/img/blue_pattern.jpg"
+		"imgurl": "assets/img/blue/blue_pattern.jpg"
 	}
 ]

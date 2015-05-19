@@ -2,44 +2,73 @@
 .section-artproject {
 	padding:0;
 	overflow:hidden;
-/*
-	background: 
-		linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, $color-light-gray 50%, $color-light-gray 100%)
-		url(../img/bg_concrete_dark.jpg) repeat-y 50% 0
-	;
-	background-size: 100% auto, 100% 100%;
-*/
-	background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, $color-light-gray 50%, $color-light-gray 100%);
-		
+	
+	
 	.elm-content {
-		float:left;
-		width:50%;
 		padding: vw-units(60px) vw-units($section-margin-h);
 		
 		svg {
 			fill:$color-white;
 			display:block;
 			margin: 0 auto;
-			width: vw-units(275px);
-			height: vw-units(275px / 361px * 504px);
+			width: 90%;
+			height: auto;
 		}
 	}
 	.elm-image {
-		float:right;
-		width:50%;
 		padding: vw-units(50px);
+		background: $color-light-gray;
 
 		img {
 			width: 100%;
 			height: auto;
 		}
+		
 
-		svg {
-			fill:$color-brand;
+		a {
+			display:block;
 			border: 1px solid $color-brand;
 			margin: vw-units(50px) auto 0;
-			width: vw-units(200px);
-			height: vw-units(40px);
+			width: vw-units(400px);
+			height: vw-units(80px);
+			fill:$color-brand;
+
+			transition: background-color .3s ease;
+			
+			&:hover {
+				background-color: rgba($color-brand, .2);
+				
+			}	
+		}
+	}
+
+	@include breakpoint($xs) {
+		.elm-content {
+			svg {
+				width: 60%;
+			}
+		}
+	}
+	@include breakpoint($sm) {
+		background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, $color-light-gray 50%, $color-light-gray 100%);
+		.elm-content {
+			float:left;
+			width:50%;
+
+			svg {
+				width: vw-units(275px);
+				height: vw-units(275px / 361px * 504px);
+			}
+		}
+		.elm-image {
+			background: transparent;
+			float:right;
+			width:50%;
+
+			a {
+				width: vw-units(200px);
+				height: vw-units(40px);
+			}
 		}
 	}
 
