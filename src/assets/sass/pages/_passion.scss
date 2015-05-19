@@ -82,7 +82,8 @@
 		
 		img {
 			margin: 1rem auto;
-			width: vw-units(480px)
+			width: vw-units(480px);
+			opacity: 0;
 		}
 	}
 
@@ -119,6 +120,11 @@
 			transition-duration: .5s;
 			transition-property: max-height;
 			max-height:500px;
+
+			img {
+				opacity: 1;
+				transition: opacity .3s ease .4s;
+			}
 		}
 	}
 

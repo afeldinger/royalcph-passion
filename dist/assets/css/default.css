@@ -2190,7 +2190,8 @@ img.mfp-img {
     overflow: hidden; }
     .passion-videos .elm-content img {
       margin: 1rem auto;
-      width: 50vw; }
+      width: 50vw;
+      opacity: 0; }
   .passion-videos:not(.has-active):not(:hover) li.initial h2 {
     opacity: 1; }
   .passion-videos li.initial .elm-image {
@@ -2206,6 +2207,9 @@ img.mfp-img {
     transition-duration: .5s;
     transition-property: max-height;
     max-height: 500px; }
+    .passion-videos li.active .elm-content img {
+      opacity: 1;
+      transition: opacity .3s ease .4s; }
   .passion-videos.has-active {
     margin-top: 0;
     margin-bottom: 0; }

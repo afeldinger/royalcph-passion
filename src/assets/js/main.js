@@ -97,7 +97,12 @@
     $('.passion-videos li a').click(function(event) {
     	event.preventDefault();
         var isActive = $(this).closest('li').hasClass('active');
-        $(this).closest('li').toggleClass('active', !isActive).siblings('li').removeClass('active').parents('ul:first').toggleClass('has-active', !isActive);
+        $(this).closest('li').toggleClass('active', !isActive).siblings('li').removeClass('active').parents('ul:first').toggleClass('has-active', !isActive).each(function() {
+            $(this).addClass('transition');
+            setTimeout(function(elm) {
+                $(elm).removeClass('transition');
+            }, 500, this);
+        });
     });
 
     $('.inspiration-slider').mThumbnailScroller({
@@ -138,7 +143,7 @@
         animation: 'slide',
         slideshow: false,
         controlNav: false,
-        directionNav: false,
+        //directionNav: false,
         start: flexslider_start,
         before: flexslider_before,
         after: flexslider_after,
@@ -167,58 +172,62 @@
             history_constrain_to = [0,0,0,history_last_stop];
         };
 
+    var pep_init = function() {
+        history_pep.each(function() {
 
-    history_pep.each(function() {
+            history_calc_stops();
 
-        history_calc_stops();
+            $(this).find('a').each(function(i) {
+                $(this).click(function(event) {
+                    $('.history .flexslider').flexslider(i);
+                    var $li = $(this).closest('li');
 
-        $(this).find('a').each(function(i) {
-            $(this).click(function(event) {
-                $('.history .flexslider').flexslider(i);
-                var $li = $(this).closest('li');
+                    $li.addClass('active').siblings('li').removeClass('active');
+                    $(history_pep).data('plugin_pep').moveTo($li.data('stop'), 0);
+                    
+                    event.stopPropagation();
+                    event.preventDefault();
+                    
+                });
+            }).filter(':first').closest('li').addClass('active');
 
-                $li.addClass('active').siblings('li').removeClass('active');
-                $(history_pep).data('plugin_pep').moveTo($li.data('stop'), 0);
-                
-                event.stopPropagation();
-                event.preventDefault();
-                
-            });
-        }).filter(':first').closest('li').addClass('active');
+            $.pep.unbind($(this));
 
-        $(this).pep({
-            axis: 'x',
-            constrainTo: history_constrain_to,
-            stops: history_stops,
-            //elementsWithInteraction: 'a',
-            moveTo: function(x,y) {
-                if (this.easing && this.options.stops !== 'undefined') {
+            $(this).pep({
+                axis: 'x',
+                constrainTo: history_constrain_to,
+                stops: history_stops,
+                //elementsWithInteraction: 'a',
+                moveTo: function(x,y) {
+                    if (this.easing && this.options.stops !== 'undefined') {
 
-                    // snap to nearest stop when easing
-                    var dx = 0;
-                    if (typeof x === 'string' && x.indexOf('=') !== false) {
-                        dx = parseInt(this.$el.css('left'), 10);
-                        //eval('dx' + x);
-                        dx += parseInt(x.substr(0,1) + x.substr(2), 10);
-                    } else {
-                        dx = x;
-                    }
-                    var xClosest = 0;
-                    $.each(this.options.stops, function(){
-                        if (xClosest === null || Math.abs(this - dx) < Math.abs(xClosest - dx)) {
-                            xClosest = this;
+                        // snap to nearest stop when easing
+                        var dx = 0;
+                        if (typeof x === 'string' && x.indexOf('=') !== false) {
+                            dx = parseInt(this.$el.css('left'), 10);
+                            //eval('dx' + x);
+                            dx += parseInt(x.substr(0,1) + x.substr(2), 10);
+                        } else {
+                            dx = x;
                         }
-                    });
+                        var xClosest = 0;
+                        $.each(this.options.stops, function(){
+                            if (xClosest === null || Math.abs(this - dx) < Math.abs(xClosest - dx)) {
+                                xClosest = this;
+                            }
+                        });
 
-                    x = xClosest;
-                    //console.log('easing', x);
-                }
-                this.$el.stop(true, false).css({ top: y , left: x });
-            },
+                        x = xClosest;
+                        //console.log('easing', x);
+                    }
+                    this.$el.stop(true, false).css({ top: y , left: x });
+                },
+
+            });
 
         });
-
-    });
+    };
+    pep_init();
 
 
 })();
