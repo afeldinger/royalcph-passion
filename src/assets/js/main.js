@@ -160,6 +160,7 @@
 
             history_stop_elms.each(function() {
                 history_last_stop = offset - $(this).offset().left;
+                $(this).data('stop', history_last_stop);
                 history_stops.push(history_last_stop);
             });
 
@@ -173,10 +174,15 @@
 
         $(this).find('a').each(function(i) {
             $(this).click(function(event) {
+                $('.history .flexslider').flexslider(i);
+                var $li = $(this).closest('li');
+
+                $li.addClass('active').siblings('li').removeClass('active');
+                $(history_pep).data('plugin_pep').moveTo($li.data('stop'), 0);
+                
                 event.stopPropagation();
                 event.preventDefault();
-                $('.history .flexslider').flexslider(i);
-                $(this).closest('li').addClass('active').siblings('li').removeClass('active');
+                
             });
         }).filter(':first').closest('li').addClass('active');
 
@@ -184,6 +190,7 @@
             axis: 'x',
             constrainTo: history_constrain_to,
             stops: history_stops,
+            //elementsWithInteraction: 'a',
             moveTo: function(x,y) {
                 if (this.easing && this.options.stops !== 'undefined') {
 
@@ -191,7 +198,8 @@
                     var dx = 0;
                     if (typeof x === 'string' && x.indexOf('=') !== false) {
                         dx = parseInt(this.$el.css('left'), 10);
-                        eval('dx' + x);
+                        //eval('dx' + x);
+                        dx += parseInt(x.substr(0,1) + x.substr(2), 10);
                     } else {
                         dx = x;
                     }
