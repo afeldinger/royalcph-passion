@@ -1,4 +1,8 @@
 
+2015-05-21
+	* Inserted vimeo videos in passion section
+	* Added svg icons to navigation toggle in header
+
 2015-05-19
 	* Updated images
 	

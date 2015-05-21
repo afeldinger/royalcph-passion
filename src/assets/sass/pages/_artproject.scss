@@ -9,10 +9,7 @@
 		
 		svg {
 			fill:$color-white;
-			display:block;
-			margin: 0 auto;
-			width: 90%;
-			height: auto;
+			min-height: 40vw;
 		}
 	}
 	.elm-image {
@@ -46,6 +43,7 @@
 		.elm-content {
 			svg {
 				width: 60%;
+				align:top;
 			}
 		}
 	}
@@ -56,8 +54,10 @@
 			width:50%;
 
 			svg {
+
 				width: vw-units(275px);
 				height: vw-units(275px / 361px * 504px);
+				min-height: none;
 			}
 		}
 		.elm-image {

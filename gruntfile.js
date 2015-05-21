@@ -183,7 +183,7 @@ module.exports = function(grunt) {
                 {
                     cleanupIDs: false
                 }, {
-                    removeViewBox: false
+                    removeViewBox: true
                 }, {
                     removeUselessStrokeAndFill: false
                 }

@@ -14,10 +14,18 @@ class: section-passion
 		<h2><a href="#passion-{{this.key}}">{{this.value.title}}</a></h2>
 		<div class="elm-image" style="background-image:url({{this.value.imgurl}})"><img src="{{this.value.imgurl}}" alt="{{this.value.title}}" /></div>
 		<div class="elm-content">
-			<a href="{{this.value.videoUrl}}" target="_blank">
-				<img src="{{this.value.thumb}}" alt="{{this.value.title}}">
-			</a>
+
+			<div class="video-player">
+<!--
+				<a href="{{this.value.videoUrl}}" target="_blank">
+					<img src="{{this.value.thumb}}" alt="{{this.value.title}}">
+				</a>
+-->
+				<iframe src="{{this.value.videoUrl}}" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+			</div>
 		</div>
+
 	</li>
 {{/eachOptions}}
 
