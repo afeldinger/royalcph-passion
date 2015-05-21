@@ -348,7 +348,7 @@ module.exports = function(grunt) {
     'uglify',
     'usemin',
     'copy:favicons',
-    //'replace:dist',
+    'replace:dist',
   ]);
 
 };
