@@ -87,7 +87,7 @@
             event.preventDefault();
             $(this).closest('.sidenav').toggleClass('active');
         });
-        $(this).find('li a').click(function(event) {
+        $(this).find('li:not(.site) a').click(function(event) {
             event.preventDefault();
 
             var $el = $(this), 
