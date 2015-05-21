@@ -272,6 +272,14 @@ module.exports = function(grunt) {
               'BodoniSvtyTwo*.*',
             ],
             dest: 'dist/assets/fonts/',
+          },
+          {
+            expand: true, 
+            cwd: 'src/assets/js/libs/', 
+            src: [
+              'jquery-1.*.min.js',
+            ],
+            dest: 'dist/assets/js/libs',
           }
         ],
       },
