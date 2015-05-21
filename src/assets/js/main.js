@@ -51,6 +51,10 @@
             $(this).toggleClass('active', cur_pos + winH * 0.75 >= top && cur_pos <= bottom);
             nav.find('a[href="#'+$(this).attr('id')+'"]').toggleClass('active', cur_pos >= top && cur_pos < bottom);
 
+            if (cur_pos + winH * 0.75 >= top && cur_pos <= bottom) {
+                $(this).find('[data-original]').trigger('appear');
+            }
+
         });
 
         scrollPlates.each(function() {
@@ -117,7 +121,6 @@
     });
 
 	// init flexsliders on page
-
     var flexslider_start = function(slider) {
         slider.slides.eq(slider.currentSlide).addClass('flex-active-transition');
         slider.attr('data-current-slide', slider.currentSlide);
@@ -236,6 +239,10 @@
     };
     pep_init();
 
+    $('[data-original]').lazyload({
+        effect : "fadeIn",
+        skip_invisible : false,
+    });
 
 })();
 

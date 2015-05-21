@@ -1,4 +1,5 @@
-
+2015-05-21 15:15
+	* Lazy loading on all images and divs using background images
 
 2015-05-21 13:30
 	* Removed inline style="background-image()" from pattern section

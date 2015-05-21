@@ -13,7 +13,7 @@ class: section-inspiration
 		{{#eachOptions inspiration}}
 			<li class="{{this.value.class}}">
 			{{#if this.value.imgurl}}
-				<img src="{{this.value.imgurl}}" alt="{{this.value.name}}" />
+				<img data-original="{{this.value.imgurl}}" src="assets/img/transparent.gif" alt="{{this.value.name}}" />
 			{{/if}}
 			{{#if this.value.caption}}
 				<div class="caption">

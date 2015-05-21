@@ -12,7 +12,7 @@ class: section-passion
 {{#eachOptions passion}}
 	<li id="passion-{{this.key}}" class="{{this.value.class}}">
 		<h2><a href="#passion-{{this.key}}">{{this.value.title}}</a></h2>
-		<div class="elm-image" style="background-image:url({{this.value.imgurl}})"><img src="{{this.value.imgurl}}" alt="{{this.value.title}}" /></div>
+		<div class="elm-image"  data-original="{{this.value.imgurl}}"></div>
 		<div class="elm-content">
 
 			<div class="video-player">

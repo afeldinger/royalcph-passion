@@ -34,7 +34,7 @@ class: section-history
 		{{#eachOptions history}}
 			<li>
 
-				<div class="elm-image"><img src="{{this.value.imgurl}}" alt="{{this.value.title}}" /></div>
+				<div class="elm-image"><img data-original="{{this.value.imgurl}}" src="assets/img/transparent.gif" alt="{{this.value.title}}" /></div>
 				<div class="elm-content">
 				{{#if this.value.year}}
 					<h3 class="year">{{this.value.year}}</h3>
