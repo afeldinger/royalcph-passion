@@ -12,7 +12,7 @@
 */
 
 	
-	.flexbox & {
+	.flexboxlegacy & {
 		display:flex;
 	}
 
@@ -32,7 +32,7 @@
 .passion-videos {
 	overflow:hidden;
 
-	.flexbox & {
+	.flexboxlegacy & {
 		align-self: center;
 		flex-grow: 100;
 	}

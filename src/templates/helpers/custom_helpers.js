@@ -62,7 +62,7 @@ module.exports.register = function (Handlebars, options) {
 		var accum = '';
 		for(var key in collection) {
 			var context = {}
-			context.key = key;
+			context.key = parseInt(key);
 			context.value = collection[key];
 			context.options = options.hash;
 			//console.log(JSON.stringify (context)); 

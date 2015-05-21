@@ -56,6 +56,8 @@
         scrollPlates.each(function() {
             var top = $(this).offset().top;
             var bottom = top + $(this).outerHeight();
+
+            $(this).toggleClass('visible', cur_pos + winH * 0.75 >= top && cur_pos <= bottom);
             $(this).toggleClass('active', cur_pos >= top && cur_pos <= bottom);
         });
         

@@ -4,7 +4,7 @@
 
 .inspiration-slider {
 	margin: 0 vw-units(-$section-margin-h);
-	height: 320px;
+	//height: 320px;
 	overflow: hidden;
 
 	ul {
@@ -86,7 +86,7 @@
 		padding: 20px 10px;
 		color: inherit;
 
-		.flexbox & {
+		.flexboxlegacy & {
 			height:100%;
 			display:flex;
 			justify-content: center;
@@ -117,11 +117,11 @@
 
 
 	.white {
-		background: $color-white url(../img/bg_texture_white.jpg) 0 50%;
+		background: $color-white;
 		color: $color-brand;
 	}
 	.blue {
-		background: $color-brand url(../img/bg_texture_blue.jpg) 0 50%;
+		background: $color-brand;
 		color: $color-white;
 
 		.caption h2 + * {
@@ -130,4 +130,23 @@
 			}
 		}
 	}
+	
+	@include breakpoint($lg) {
+		li {
+			width: 380px;
+			height: 640px;
+
+			&:not(.blue):not(.white) {
+				&.active {
+					width: 640px;
+				}
+			}
+		}
+
+		.caption {
+			left: (-380px / 2);
+			width: 380px;
+		}
+	}
+	
 }

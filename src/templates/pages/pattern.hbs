@@ -12,7 +12,7 @@ class: section-pattern
 <div class="pattern">
 	<ul>
 	{{#eachOptions pattern}}
-		<li style="background-image: url({{this.value.imgurl}})" class="{{this.value.class}}">
+		<li class="{{this.value.class}} item-{{add this.key 1}}">
 			<div class="elm-content">
 				<h2>
 					{{this.value.title}}
