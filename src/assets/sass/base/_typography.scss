@@ -130,9 +130,6 @@ html {
     font-size: $size-md;
     font-size: vw-units($size-md);
   }
-  @include breakpoint($lg) {
-    font-size: $size-xxl;
-  }
 }
 
 body,
