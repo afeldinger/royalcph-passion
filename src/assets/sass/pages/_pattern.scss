@@ -33,14 +33,6 @@
 
 	}
 
-@for $i from 1 through 5 {
-	li.item-#{$i} {
-		//background-image: url(../img/pattern/#{$i}.jpg);
-	}
-}
-
-
-
 	li.visible {
 		
 	}
@@ -136,8 +128,8 @@
 		.elm-content {
 			position: absolute;
 			bottom: 5%;
-			left:25%;
-			width: 50%;
+			left:10%;
+			width: 80%;
 			margin: 0 auto;
 			text-align: center;
 

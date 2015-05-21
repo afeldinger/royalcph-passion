@@ -14,13 +14,13 @@
 	margin-left:-1 * vw-units($section-margin-h);
 	margin-right:-1 * vw-units($section-margin-h);
 
-	padding-bottom: vw-units($section-margin-v);
+	padding-bottom: vw-units(2 * $section-margin-v);
 
 	.years {
 		position: absolute;
 		z-index: 5;
 		bottom: 0;
-		height: vw-units($section-margin-v + $content-margin-px);
+		height: vw-units(2 * $section-margin-v);
 		left: 0;
 		text-align: left;
 
@@ -158,7 +158,7 @@
 		font-style: italic;
 	}
 
-	
+
 	@include breakpoint($xs) {
 		padding-bottom: vw-units($content-margin-px);
 

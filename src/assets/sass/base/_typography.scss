@@ -119,13 +119,8 @@
 }
 
 html {
-  font-size: $size-xxl;
-  font-size: vw-units($size-xxl);
+  font-size: $size-md;
 
-  @include breakpoint($xs) { 
-    font-size: $size-xl;
-    font-size: vw-units($size-xl);
-  }
   @include breakpoint($sm) { 
     font-size: $size-md;
     font-size: vw-units($size-md);
@@ -161,11 +156,15 @@ h6 {
 }
 
 h1 {
-    @include adjust-font-size-to($size-xxxl);
+    @include adjust-font-size-to($size-xxl);
     @include letter-spacing-sm;
     line-height: 1em;
     margin: 0.8em 0;
     text-transform: uppercase;
+
+    @include breakpoint($xs) {
+      @include adjust-font-size-to($size-xxxl);
+    }
 
 }
 h2 {
@@ -173,6 +172,10 @@ h2 {
     @include letter-spacing-sm;
     line-height: 1.2em;
     margin: 0.6em 0;
+    
+    @include breakpoint($xs) {
+      @include adjust-font-size-to($size-xl);
+    }
 
     h1 + & {
       margin-top:-1em;

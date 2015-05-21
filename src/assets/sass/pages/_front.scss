@@ -40,14 +40,22 @@
 	}
 
 	> h1 {
-		@include adjust-font-size-to($size-xxxxl);
+		@include adjust-font-size-to($size-xxxl);
 		margin-bottom: 0;
+
+		@include breakpoint($xs) {
+			@include adjust-font-size-to($size-xxxxl);
+		}
 	}
 	> h2 {
-		@include adjust-font-size-to($size-xxxl);
+		@include adjust-font-size-to($size-xxl);
 		font-style: normal;
 		margin-top:0 !important;
 		margin-bottom:0;
+		
+		@include breakpoint($xs) {
+			@include adjust-font-size-to($size-xxxl);
+		}
 	}
 	img {
 		margin: 0 auto;

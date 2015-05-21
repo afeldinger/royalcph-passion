@@ -352,12 +352,7 @@ td, th {
   -moz-osx-font-smoothing: grayscale; }
 
 html {
-  font-size: 30px;
-  font-size: 3.125vw; }
-  @media  (min-width: 30em) {
-    html {
-      font-size: 25px;
-      font-size: 2.6042vw; } }
+  font-size: 16px; }
   @media  (min-width: 40em) {
     html {
       font-size: 16px;
@@ -375,17 +370,25 @@ h1, h2, h3, h4, h5, h6 {
   color: inherit; }
 
 h1 {
-  font-size: 45px;
-  font-size: 2.8125rem;
+  font-size: 30px;
+  font-size: 1.875rem;
   line-height: 1em;
   margin: 0.8em 0;
   text-transform: uppercase; }
+  @media  (min-width: 30em) {
+    h1 {
+      font-size: 45px;
+      font-size: 2.8125rem; } }
 
 h2 {
   font-size: 30px;
   font-size: 1.875rem;
   line-height: 1.2em;
   margin: 0.6em 0; }
+  @media  (min-width: 30em) {
+    h2 {
+      font-size: 25px;
+      font-size: 1.5625rem; } }
   h1 + h2 {
     margin-top: -1em; }
 
@@ -1838,6 +1841,8 @@ img.mfp-img {
 
 .blue-slider {
   margin: 0 -9.375vw; }
+  .blue-slider ul.slides {
+    background: #ffffff; }
   .blue-slider li {
     overflow: hidden; }
   .blue-slider .flex-direction-nav a {
@@ -1933,15 +1938,23 @@ img.mfp-img {
     color: #B4975A;
     fill: #002454; }
   .section-front > h1 {
-    font-size: 65px;
-    font-size: 4.0625rem;
-    margin-bottom: 0; }
-  .section-front > h2 {
     font-size: 45px;
     font-size: 2.8125rem;
+    margin-bottom: 0; }
+    @media  (min-width: 30em) {
+      .section-front > h1 {
+        font-size: 65px;
+        font-size: 4.0625rem; } }
+  .section-front > h2 {
+    font-size: 30px;
+    font-size: 1.875rem;
     font-style: normal;
     margin-top: 0 !important;
     margin-bottom: 0; }
+    @media  (min-width: 30em) {
+      .section-front > h2 {
+        font-size: 45px;
+        font-size: 2.8125rem; } }
   .section-front img {
     margin: 0 auto; }
   .section-front video {
@@ -1981,12 +1994,12 @@ img.mfp-img {
   background: #fff;
   margin-left: -9.375vw;
   margin-right: -9.375vw;
-  padding-bottom: 9.375vw; }
+  padding-bottom: 18.75vw; }
   .history .years {
     position: absolute;
     z-index: 5;
     bottom: 0;
-    height: 13.5417vw;
+    height: 18.75vw;
     left: 0;
     text-align: left; }
     .history .years ul {
@@ -2397,8 +2410,8 @@ img.mfp-img {
     .pattern .elm-content {
       position: absolute;
       bottom: 5%;
-      left: 25%;
-      width: 50%;
+      left: 10%;
+      width: 80%;
       margin: 0 auto;
       text-align: center; }
       .pattern .elm-content h2 {

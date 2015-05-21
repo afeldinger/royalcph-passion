@@ -7,10 +7,11 @@
 	margin: 0 (-1 * vw-units($section-margin-h));
 
 	ul.slides {
-
+		background:$color-white;
 	}
 	li {
 		overflow: hidden;
+		//backface-visibility: visible;
 	}
 	
 	.flex-direction-nav {
