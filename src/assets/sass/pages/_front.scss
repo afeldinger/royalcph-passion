@@ -25,6 +25,16 @@
 
 	z-index:-2;
 
+	.flexboxlegacy & {
+		min-height: 100vh;
+		padding-top: vw-units(75px);
+		padding-bottom: vw-units(120px);
+
+		display:flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	
 	svg {
 		display:block;
 		margin:0 auto 0.8rem;
@@ -80,15 +90,5 @@
 		&.ready {
 			opacity: 1;
 		}
-	}
-
-	.flexboxlegacy & {
-		min-height: 100vh;
-		padding-top: vw-units(75px);
-		padding-bottom: vw-units(120px);
-
-		display:flex;
-		flex-direction: column;
-		justify-content: center;
 	}
 }
