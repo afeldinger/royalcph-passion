@@ -81,7 +81,6 @@
         });
         
     };
-    scrollListener();
     window.addEventListener('scroll', scrollListener);
 
 
@@ -267,6 +266,10 @@
         effect : 'fadeIn',
         skip_invisible : false,
         //threshold: 10,
+    });
+
+    $(document).ready(function() {
+        scrollListener();
     });
 
     $(window).load(function() {
