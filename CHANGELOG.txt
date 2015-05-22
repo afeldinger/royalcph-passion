@@ -1,3 +1,11 @@
+2014-04-22 15:00
+	* Added link to product image and header
+	* Added @source to inspiration slides
+	* Added video to frontpage
+
+2014-05-21 16:00
+	* Moved jquery out of minified javascript file
+
 2015-05-21 15:15
 	* Lazy loading on all images and divs using background images
 

@@ -30,28 +30,32 @@ nav#sidenav {
 	
 	position: fixed;
 
-	width: vw-units(250px);
-	min-width: 250px;
+	//width: vw-units(250px);
+	width: 250px;
 	height: 100vh;
 	background: $color-white;
 
 	color: $color-brand;
-	@include adjust-font-size-to($size-lg);
+	font-size: $size-md;
 	text-transform: uppercase;
 
 	z-index:1000;
 
 
+	@include breakpoint($sm) {
+		width: 250px;
+		font-size: $size-lg;
+	}
+
 	.nav {
 		overflow-y: scroll;
 		max-height: 100%;
-		padding: vw-units(45px) vw-units(30px);
+		//padding: vw-units(45px) vw-units(30px);
+		padding: 45px 30px;
 
 		svg {
-			width: vw-units(45px);
-			height: vw-units(50px);
-			min-width: 45px;
-			min-height: 50px;
+			width: 45px;
+			height: 50px;
 			color: $color-gold;
 			fill: $color-brand;
 		}
@@ -72,7 +76,7 @@ nav#sidenav {
 
 	li a {
 		display:block;
-		padding: vw-units(10px);
+		padding: 10px;
 		
 		&.active {
 			font-weight: $weight-bold;
@@ -159,8 +163,5 @@ nav#sidenav {
 	}
 
 
-	@include breakpoint($xs) {
-		width: vw-units(250px);
-	}
 
 }

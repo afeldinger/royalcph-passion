@@ -11,7 +11,9 @@ $sm: 40em;
 $md: 50em;
 $lg-abs: 960px;
 $lg: ($lg-abs / $base-font-size) * 1em;
-$lg-bp: $lg + 2 * $content-margin-em ;
+$lg-bp: $lg + 2 * $content-margin-em;
+$xl: $lg * 1.5;
+$xxl: $lg * 2; 
 
 /*
 @include add-grid(12);

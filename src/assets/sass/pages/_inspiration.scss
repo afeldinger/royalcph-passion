@@ -14,6 +14,7 @@
 		display: block;
 		white-space: nowrap;
 		width: 100%;
+		height: 320px;
 	}
 
 	li {
@@ -27,14 +28,16 @@
 		white-space: normal;
 
 		transition: width .3s ease;
-		cursor: pointer;
 
 		&:not(.blue):not(.white) {
+
+			cursor: pointer;
+
 			&.active {
 				width: 320px;
 			}
 
-			&:after {
+			&:before {
 				content: ' ';
 				display:block;
 				position:absolute;
@@ -45,12 +48,16 @@
 				width:100%;
 				height:100%;
 				background: $color-brand;
-				opacity: .4;
+				opacity: .2;
 				z-index:5;
 				transition: opacity .3s ease;
+
+				.no-cssfilters & {
+					opacity: .5;
+				}
 			}
 
-			&:hover:after {
+			&:hover:before {
 				opacity: 0;
 			}
 		}
@@ -69,7 +76,7 @@
 	.cssfilters & {
 		img {
 			transform: translate3d(0,0,0);
-			filter: brightness(1.2) contrast(1.05) grayscale(1);
+			filter: brightness(1.4) contrast(1.05) grayscale(.9);
 			transition: filter .3s ease;
 		}
 		li:hover img {
@@ -83,15 +90,28 @@
 		margin-left: 50%;
 		bottom: 0;
 		width: 190px;
-		padding: 20px 10px;
+		padding: (20px / 190px * 100%) (10px / 190px * 100%);
 		color: inherit;
 
-		.flexboxlegacy & {
+		.flexbox & {
 			height:100%;
 			display:flex;
 			justify-content: center;
 			flex-direction: column;
 		}
+		.csstransforms:not(.flexbox) & {
+			top:50%;
+			transform: translateY(-50%);
+
+		}
+
+	}
+
+	.source {
+		position: absolute;
+		bottom: 1vw;
+		left: 1vw;
+		color: $color-brand;
 	}
 
 	h2 {
@@ -132,6 +152,31 @@
 	}
 	
 	@include breakpoint($lg) {
+		ul {
+			height: 480px;
+		}
+		li {
+			width: 285px;
+			height: 480px;
+
+			&:not(.blue):not(.white) {
+				&.active {
+					width: 480px;
+				}
+			}
+		}
+
+		.caption {
+			left: (-285px / 2);
+			width: 285px;
+			padding: 20px / 190px * 100%;
+		}
+	}
+
+	@include breakpoint($xl) {
+		ul {
+			height: 640px;
+		}
 		li {
 			width: 380px;
 			height: 640px;

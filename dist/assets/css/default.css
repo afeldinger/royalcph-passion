@@ -1082,24 +1082,24 @@ img.full-width {
 
 nav#sidenav {
   position: fixed;
-  width: 26.0417vw;
-  min-width: 250px;
+  width: 250px;
   height: 100vh;
   background: #ffffff;
   color: #002454;
-  font-size: 20px;
-  font-size: 1.25rem;
+  font-size: 16px;
   text-transform: uppercase;
   z-index: 1000; }
+  @media  (min-width: 40em) {
+    nav#sidenav {
+      width: 250px;
+      font-size: 20px; } }
   nav#sidenav .nav {
     overflow-y: scroll;
     max-height: 100%;
-    padding: 4.6875vw 3.125vw; }
+    padding: 45px 30px; }
     nav#sidenav .nav svg {
-      width: 4.6875vw;
-      height: 5.2083vw;
-      min-width: 45px;
-      min-height: 50px;
+      width: 45px;
+      height: 50px;
       color: #B4975A;
       fill: #002454; }
   nav#sidenav ul {
@@ -1111,7 +1111,7 @@ nav#sidenav {
       border-top: 1px solid #999; }
   nav#sidenav li a {
     display: block;
-    padding: 1.0417vw; }
+    padding: 10px; }
     nav#sidenav li a.active {
       font-weight: 700; }
   nav#sidenav .site {
@@ -1168,9 +1168,6 @@ nav#sidenav {
     transition: margin-left .5s ease; }
     .no-csstransforms3d nav#sidenav.active {
       margin-left: 0; }
-  @media  (min-width: 30em) {
-    nav#sidenav {
-      width: 26.0417vw; } }
 
 /*
 == jquery thumbnail/image scroller ==
@@ -1966,10 +1963,14 @@ img.mfp-img {
     min-height: 100%;
     width: auto;
     height: auto;
-    background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
-    background-size: cover;
+    background: transparent;
     z-index: -1;
-    transition: 1s opacity; }
+    transition: 2s opacity ease;
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    opacity: 0; }
+    .section-front video.playing {
+      opacity: 1; }
   .flexboxlegacy .section-front {
     min-height: 100vh;
     padding-top: 7.8125vw;
@@ -2121,7 +2122,8 @@ img.mfp-img {
     padding: 0;
     display: block;
     white-space: nowrap;
-    width: 100%; }
+    width: 100%;
+    height: 320px; }
   .inspiration-slider li {
     display: block;
     position: relative;
@@ -2131,26 +2133,29 @@ img.mfp-img {
     overflow: hidden;
     text-align: center;
     white-space: normal;
-    transition: width .3s ease;
-    cursor: pointer; }
-    .inspiration-slider li:not(.blue):not(.white).active {
-      width: 320px; }
-    .inspiration-slider li:not(.blue):not(.white):after {
-      content: ' ';
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      width: 100%;
-      height: 100%;
-      background: #002454;
-      opacity: .4;
-      z-index: 5;
-      transition: opacity .3s ease; }
-    .inspiration-slider li:not(.blue):not(.white):hover:after {
-      opacity: 0; }
+    transition: width .3s ease; }
+    .inspiration-slider li:not(.blue):not(.white) {
+      cursor: pointer; }
+      .inspiration-slider li:not(.blue):not(.white).active {
+        width: 320px; }
+      .inspiration-slider li:not(.blue):not(.white):before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background: #002454;
+        opacity: .2;
+        z-index: 5;
+        transition: opacity .3s ease; }
+        .no-cssfilters .inspiration-slider li:not(.blue):not(.white):before {
+          opacity: .5; }
+      .inspiration-slider li:not(.blue):not(.white):hover:before {
+        opacity: 0; }
   .inspiration-slider img {
     position: absolute;
     top: 0;
@@ -2160,8 +2165,8 @@ img.mfp-img {
   .cssfilters .inspiration-slider img {
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
-    -webkit-filter: brightness(1.2) contrast(1.05) grayscale(1);
-            filter: brightness(1.2) contrast(1.05) grayscale(1);
+    -webkit-filter: brightness(1.4) contrast(1.05) grayscale(0.9);
+            filter: brightness(1.4) contrast(1.05) grayscale(0.9);
     transition: -webkit-filter .3s ease, filter .3s ease; }
   .cssfilters .inspiration-slider li:hover img {
     -webkit-filter: brightness(1) contrast(1) grayscale(0);
@@ -2172,9 +2177,9 @@ img.mfp-img {
     margin-left: 50%;
     bottom: 0;
     width: 190px;
-    padding: 20px 10px;
+    padding: 10.5263% 5.2632%;
     color: inherit; }
-    .flexboxlegacy .inspiration-slider .caption {
+    .flexbox .inspiration-slider .caption {
       height: 100%;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -2185,6 +2190,16 @@ img.mfp-img {
       -webkit-flex-direction: column;
           -ms-flex-direction: column;
               flex-direction: column; }
+    .csstransforms:not(.flexbox) .inspiration-slider .caption {
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+              transform: translateY(-50%); }
+  .inspiration-slider .source {
+    position: absolute;
+    bottom: 1vw;
+    left: 1vw;
+    color: #002454; }
   .inspiration-slider h2 {
     text-transform: uppercase; }
     .inspiration-slider h2 + *:before {
@@ -2206,6 +2221,20 @@ img.mfp-img {
     .inspiration-slider .blue .caption h2 + *:before {
       border-color: #ffffff; }
   @media  (min-width: 60em) {
+    .inspiration-slider ul {
+      height: 480px; }
+    .inspiration-slider li {
+      width: 285px;
+      height: 480px; }
+      .inspiration-slider li:not(.blue):not(.white).active {
+        width: 480px; }
+    .inspiration-slider .caption {
+      left: -142.5px;
+      width: 285px;
+      padding: 10.5263%; } }
+  @media  (min-width: 90em) {
+    .inspiration-slider ul {
+      height: 640px; }
     .inspiration-slider li {
       width: 380px;
       height: 640px; }
@@ -2227,10 +2256,6 @@ img.mfp-img {
 	background-attachment: fixed;
 	background-size: cover;
 */ }
-  .flexboxlegacy .content-section.section-passion {
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex; }
   .content-section.section-passion > h1 {
     position: absolute;
     font-size: 30px;
@@ -2241,14 +2266,22 @@ img.mfp-img {
     text-align: left; }
 
 .passion-videos {
-  overflow: hidden; }
-  .flexboxlegacy .passion-videos {
-    -webkit-align-self: center;
-        -ms-flex-item-align: center;
-            align-self: center;
-    -webkit-flex-grow: 100;
-        -ms-flex-positive: 100;
-            flex-grow: 100; }
+  overflow: hidden;
+  /*
+	.flexbox & {
+		align-self: center;
+		flex-grow: 100;
+	}
+*/
+  width: 100%;
+  height: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-items: center;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column; }
   .passion-videos h2 {
     font-size: 55px;
     font-size: 3.4375rem;
@@ -2526,7 +2559,7 @@ img.mfp-img {
         position: absolute;
         bottom: 2.0833vw;
         right: 0;
-        padding: 0;
+        padding: 0 5px 0 0;
         display: block;
         width: 10.4167vw;
         color: #fff;
@@ -2534,7 +2567,8 @@ img.mfp-img {
         z-index: 5;
         font-style: italic;
         font-size: 16px;
-        font-size: 1rem; }
+        font-size: 1rem;
+        line-height: 1em; }
       .store-locator .icon {
         display: block;
         text-align: center;

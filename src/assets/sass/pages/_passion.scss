@@ -12,8 +12,8 @@
 */
 
 	
-	.flexboxlegacy & {
-		display:flex;
+	.flexbox & {
+		//display:flex;
 	}
 
 
@@ -31,11 +31,22 @@
 
 .passion-videos {
 	overflow:hidden;
-
-	.flexboxlegacy & {
+/*
+	.flexbox & {
 		align-self: center;
 		flex-grow: 100;
 	}
+*/	
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-items: center;
+	flex-direction: column;
+
+	.csstransforms & {
+
+	}
+
 
 	h2 {
 		@include adjust-font-size-to(55px);
@@ -74,6 +85,8 @@
 		img {
 			display:none;
 		}
+
+
 	}
 
 	.elm-content {
@@ -82,6 +95,7 @@
 		opacity: 0;
 		overflow: hidden;
 		transform: translateZ(0);
+
 	}
 
 	

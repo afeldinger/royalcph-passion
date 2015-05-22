@@ -148,7 +148,7 @@
 			position:absolute;
 			bottom:vw-units(20px);
 			right:0;
-			padding:0;
+			padding:0 5px 0 0;
 			display:block;
 			width:vw-units(100px);
 			color: #fff;
@@ -156,6 +156,7 @@
 			z-index:5;
 			font-style:italic;
 			@include adjust-font-size-to($size-md);
+			line-height: 1em;
 		}
 		.icon {
 			display:block;

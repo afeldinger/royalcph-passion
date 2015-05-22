@@ -71,10 +71,15 @@
 		min-height: 100%;
 		width: auto;
 		height: auto;
-		background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
-		background-size: cover;
+		background: transparent;
 		z-index: -1;
-		transition: 1s opacity;
+		transition: 2s opacity ease;
+		transform: translateZ(0);
+		opacity: 0;
+
+		&.playing {
+			opacity: 1;
+		}
 	}
 
 	.flexboxlegacy & {
