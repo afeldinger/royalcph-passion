@@ -34,10 +34,11 @@
     var nav = $('nav.sidenav');
     var bgvid = $('video#bgvid');
 
-    var scrollListener = function() {
-        var cur_pos = Math.max(0, $(window).scrollTop());
-        var winH = $(window).height();
+    var cur_pos = 0;
+    var winH = $(window).height();
 
+    var scrollListener = function() {
+        cur_pos = Math.max(0, $(window).scrollTop());
 
         if (!Modernizr.touch && parallaxSpeed !== 0) {
             body.each(function() {
@@ -85,6 +86,7 @@
 
 
     var resizeListener = debounce(function() {
+        winH = $(window).height();
         history_calc_stops();
 
         var opts = $(history_pep).data('plugin_pep').options;
@@ -172,14 +174,13 @@
         slideshow: false,
         controlNav: false,
         //directionNav: false,
-        start: flexslider_start,
-        before: flexslider_before,
-        after: function(slider) {
-            flexslider_after(slider);
+        start: flexslider_start, 
+        before: function(slider) {
+            flexslider_before(slider);
 
-            
-            history_stop_elms.filter(':nth('+slider.currentSlide+')').find('a').click();
+            history_stop_elms.filter(':nth('+(slider.animatingTo)+')').find('a').trigger('click');
         },
+        after: flexslider_after,
         //manualControls: '.history .years li a',
     });
 
@@ -212,14 +213,15 @@
 
             $(this).find('a').each(function(i) {
                 $(this).click(function(event) {
+                    event.stopPropagation();
+                    event.preventDefault();
+
                     $('.history .flexslider').flexslider(i);
                     var $li = $(this).closest('li');
 
                     $li.addClass('active').siblings('li').removeClass('active');
                     $(history_pep).data('plugin_pep').moveTo($li.data('stop'), 0);
                     
-                    event.stopPropagation();
-                    event.preventDefault();
                     
                 });
             }).filter(':first').closest('li').addClass('active');
@@ -258,6 +260,10 @@
 
             });
 
+            // warm up pep object with fake click event, ready for prev/next from flexslider
+            var ev = jQuery.Event('click', {originalEvent: {pageX:0, pageY:0}});
+            $(this).data('plugin_pep').handleStart(ev);
+            $(this).data('plugin_pep').handleStop(ev);
         });
     };
     pep_init();

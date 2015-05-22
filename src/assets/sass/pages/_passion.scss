@@ -94,6 +94,8 @@
 		opacity: 0;
 		overflow: hidden;
 		transform: translateZ(0);
+
+		transition: max-height .4s, opacity .3s;
 	}
 
 	
@@ -155,7 +157,7 @@
 			z-index: -2;
 		}
 		.elm-content {
-			transition: max-height .5s ease, opacity .3s ease .4s;
+			transition: max-height .4s linear .2s, opacity .3s ease .5s;
 			max-height:1000px;
 			opacity: 1;
 
