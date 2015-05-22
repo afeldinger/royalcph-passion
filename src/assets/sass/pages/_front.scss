@@ -74,10 +74,10 @@
 		background: transparent;
 		z-index: -1;
 		transition: 2s opacity ease;
-		transform: translateZ(0);
+		transform: translate3d(0,0,0);
 		opacity: 0;
 
-		&.playing {
+		&.ready {
 			opacity: 1;
 		}
 	}

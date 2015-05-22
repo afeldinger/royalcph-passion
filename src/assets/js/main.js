@@ -32,6 +32,7 @@
     var scrollPlates = $('.pattern li');
     var parallaxSpeed = -0.4;
     var nav = $('nav.sidenav');
+    var bgvid = $('video#bgvid');
 
     var scrollListener = function() {
         var cur_pos = Math.max(0, $(window).scrollTop());
@@ -47,13 +48,27 @@
         scrollSections.each(function() {
             var top = $(this).offset().top;
             var bottom = top + $(this).outerHeight();
-
-            $(this).toggleClass('active', cur_pos + winH * 0.75 >= top && cur_pos <= bottom);
-            nav.find('a[href="#'+$(this).attr('id')+'"]').toggleClass('active', cur_pos >= top && cur_pos < bottom);
+            var is_front = $(this).hasClass('section-front')? 1:0;
 
             if (cur_pos + winH * 0.75 >= top && cur_pos <= bottom) {
-                $(this).find('[data-original]').trigger('appear');
+                $(this).addClass('active');
+/*
+                if (!$(this).hasClass('images-loaded')) {
+                    $(this).addClass('images-loaded').find('[data-original]').trigger('appear');
+                }
+*/
+                if (is_front && bgvid.hasClass('ready')) {
+                    bgvid.get(0).play();
+                }
+            } else {
+                $(this).removeClass('active');
+                if (is_front && bgvid.hasClass('ready')) {
+                    bgvid.get(0).pause();
+                }
             }
+            
+            nav.find('a[href="#'+$(this).attr('id')+'"]').toggleClass('active', cur_pos >= top && cur_pos < bottom);
+
 
         });
 
@@ -101,9 +116,9 @@
     });
 
 
-$('video#bgvid').bind('play', function (e) {
-    $(this).addClass('playing');
-});
+    $('video#bgvid').bind('play', function() {
+        $(this).addClass('ready');
+    });
 
     $('.passion-videos').each(function() {
         $(this).not(':contains(.initial)').find('li:nth(2)').addClass('initial');

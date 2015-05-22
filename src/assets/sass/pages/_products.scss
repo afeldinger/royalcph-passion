@@ -157,6 +157,11 @@
 			font-style:italic;
 			@include adjust-font-size-to($size-md);
 			line-height: 1em;
+
+			span {
+				display:block;
+				margin:0 auto;
+			}
 		}
 		.icon {
 			display:block;

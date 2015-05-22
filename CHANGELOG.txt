@@ -1,3 +1,7 @@
+2014-04-22 16:00
+	* Added "muted" attribute to video player
+	
+
 2014-04-22 15:00
 	* Added link to product image and header
 	* Added @source to inspiration slides
