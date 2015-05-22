@@ -4,7 +4,7 @@
 
 .inspiration-slider {
 	margin: 0 vw-units(-$section-margin-h);
-	//height: 320px;
+	height: 320px;
 	overflow: hidden;
 
 	ul {
@@ -14,7 +14,6 @@
 		display: block;
 		white-space: nowrap;
 		width: 100%;
-		height: 320px;
 	}
 
 	li {
@@ -152,9 +151,8 @@
 	}
 	
 	@include breakpoint($lg) {
-		ul {
-			height: 480px;
-		}
+		height: 480px;
+
 		li {
 			width: 285px;
 			height: 480px;
@@ -174,9 +172,8 @@
 	}
 
 	@include breakpoint($xl) {
-		ul {
-			height: 640px;
-		}
+		height: 640px;
+		
 		li {
 			width: 380px;
 			height: 640px;
