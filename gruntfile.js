@@ -37,6 +37,10 @@ module.exports = function(grunt) {
         }
       },
 
+      iconfonts: {
+        files: ['src/assets/fonts/icons/*.svg'],
+        tasks: ['webfont', 'copy:iconfonts'],
+      },
 
       globbing: {
         files: ['src/assets/sass/**/*.scss'],
@@ -59,6 +63,26 @@ module.exports = function(grunt) {
       },
     },
 
+
+    webfont: {
+        icons: {
+            src: 'src/assets/fonts/icons/*.svg',
+            dest: 'src/assets/fonts',
+            destCss: 'src/assets/sass/base',
+            options: {
+                htmlDemo: false,
+                stylesheet: 'scss',
+                relativeFontPath: '../fonts',
+                engine: 'node',
+                font: 'icons',
+                fontHeight: 256,
+                templateOptions: {
+                    baseClass: 'icon',
+                    classPrefix: '',
+                }
+            }
+        }
+    },
 
     // Assembles your page content with html layout
     assemble: {
@@ -261,6 +285,18 @@ module.exports = function(grunt) {
     },
 
     copy: {
+      iconfonts: {
+        files: [
+          {
+            expand: true, 
+            cwd: 'src/assets/fonts/', 
+            src: [
+              'icons.*',
+            ],
+            dest: 'dist/assets/fonts/',
+          }
+        ]
+      },
       assets: {
         files: [
           {

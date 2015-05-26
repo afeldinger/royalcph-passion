@@ -67,8 +67,8 @@
 			position:relative;
 
 			display:inline-block;
-			padding-top: vw-units(20px);
-			padding-bottom: vw-units(20px);
+			padding-top: 2em;
+			padding-bottom: 2em;
 			width: 100%;
 			min-height: vw-units(50px);
 			text-align: center;
@@ -84,14 +84,7 @@
 				position:absolute;
 				top:0;
 				left:50%;
-				transform: translate3d(-50%, -50%, 0) scale(.5);
-				display:block;
-				width: vw-units(16px);
-				height: vw-units(16px);
-				border-radius: vw-units(8px);
-				background: $color-brand;
-				box-shadow: 0 0 0 8px rgba($color-brand, .3);
-				transition: transform .2s ease;
+				@include circle-marker;
 			}
 
 			.year {
@@ -112,7 +105,7 @@
 		li.active a,
 		a:hover {
 			&:before {
-				transform: translate3d(-50%, -50%, 0) scale(1);
+				@include circle-marker-active;
 			}
 		}
 	}
@@ -124,19 +117,11 @@
 	
 
 	.elm-content {
-		display:inline;
-		float:right;
-		clear:left;
-		width: 100%;
-		margin-right: -100%;
 		padding: vw-units($content-margin-px) vw-units($content-margin-px) 0;
 		text-align: left;
 	}
 
 	.elm-image {
-		display:inline;
-		float:left;
-		width: 100%;
 		padding: 0 vw-units($content-margin-px);
 	}
 

@@ -90,7 +90,8 @@
                 var top = $(this).offset().top;
                 var bottom = top + $(this).outerHeight();
 
-                $(this).toggleClass('visible', cur_pos + winH * 0.75 >= top && cur_pos <= bottom);
+                //$(this).toggleClass('visible', cur_pos + winH >= top * 1.1 && cur_pos * 1.2 <= bottom);
+                $(this).toggleClass('visible', cur_pos + winH * 0.3 >= top && cur_pos + winH * 0.8 <= bottom);
                 $(this).toggleClass('active', cur_pos >= top && cur_pos <= bottom);
             });
         }

@@ -353,7 +353,7 @@ td, th {
 
 html {
   font-size: 16px; }
-  @media  (min-width: 40em) {
+  @media  (min-width: 50em) {
     html {
       font-size: 16px;
       font-size: 1.6667vw; } }
@@ -435,250 +435,47 @@ a {
     color: inherit; }
   a:active, a:hover {
     color: inherit; }
-  a .icon {
+  a .icon, a .flex-direction-nav a, .flex-direction-nav a a {
     align: absmiddle; }
 
 .caps {
   text-transform: uppercase;
   font-style: normal; }
 
+/*
+.icon {
+  &,
+  &:before {
+    color: inherit;
+  }
+}
+*/
 @font-face {
   font-family: "icons";
-  src: url("../fonts/icons.eot");
-  src: url("../fonts/icons.eot?#iefix") format("embedded-opentype"), url("../fonts/icons.woff") format("woff"), url("../fonts/icons.ttf") format("truetype"), url("../fonts/icons.svg#icomoon") format("svg");
+  src: url("../fonts/icons.eot?3b07dec51d9e775ab58a30c224089c07");
+  src: url("../fonts/icons.eot?#iefix") format("embedded-opentype"), url("../fonts/icons.woff?3b07dec51d9e775ab58a30c224089c07") format("woff"), url("../fonts/icons.ttf?3b07dec51d9e775ab58a30c224089c07") format("truetype");
   font-weight: normal;
   font-style: normal; }
 
-.icon, .icon:before {
-  color: inherit; }
-
-.logo-missing {
+.icon, .flex-direction-nav a {
   font-family: "icons";
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
+  display: inline-block;
+  vertical-align: middle;
   line-height: 1;
-  -webkit-font-smoothing: antialiased; }
-  .logo-missing:before {
-    content: "\e003"; }
+  font-weight: normal;
+  font-style: normal;
+  speak: none;
+  text-decoration: inherit;
+  text-transform: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
 
-.logo-royalcph {
-  font-family: "icons";
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased; }
-  .logo-royalcph:before {
-    content: "\e001"; }
+.icon-arrow-left:before, .flex-direction-nav a:before {
+  content: "\f101"; }
 
-.logo-royalcph-simple {
-  font-family: "icons";
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased; }
-  .logo-royalcph-simple:before {
-    content: "\e002"; }
-
-.logo-kopogkande {
-  font-family: "icons";
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased; }
-  .logo-kopogkande:before {
-    content: "\e005"; }
-
-.logo-illumsbolighus {
-  font-family: "icons";
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased; }
-  .logo-illumsbolighus:before {
-    content: "\e008"; }
-
-.logo-bahne {
-  font-family: "icons";
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased; }
-  .logo-bahne:before {
-    content: "\e00a"; }
-
-.logo-inspiration {
-  font-family: "icons";
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased; }
-  .logo-inspiration:before {
-    content: "\e006"; }
-
-.logo-imerco {
-  font-family: "icons";
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased; }
-  .logo-imerco:before {
-    content: "\e007"; }
-
-.logo-magasin {
-  font-family: "icons";
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased; }
-  .logo-magasin:before {
-    content: "\e004"; }
-
-.logo-illum {
-  font-family: "icons";
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased; }
-  .logo-illum:before {
-    content: "\e009"; }
-
-.logo-salling {
-  font-family: "icons";
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased; }
-  .logo-salling:before {
-    content: "\e000"; }
-
-.icon-arrow-right {
-  font-family: "icons";
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased; }
-  .icon-arrow-right:before {
-    content: "\e011"; }
-
-.icon-arrow-left {
-  font-family: "icons";
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased; }
-  .icon-arrow-left:before {
-    content: "\e012"; }
-
-.icon-scroll-down {
-  font-family: "icons";
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased; }
-  .icon-scroll-down:before {
-    content: "\e00c"; }
-
-.icon-scroll-up {
-  font-family: "icons";
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased; }
-  .icon-scroll-up:before {
-    content: "\e00b"; }
-
-.icon-play {
-  font-family: "icons";
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased; }
-  .icon-play:before {
-    content: "\e00d"; }
-
-.icon-map-marker {
-  font-family: "icons";
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased; }
-  .icon-map-marker:before {
-    content: "\e00e"; }
-
-.icon-close {
-  font-family: "icons";
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased; }
-  .icon-close:before {
-    content: "\e010"; }
-
-.icon-facebook {
-  font-family: "icons";
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased; }
-  .icon-facebook:before {
-    content: "\e00f"; }
+.icon-arrow-right:before, .flex-direction-nav a.flex-next:before {
+  content: "\f102"; }
 
 /* apply a natural box layout model to all elements, but allowing components to change */
 html {
@@ -763,6 +560,48 @@ img {
 
 img.full-width {
   width: 100%; }
+
+@-webkit-keyframes circle-marker-border {
+  0% {
+    box-shadow: 0 0 0 .3em rgba(0, 36, 84, 0.5);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+
+  55% {
+    box-shadow: 0 0 0 .7em rgba(0, 36, 84, 0.5);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; }
+
+  80% {
+    box-shadow: 0 0 0 .5em rgba(0, 36, 84, 0.5);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+
+  100% {
+    box-shadow: 0 0 0 .6em rgba(0, 36, 84, 0.5);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; } }
+
+@keyframes circle-marker-border {
+  0% {
+    box-shadow: 0 0 0 .3em rgba(0, 36, 84, 0.5);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+
+  55% {
+    box-shadow: 0 0 0 .7em rgba(0, 36, 84, 0.5);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; }
+
+  80% {
+    box-shadow: 0 0 0 .5em rgba(0, 36, 84, 0.5);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+
+  100% {
+    box-shadow: 0 0 0 .6em rgba(0, 36, 84, 0.5);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; } }
 
 /*
 .pricing-info {
@@ -873,32 +712,10 @@ img.full-width {
     overflow: hidden;
     cursor: pointer;
     color: #002454;
-    transition: all 0.3s ease-in-out;
-    font-family: "icons";
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased; }
+    transition: all 0.3s ease-in-out; }
     .flex-direction-nav a:before {
       font-size: 4.1667vw;
-      line-height: 4.1667vw;
       display: block; }
-    .flex-direction-nav a:before {
-      content: "\e012"; }
-    .flex-direction-nav a.flex-next {
-      font-family: "icons";
-      speak: none;
-      font-style: normal;
-      font-weight: normal;
-      font-variant: normal;
-      text-transform: none;
-      line-height: 1;
-      -webkit-font-smoothing: antialiased; }
-      .flex-direction-nav a.flex-next:before {
-        content: "\e011"; }
   .flex-direction-nav .flex-prev {
     left: 4.1667vw;
     opacity: .3;
@@ -1623,7 +1440,7 @@ button::-moz-focus-inner {
       top: 0;
       left: 0;
       color: #fff; }
-      .mfp-iframe-holder .mfp-message .message-trigger .icon {
+      .mfp-iframe-holder .mfp-message .message-trigger .icon, .mfp-iframe-holder .mfp-message .message-trigger .flex-direction-nav a, .flex-direction-nav .mfp-iframe-holder .mfp-message .message-trigger a {
         display: inline-block;
         width: 2em;
         height: 2em;
@@ -2054,8 +1871,8 @@ img.mfp-img {
     .history .years a {
       position: relative;
       display: inline-block;
-      padding-top: 2.0833vw;
-      padding-bottom: 2.0833vw;
+      padding-top: 2em;
+      padding-bottom: 2em;
       width: 100%;
       min-height: 5.2083vw;
       text-align: center;
@@ -2071,16 +1888,15 @@ img.mfp-img {
         position: absolute;
         top: 0;
         left: 50%;
-        -webkit-transform: translate3d(-50%, -50%, 0) scale(.5);
-                transform: translate3d(-50%, -50%, 0) scale(.5);
+        -webkit-transform: translate3d(-50%, -50%, 0);
+                transform: translate3d(-50%, -50%, 0);
         display: block;
-        width: 1.6667vw;
-        height: 1.6667vw;
-        border-radius: 0.8333vw;
+        width: 1.1em;
+        height: 1.1em;
+        border-radius: 50%;
         background: #002454;
-        box-shadow: 0 0 0 8px rgba(0, 36, 84, 0.3);
-        transition: -webkit-transform .2s ease;
-        transition: transform .2s ease; }
+        box-shadow: 0 0 0 .3em rgba(0, 36, 84, 0.5);
+        transition: width .2s ease-out .2s, height .2s ease-out .2s, box-shadow .4s ease-out; }
       .history .years a .year {
         font-size: 20px;
         font-size: 1.25rem;
@@ -2093,23 +1909,17 @@ img.mfp-img {
         margin-left: auto;
         margin-right: auto; }
     .history .years li.active a:before, .history .years a:hover:before {
-      -webkit-transform: translate3d(-50%, -50%, 0) scale(1);
-              transform: translate3d(-50%, -50%, 0) scale(1); }
+      width: 1.6em;
+      height: 1.6em;
+      -webkit-animation: circle-marker-border .4s .25s 1 alternate forwards;
+              animation: circle-marker-border .4s .25s 1 alternate forwards; }
   .history .flexslider {
     overflow: hidden;
     padding: 9.375vw 9.375vw; }
   .history .elm-content {
-    display: inline;
-    float: right;
-    clear: left;
-    width: 100%;
-    margin-right: -100%;
     padding: 4.1667vw 4.1667vw 0;
     text-align: left; }
   .history .elm-image {
-    display: inline;
-    float: left;
-    width: 100%;
     padding: 0 4.1667vw; }
   .history h3.year {
     font-size: 20px;
@@ -2488,15 +2298,18 @@ img.mfp-img {
     .pattern h2:before {
       content: '';
       display: block;
-      height: 1.2em;
-      width: 1.2em;
-      margin-bottom: -0.5em;
+      position: absolute;
+      -webkit-transform: translate3d(-50%, -50%, 0);
+              transform: translate3d(-50%, -50%, 0);
+      display: block;
+      width: 1.1em;
+      height: 1.1em;
       border-radius: 50%;
-      box-shadow: 0 0 0 0.4em rgba(20, 32, 74, 0.5);
-      bottom: -0.4em;
-      left: 25vw;
-      background-color: #002454;
-      position: absolute; }
+      background: #002454;
+      box-shadow: 0 0 0 .3em rgba(0, 36, 84, 0.5);
+      transition: width .2s ease-out .2s, height .2s ease-out .2s, box-shadow .4s ease-out;
+      bottom: -1.45em;
+      left: 25vw; }
     .pattern h2:after {
       content: '';
       display: block;
@@ -2504,9 +2317,50 @@ img.mfp-img {
       width: 25vw;
       background: #ffffff;
       background: linear-gradient(to right, #ffffff 0%, #14204a 100%);
-      bottom: -0.4em;
+      bottom: -0.45em;
       left: 0;
       position: absolute; }
+  @media  (min-width: 40em) {
+    .csstransitions .pattern h2, .csstransitions .pattern p {
+      -webkit-transform: translate3d(-50%, 0, 0);
+              transform: translate3d(-50%, 0, 0);
+      opacity: 0;
+      transition: -webkit-transform .3s ease, opacity .3s ease;
+      transition: transform .3s ease, opacity .3s ease; }
+    .csstransitions .pattern h2:before {
+      opacity: 0;
+      -webkit-transform: translate3d(-50%, -50%, 0) scale(.01);
+              transform: translate3d(-50%, -50%, 0) scale(.01);
+      bottom: -1.95em; }
+    .csstransitions .pattern h2:after {
+      -webkit-transform: translate3d(-200%, 0, 0);
+              transform: translate3d(-200%, 0, 0);
+      opacity: 0;
+      transition: opacity .3s ease, -webkit-transform .3s ease;
+      transition: opacity .3s ease, transform .3s ease; }
+    .csstransitions .pattern li.visible h2, .csstransitions .pattern li.visible p {
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+      opacity: 1; }
+    .csstransitions .pattern li.visible p {
+      transition-delay: .1s; }
+    .csstransitions .pattern li.visible h2:before {
+      opacity: 1;
+      -webkit-transform: translate3d(-50%, -50%, 0) scale(1);
+              transform: translate3d(-50%, -50%, 0) scale(1);
+      transition: opacity .3s ease .7s, -webkit-transform .3s ease .7s;
+      transition: opacity .3s ease .7s, transform .3s ease .7s;
+      width: 1.6em;
+      height: 1.6em;
+      -webkit-animation: circle-marker-border .4s .25s 1 alternate forwards;
+              animation: circle-marker-border .4s .25s 1 alternate forwards;
+      -webkit-animation-delay: .7s;
+              animation-delay: .7s; }
+    .csstransitions .pattern li.visible h2:after {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+      transition-delay: .4s; } }
   .pattern .light h2:after {
     background: #002454; }
   .pattern p {
@@ -2605,7 +2459,7 @@ img.mfp-img {
     font-size: 25px;
     font-size: 1.5625rem;
     line-height: 3.125vw; }
-  .store-locator .icon {
+  .store-locator .icon, .store-locator .flex-direction-nav a, .flex-direction-nav .store-locator a {
     line-height: 3.125vw;
     font-size: 3.125vw;
     font-style: normal; }
@@ -2647,11 +2501,11 @@ img.mfp-img {
         .store-locator a span {
           display: block;
           margin: 0 auto; }
-      .store-locator .icon {
+      .store-locator .icon, .store-locator .flex-direction-nav a, .flex-direction-nav .store-locator a {
         display: block;
         text-align: center;
         margin-bottom: 0; }
-        .store-locator .icon:before {
+        .store-locator .icon:before, .store-locator .flex-direction-nav a:before, .flex-direction-nav .store-locator a:before {
           width: 3.125vw;
           height: 3.125vw;
           font-size: 3.125vw;

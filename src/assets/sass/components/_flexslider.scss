@@ -100,14 +100,15 @@
 
     &:before {
       font-size:vw-units($content-margin-px);
-      line-height: vw-units($content-margin-px);
+      //line-height: vw-units($content-margin-px);
       display:block;
     }
 
-    @include icon($icon-arrow-left);
+    @extend .icon;
+    @extend .icon-arrow-left;
 
     &.flex-next {
-      @include icon($icon-arrow-right);
+      @extend .icon-arrow-right;
     }
   }
 

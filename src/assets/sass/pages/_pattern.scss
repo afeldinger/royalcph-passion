@@ -70,16 +70,13 @@
 			&:before {
 				content: '';
 				display: block;
-				height: 1.2em;
-				width: 1.2em;
-				margin-bottom: -0.5em;
-				border-radius: 50%;
-				box-shadow: 0 0 0 0.4em rgba(20, 32, 74, 0.5);
-				//top: 1.4em;
-				bottom:-0.4em;
-				left: 25vw;
-				background-color: $color-brand;
 				position: absolute;
+
+				@include circle-marker;
+
+				bottom: -1.45em;
+				left: 25vw;
+
 
 			}
 
@@ -90,11 +87,54 @@
 				width: 25vw;
 				background: $color-white;
 				background: linear-gradient(to right, rgba(255,255,255,1) 0%,rgba(20,32,74,1) 100%);
-				//top: 1.4em;
-				bottom:-0.4em;
+				bottom:-0.45em;
 				left: 0;
 				position: absolute;
 
+			}
+		}
+		@include breakpoint($sm) {
+			.csstransitions & {
+				h2,
+				p {
+					transform: translate3d(-50%, 0, 0);
+					opacity: 0;
+					transition: transform .3s ease, opacity .3s ease;
+				}
+				h2:before {
+					opacity: 0;
+					transform: translate3d(-50%, -50%, 0) scale(.01);
+					bottom: -1.95em
+				}
+				h2:after {
+					transform: translate3d(-200%, 0, 0);
+					opacity: 0;
+					transition: opacity .3s ease, transform .3s ease;
+				}
+
+
+				li.visible {
+					h2,
+					p {
+						transform: translate3d(0, 0, 0);
+						opacity: 1;
+					}
+					p {
+						transition-delay: .1s;
+					}
+					h2:before {
+						opacity: 1;
+						transform: translate3d(-50%, -50%, 0) scale(1);
+						transition: opacity .3s ease .7s, transform .3s ease .7s;
+						@include circle-marker-active;
+						animation-delay: .7s;
+					}
+					h2:after {
+						opacity: 1;
+						transform: translate3d(0, 0, 0);
+						transition-delay: .4s;
+					}
+				}
 			}
 		}
 
