@@ -34,20 +34,7 @@
 		flex-direction: column;
 		justify-content: center;
 	}
-	
-	svg {
-		display:block;
-		margin:0 auto 0.8rem;
-		width: vw-units(50px);
-		height: vw-units(60px);
-		min-width: 50px;
-		min-height: 60px;
 
-
-		color: $color-gold;
-		fill: $color-brand;
-
-	}
 
 	> h1 {
 		@include adjust-font-size-to($size-xxxl);
@@ -55,6 +42,20 @@
 
 		@include breakpoint($xs) {
 			@include adjust-font-size-to($size-xxxxl);
+		}
+
+		svg {
+			display:block;
+			margin:0 auto 0.8rem;
+			width: vw-units(50px);
+			height: vw-units(60px);
+			min-width: 50px;
+			min-height: 60px;
+
+
+			color: $color-gold;
+			fill: $color-brand;
+
 		}
 	}
 	> h2 {
@@ -70,6 +71,39 @@
 	img {
 		margin: 0 auto;
 	}
+
+	
+	.scroll-down {
+		position: absolute;
+		top: 70%;
+		left: 0;
+		width: 100%;
+
+		svg {
+			display:block;
+			margin: 0 auto;
+			width: vw-units(50px);
+			height: vw-units(60px);
+			min-width: 50px;
+			min-height: 60px;
+			fill: $color-brand;
+
+		}
+
+		/*
+		transform: translate3d(0,0,0);
+		backface-visibility: visible;
+		animation: scroll-down-bounce 4s;
+		animation-iteration-count: 5;
+*/
+	}
+
+	@keyframes scroll-down-bounce {
+		0%, 100% {transform: translateY(0);}
+		70% {transform: translateY(30px);}
+	}
+
+
 
 	video {
 		

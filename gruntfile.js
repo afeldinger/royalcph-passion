@@ -195,7 +195,7 @@ module.exports = function(grunt) {
                 cwd: 'src/assets/img/',
                 src: [
                   '**/*.svg',
-                  '!svgdefs/*',
+                  //'!svgdefs/*',
                   //'!svgdefs.svg',
                 ],
                 dest: 'dist/assets/img/'
