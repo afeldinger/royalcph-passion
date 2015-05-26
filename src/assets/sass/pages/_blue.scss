@@ -33,6 +33,19 @@
 
 	.elm-image {
 		position:relative;
+		img {
+			margin-left: -50%;
+			width:200%;
+			max-width: none;
+		}
+
+		@include breakpoint($xs) {
+
+			img {
+				margin-left:0;
+				max-width: 100%;
+			}
+		}
 	}
 
 	.elm-content {

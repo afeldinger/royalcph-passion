@@ -127,6 +127,17 @@ nav#sidenav {
 			width:30px;
 			height:30px;
 		}
+
+		.currentsection-1 &,
+		.currentsection-2 &,
+		.currentsection-3 &,
+		.currentsection-4 &,
+		.currentsection-5 & {
+			border-color: $color-white;
+			svg {
+				fill: $color-white;
+			}
+		}
 	}
 
 	&.active {

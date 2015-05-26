@@ -12,6 +12,7 @@
 			fill:$color-white;
 			margin:0 auto;
 			min-height: 420px;
+			max-width:80%;
 
 		}
 		
@@ -39,7 +40,7 @@
 			transition: background-color .3s ease;
 			
 			&:hover {
-				background-color: rgba($color-brand, .2);
+				background-color: $color-white;
 				
 			}
 		}
@@ -73,6 +74,7 @@
 			svg {
 				height: 40vw;
 				min-height: 0;
+				max-width: none;
 			}
 
 		}

@@ -27,7 +27,7 @@
     }
 
 
-    var body = $('html, body');
+    var body = $('body');
     var scrollSections = $('.content-section');
     var scrollPlates = $('.pattern li');
     var parallaxSpeed = -0.4;
@@ -38,29 +38,29 @@
     var winH = $(window).height();
 
     var scrollListener = function() {
+
         cur_pos = Math.max(0, $(window).scrollTop());
+        var is_plates = false;
 
         if (!Modernizr.touch && parallaxSpeed !== 0) {
             body.each(function() {
-                $(this).css('background-position', '50% ' + (cur_pos * parallaxSpeed) + 'px');
+                $(this).css('background-position', '50% ' + Math.round(cur_pos * parallaxSpeed) + 'px');
             });
         }
 
-        scrollSections.each(function() {
+        scrollSections.each(function(i) {
             var top = $(this).offset().top;
             var bottom = top + $(this).outerHeight();
             var is_front = $(this).hasClass('section-front')? 1:0;
 
+            // fuzzy section
             if (cur_pos + winH * 0.75 >= top && cur_pos <= bottom) {
                 $(this).addClass('active');
-/*
-                if (!$(this).hasClass('images-loaded')) {
-                    $(this).addClass('images-loaded').find('[data-original]').trigger('appear');
-                }
-*/
+
                 if (is_front && bgvid.hasClass('ready')) {
                     bgvid.get(0).play();
                 }
+
             } else {
                 $(this).removeClass('active');
                 if (is_front && bgvid.hasClass('ready')) {
@@ -68,32 +68,41 @@
                 }
             }
             
-            nav.find('a[href="#'+$(this).attr('id')+'"]').toggleClass('active', cur_pos >= top && cur_pos < bottom);
-
+            // exact section
+            if (cur_pos >= top && cur_pos < bottom) {
+                nav.find('a[href="#'+$(this).attr('id')+'"]').addClass('active');
+                body.removeClass (function (index, className) {
+                    return (className.match (/(^|\s)currentsection-\S+/g) || []).join(' ');
+                }).addClass('currentsection-'+i);
+            } else {
+                nav.find('a[href="#'+$(this).attr('id')+'"]').removeClass('active');
+            }
+            
+            if ($(this).hasClass('section-pattern')) {
+                is_plates = $(this).hasClass('active');    
+            }
+            
 
         });
+        
+        if (is_plates) {
+            scrollPlates.each(function() {
+                var top = $(this).offset().top;
+                var bottom = top + $(this).outerHeight();
 
-        scrollPlates.each(function() {
-            var top = $(this).offset().top;
-            var bottom = top + $(this).outerHeight();
-
-            $(this).toggleClass('visible', cur_pos + winH * 0.75 >= top && cur_pos <= bottom);
-            $(this).toggleClass('active', cur_pos >= top && cur_pos <= bottom);
-        });
+                $(this).toggleClass('visible', cur_pos + winH * 0.75 >= top && cur_pos <= bottom);
+                $(this).toggleClass('active', cur_pos >= top && cur_pos <= bottom);
+            });
+        }
         
     };
     window.addEventListener('scroll', scrollListener);
+    scrollListener();
 
 
     var resizeListener = debounce(function() {
-        winH = $(window).height();
-        history_calc_stops();
-
-        var opts = $(history_pep).data('plugin_pep').options;
-        //$('.pep').constrainTo = [top, right, bottom, left];
-        opts.stops = history_stops;
-        opts.constrainTo = history_constrain_to;
-
+        winH = $(window).height(); 
+        pep_update();
     }, 200);
     window.addEventListener('resize', resizeListener);
 
@@ -166,7 +175,8 @@
         controlNav: false,
         start: flexslider_start,
         before: flexslider_before,
-        after: flexslider_after
+        after: flexslider_after,
+        startAt:0
 	});
 
     $('.history .flexslider').flexslider({
@@ -178,10 +188,15 @@
         before: function(slider) {
             flexslider_before(slider);
 
-            history_stop_elms.filter(':nth('+(slider.animatingTo)+')').find('a').trigger('click');
+            history_stop_elms.filter(':nth('+(slider.animatingTo)+')').find('a').each(function() {
+                var $li = $(this).closest('li');
+                $li.addClass('active').siblings('li').removeClass('active');
+                $(history_pep).data('plugin_pep').moveTo($li.data('stop'), 0);
+            });
         },
         after: flexslider_after,
         //manualControls: '.history .years li a',
+        startAt:0
     });
 
 
@@ -192,90 +207,98 @@
         history_constrain_to = [],
         history_calc_stops = function() {
 
-            var offset = $(window).width() / 2;
+            var offset = Math.round($(window).width() / 2);
 
             history_stops = [];
             history_last_stop = 0;
 
             history_stop_elms.each(function() {
-                history_last_stop = offset - $(this).offset().left;
+                history_last_stop = Math.round(offset - $(this).offset().left);
                 $(this).data('stop', history_last_stop);
                 history_stops.push(history_last_stop);
             });
 
             history_constrain_to = [0,0,0,history_last_stop];
-        };
+        },
+        pep_init = function() {
+            history_pep.each(function() {
 
-    var pep_init = function() {
-        history_pep.each(function() {
+                $(this).find('a').each(function(i) {
+                    $(this).bind('click', function(event) {
+                        $('.history .flexslider').flexslider(i);
 
+                        var $li = $(this).closest('li');
+                        $li.addClass('active').siblings('li').removeClass('active');
+                        $(history_pep).data('plugin_pep').moveTo($li.data('stop'), 0);
+                        
+                        //event.stopPropagation();
+                        event.preventDefault();
+                        
+                    }).bind('touchend', function() {
+                        $(this).trigger('click');
+                    });
+                }).filter(':first').closest('li').addClass('active');
+
+                history_calc_stops();
+
+                $(this).pep({
+                    axis: 'x',
+                    constrainTo: history_constrain_to,
+                    stops: history_stops,
+                    //elementsWithInteraction: 'a',
+                    moveTo: function(x,y) {
+                        if (this.easing && this.options.stops !== 'undefined') {
+
+                            // snap to nearest stop when easing
+                            var dx = 0;
+                            if (typeof x === 'string' && x.indexOf('=') !== false) {
+                                dx = parseInt(this.$el.css('left'), 10);
+                                //eval('dx' + x);
+                                dx += parseInt(x.substr(0,1) + x.substr(2), 10);
+                            } else {
+                                dx = x;
+                            }
+                            var xClosest = 0;
+                            $.each(this.options.stops, function(){
+                                if (xClosest === null || Math.abs(this - dx) < Math.abs(xClosest - dx)) {
+                                    xClosest = this;
+                                }
+                            });
+
+                            x = xClosest;
+                        }
+                        this.$el.stop(true, false).css({ top: y , left: x });
+                    },
+
+                });
+
+                // warm up pep object with fake click event, ready for prev/next from flexslider
+                var ev = jQuery.Event('click', {originalEvent: {pageX:0, pageY:0}});
+                $(this).data('plugin_pep').handleStart(ev);
+                $(this).data('plugin_pep').handleStop(ev);
+            });
+        },
+        pep_update = function() {
+
+            // re-calc new stops
             history_calc_stops();
 
-            $(this).find('a').each(function(i) {
-                $(this).click(function(event) {
-                    event.stopPropagation();
-                    event.preventDefault();
+            // find pep obj and re-set options
+            var pepObj = $(history_pep).data('plugin_pep');
+            pepObj.options.stops = history_stops;
+            pepObj.options.constrainTo = history_constrain_to;
 
-                    $('.history .flexslider').flexslider(i);
-                    var $li = $(this).closest('li');
+            // move pep obj to new stop coordinates
+            var $li = $(history_pep).find('li.active');
+            pepObj.moveTo($li.data('stop'), 0);
+        };
 
-                    $li.addClass('active').siblings('li').removeClass('active');
-                    $(history_pep).data('plugin_pep').moveTo($li.data('stop'), 0);
-                    
-                    
-                });
-            }).filter(':first').closest('li').addClass('active');
-
-            //$.pep.unbind($(this));
-
-            $(this).pep({
-                axis: 'x',
-                constrainTo: history_constrain_to,
-                stops: history_stops,
-                //elementsWithInteraction: 'a',
-                moveTo: function(x,y) {
-                    if (this.easing && this.options.stops !== 'undefined') {
-
-                        // snap to nearest stop when easing
-                        var dx = 0;
-                        if (typeof x === 'string' && x.indexOf('=') !== false) {
-                            dx = parseInt(this.$el.css('left'), 10);
-                            //eval('dx' + x);
-                            dx += parseInt(x.substr(0,1) + x.substr(2), 10);
-                        } else {
-                            dx = x;
-                        }
-                        var xClosest = 0;
-                        $.each(this.options.stops, function(){
-                            if (xClosest === null || Math.abs(this - dx) < Math.abs(xClosest - dx)) {
-                                xClosest = this;
-                            }
-                        });
-
-                        x = xClosest;
-                        //console.log('easing', x);
-                    }
-                    this.$el.stop(true, false).css({ top: y , left: x });
-                },
-
-            });
-
-            // warm up pep object with fake click event, ready for prev/next from flexslider
-            var ev = jQuery.Event('click', {originalEvent: {pageX:0, pageY:0}});
-            $(this).data('plugin_pep').handleStart(ev);
-            $(this).data('plugin_pep').handleStop(ev);
-        });
-    };
     pep_init();
 
     $('[data-original]').lazyload({
-        effect : 'fadeIn',
+        //effect : 'fadeIn',
         skip_invisible : false,
         //threshold: 10,
-    });
-
-    $(document).ready(function() {
-        scrollListener();
     });
 
     $(window).load(function() {
