@@ -2457,8 +2457,7 @@ img.mfp-img {
     font-style: italic;
     padding: 2.5rem;
     font-size: 25px;
-    font-size: 1.5625rem;
-    line-height: 3.125vw; }
+    font-size: 1.5625rem; }
   .store-locator .icon, .store-locator .flex-direction-nav a, .flex-direction-nav .store-locator a {
     line-height: 3.125vw;
     font-size: 3.125vw;

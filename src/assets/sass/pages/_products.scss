@@ -111,17 +111,12 @@
 		padding: $content-margin;
 
 		@include adjust-font-size-to($size-xl);
-		line-height: vw-units($size-xxl);
+
 	}
 	.icon {
 		line-height: vw-units($size-xxl);
 		font-size: vw-units($size-xxl);
 		font-style:normal;
-		&:before {
-		
-			
-
-		}
 	}
 
 	@include breakpoint($sm) {
