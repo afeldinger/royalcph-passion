@@ -24,6 +24,7 @@ body {
 
 .content-section {
 	padding: vw-units($section-margin-v * 2) vw-units($section-margin-h);
+	//transform: translate3d(0,0,0);
 	/*
 	background-image: url(../img/bg_concrete_dark.jpg);
 	background-position: 50% 0;

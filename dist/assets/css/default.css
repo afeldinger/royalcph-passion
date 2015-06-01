@@ -670,14 +670,12 @@ img.full-width {
   position: relative;
   zoom: 1; }
   .flexslider .slides {
-    zoom: 1;
     list-style: none;
     overflow: hidden;
     *zoom: 1; }
     .flexslider .slides > li {
       margin: 0;
-      display: none;
-      -webkit-backface-visibility: hidden; }
+      display: none; }
     .flexslider .slides img {
       width: 100%;
       height: auto;
@@ -1777,8 +1775,8 @@ ul.mTSContainer, ol.mTSContainer {
   overflow: hidden;
   z-index: 1;
   padding: 0;
-  -webkit-transform: translateZ(0);
-          transform: translateZ(0); }
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0); }
   .content-section.section-passion > h1 {
     position: absolute;
     top: 45px;
@@ -1795,6 +1793,8 @@ ul.mTSContainer, ol.mTSContainer {
   min-height: 100vh;
   overflow: hidden;
   margin: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
   /*
 	@media screen and (min-aspect-ratio: 2/1) {
 		min-height: 80vw;
@@ -1836,8 +1836,8 @@ ul.mTSContainer, ol.mTSContainer {
     opacity: 0;
     z-index: -1;
     transition: opacity .3s ease .15s;
-    -webkit-transform: translateZ(0);
-            transform: translateZ(0); }
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0); }
     .passion-videos .elm-image img {
       display: none; }
   .passion-videos .elm-content {
@@ -1845,8 +1845,8 @@ ul.mTSContainer, ol.mTSContainer {
     max-height: 1px;
     opacity: 0;
     overflow: hidden;
-    -webkit-transform: translateZ(0);
-            transform: translateZ(0);
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
     transition: max-height .4s, opacity .3s; }
   .passion-videos .video-player {
     position: relative;

@@ -3,7 +3,7 @@
 	overflow:hidden;
 	z-index:1;
 	padding: 0;
-	transform: translateZ(0);
+	transform: translate3d(0,0,0);
 
 
 	> h1 {
@@ -26,6 +26,7 @@
 	min-height: 100vh;
 	overflow:hidden;
 	margin:0;
+	transform: translate3d(0,0,0);
 
 	@media screen and (min-aspect-ratio: 3/2) {
 		min-height: 70vw;
@@ -79,7 +80,8 @@
 		z-index:-1;
 
 		transition: opacity .3s ease .15s;
-		transform: translateZ(0);
+		transform: translate3d(0,0,0);
+		//transform: translateZ(0);
 
 		img {
 			display:none;
@@ -93,7 +95,8 @@
 		max-height: 1px;
 		opacity: 0;
 		overflow: hidden;
-		transform: translateZ(0);
+		transform: translate3d(0,0,0);
+		//transform: translateZ(0);
 
 		transition: max-height .4s, opacity .3s;
 	}

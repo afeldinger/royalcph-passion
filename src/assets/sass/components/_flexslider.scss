@@ -28,13 +28,13 @@
   zoom: 1; 
 
   .slides {
-    zoom: 1;
+    //zoom: 1;
     list-style:none;
     
     > li {
       margin:0;
       display: none; 
-      -webkit-backface-visibility: hidden;
+      //-webkit-backface-visibility: hidden;
     }
 
     img {
