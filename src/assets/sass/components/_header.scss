@@ -37,6 +37,7 @@ nav#sidenav {
 
 	color: $color-brand;
 	font-size: $size-md;
+	line-height: 1.2em;
 	text-transform: uppercase;
 
 	z-index:1000;
@@ -78,7 +79,8 @@ nav#sidenav {
 		display:block;
 		padding: 10px;
 		white-space: nowrap;
-		&.active {
+		&.active,
+		&:hover {
 			font-weight: $weight-bold;
 		}
 	}
@@ -128,15 +130,19 @@ nav#sidenav {
 			height:30px;
 		}
 
-		.currentsection-1 &,
-		.currentsection-2 &,
-		.currentsection-3 &,
-		.currentsection-4 &,
-		.currentsection-5 & {
+	}
+
+	.currentsection-1 &:not(.active),
+	.currentsection-2 &:not(.active),
+	.currentsection-3 &:not(.active),
+	.currentsection-4 &:not(.active),
+	.currentsection-5 &:not(.active) {
+		.open-nav {
 			border-color: $color-white;
 			svg {
 				fill: $color-white;
 			}
+
 		}
 	}
 
@@ -145,6 +151,7 @@ nav#sidenav {
 		.open-nav {
 			right: 20px;
 			border:none;
+			background: $color-white;
 
 			.open {
 				visibility: hidden;

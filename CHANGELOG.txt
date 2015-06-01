@@ -1,8 +1,14 @@
-2014-04-22 16:00
+2015-06-01 14:00
+	* Removed <video> tag from frontpage, due to ipad issues. Video is now injected using javascript.
+	* Added <div class="scroll-down"> to frontpage
+	* Removed comments from inspiration section
+
+
+2015-05-22 16:00
 	* Added "muted" attribute to video player
 	
 
-2014-04-22 15:00
+2015-05-22 15:00
 	* Added link to product image and header
 	* Added @source to inspiration slides
 	* Added video to frontpage

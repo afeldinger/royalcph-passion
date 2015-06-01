@@ -33,13 +33,25 @@
 
 	.elm-image {
 		position:relative;
+		overflow: hidden;
+		&:after {
+			content: '';
+			display:block;
+			margin-bottom: 540px / 960px * 200%;
+		}
 		img {
+			position:absolute;
+			top:0;
+			left:0;
 			margin-left: -50%;
 			width:200%;
 			max-width: none;
 		}
 
 		@include breakpoint($xs) {
+			&:after {
+				margin-bottom: 540px / 960px * 100%;
+			}
 
 			img {
 				margin-left:0;

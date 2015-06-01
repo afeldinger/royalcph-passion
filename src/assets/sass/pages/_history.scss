@@ -23,6 +23,7 @@
 		height: vw-units(2 * $section-margin-v);
 		left: 0;
 		text-align: left;
+		transform: translate3d(0,0,0);
 
 		ul {
 			position:relative;
@@ -122,7 +123,19 @@
 	}
 
 	.elm-image {
+		position: relative;
 		padding: 0 vw-units($content-margin-px);
+
+		&:after {
+			content: ' ';
+			display: block;
+			margin-bottom:530px / 716px * 100%;
+		}
+		img {
+			position:absolute;
+			bottom:0;
+			left:0;
+		}
 	}
 
 	h3.year {

@@ -17,7 +17,8 @@ module.exports = function(grunt) {
       },
       images: {
         files: ['src/assets/img/**/*.{png,jpg,gif}'],
-        tasks: ['imagemin'],
+        //tasks: ['imagemin'],
+        tasks: ['copy:images'],
         options: {
           spawn: false,
         }
@@ -246,7 +247,7 @@ module.exports = function(grunt) {
         //outFile: 'dist/assets/css',
         outputStyle: 'nested', 
         imagePath: "../img/",
-        precision: 4,
+        precision: 2,
       }
     },
 
@@ -319,6 +320,16 @@ module.exports = function(grunt) {
           }
         ],
       },
+      images: {
+        files: [
+          {
+            expand: true,
+            cwd: 'src/assets/img/',
+            src: ['**/*.{png,jpg,gif}'],
+            dest: 'dist/assets/img/'
+          },
+        ],
+      },
       favicons: {
         files: [
           {
@@ -374,7 +385,7 @@ module.exports = function(grunt) {
   require('matchdep').filterDev(['grunt-*', 'assemble']).forEach(grunt.loadNpmTasks);
 
 
-  grunt.registerTask('common', ['assemble', 'prettify', 'sass_globbing', 'sass:dev', 'autoprefixer', 'svgstore', 'svgmin', 'imagemin', 'copy:assets']);
+  grunt.registerTask('common', ['assemble', 'prettify', 'sass_globbing', 'sass:dev', 'autoprefixer', 'svgstore', 'svgmin', 'copy:images', 'copy:assets']);
 
   // Default task(s).
   grunt.registerTask('default', ['clean:dist', 'common', 'watch']);

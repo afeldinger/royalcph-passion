@@ -15,14 +15,14 @@ img.full-width {
 	border-radius: 50%;
 	background: $color-brand;
 	box-shadow: 0 0 0 .3em rgba($color-brand, .5);
-	transition: width .2s ease-out .2s, height .2s ease-out .2s, box-shadow .4s ease-out;
+	transition: width .2s ease-in .3s, height .2s ease-in .3s;
 }
 
 
 @mixin circle-marker-active {
 	width: 1.6em;
 	height: 1.6em;
-	animation: circle-marker-border .4s .25s 1 alternate forwards;
+	animation: circle-marker-border .5s .6s 1 alternate forwards;
 	//box-shadow: 0 0 0 .6em rgba($color-brand, .5);
 }
 

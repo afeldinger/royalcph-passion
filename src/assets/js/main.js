@@ -32,7 +32,17 @@
     var scrollPlates = $('.pattern li');
     var parallaxSpeed = -0.4;
     var nav = $('nav.sidenav');
-    var bgvid = $('video#bgvid');
+
+    var bgvid = false;
+    if (!Modernizr.touch) {
+        $('.section-front').append('<video autoplay preload="auto" id="bgvid" loop muted><source src="http://player.vimeo.com/external/128246668.sd.mp4?s=e00445b30f892f28b83d2d8e83b89842&profile_id=112" type="video/mp4"><source src="http://player.vimeo.com/external/128246668.m3u8?p=high,standard&s=943b7f40797fc7532c026fbcd237c006" type="application/x-mpegURL"></video>');
+        bgvid = $('video#bgvid');
+        bgvid.bind('play', function() {
+            $(this).addClass('ready');
+        });
+    } else {
+
+    }
 
     var cur_pos = 0;
     var winH = $(window).height();
@@ -57,13 +67,13 @@
             if (cur_pos + winH * 0.75 >= top && cur_pos <= bottom) {
                 $(this).addClass('active');
 
-                if (is_front && bgvid.hasClass('ready')) {
+                if (!Modernizr.touch && is_front && bgvid.hasClass('ready')) {
                     bgvid.get(0).play();
                 }
 
             } else {
                 $(this).removeClass('active');
-                if (is_front && bgvid.hasClass('ready')) {
+                if (!Modernizr.touch && is_front && bgvid.hasClass('ready')) {
                     bgvid.get(0).pause();
                 }
             }
@@ -91,7 +101,7 @@
                 var bottom = top + $(this).outerHeight();
 
                 //$(this).toggleClass('visible', cur_pos + winH >= top * 1.1 && cur_pos * 1.2 <= bottom);
-                $(this).toggleClass('visible', cur_pos + winH * 0.3 >= top && cur_pos + winH * 0.8 <= bottom);
+                $(this).toggleClass('visible', cur_pos + winH * 0.3 >= top && cur_pos + winH * 0.65 <= bottom);
                 $(this).toggleClass('active', cur_pos >= top && cur_pos <= bottom);
             });
         }
@@ -127,15 +137,12 @@
     });
 
 
-    $('video#bgvid').bind('play', function() {
-        $(this).addClass('ready');
-    });
 
     $('.passion-videos').each(function() {
         $(this).not(':contains(.initial)').find('li:nth(2)').addClass('initial');
 
         $(this).find('h2 a').click(function(event) {
-        	event.preventDefault();
+            event.preventDefault();
             var isActive = $(this).closest('li').hasClass('active');
             $(this).closest('li').toggleClass('active', !isActive).siblings('li').removeClass('active').parents('ul:first').toggleClass('has-active', !isActive).each(function() {
                 $(this).addClass('transition');
@@ -152,10 +159,10 @@
         setLeft:'0%',
         speed:20
     }).find('li').click(function() {
-        $(this).addClass('active').siblings('li').removeClass('active');
+        $(this).toggleClass('active').siblings('li').removeClass('active');
     });
 
-	// init flexsliders on page
+    // init flexsliders on page
     var flexslider_start = function(slider) {
         slider.slides.eq(slider.currentSlide).addClass('flex-active-transition');
         slider.attr('data-current-slide', slider.currentSlide);
@@ -170,15 +177,15 @@
         //}, 500);
     };
 
-	$('.blue-slider, .products').flexslider({
-		animation: 'slide',
-		slideshow: false,
+    $('.blue-slider, .products').flexslider({
+        animation: 'slide',
+        slideshow: false,
         controlNav: false,
         start: flexslider_start,
         before: flexslider_before,
         after: flexslider_after,
         startAt:0
-	});
+    });
 
     $('.history .flexslider').flexslider({
         animation: 'slide',
@@ -296,15 +303,23 @@
 
     pep_init();
 
+
     $('[data-original]').lazyload({
         //effect : 'fadeIn',
         skip_invisible : false,
         //threshold: 10,
     });
 
-    $(window).load(function() {
+    $(window).bind('load', function() {
+
+        // When page is loaded, begin fetching and playing background video
+        if (!Modernizr.touch) {
+            bgvid.attr('preload', 'auto').attr('autoplay', 'true');
+        }
+
         $('[data-original]').trigger('appear');
+
     });
+
+
 })();
-
-
