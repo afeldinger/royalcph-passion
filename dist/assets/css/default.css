@@ -1835,9 +1835,7 @@ ul.mTSContainer, ol.mTSContainer {
     background-size: cover;
     opacity: 0;
     z-index: -1;
-    transition: opacity .3s ease .15s;
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0); }
+    transition: opacity .3s ease .15s; }
     .passion-videos .elm-image img {
       display: none; }
   .passion-videos .elm-content {
@@ -1845,8 +1843,6 @@ ul.mTSContainer, ol.mTSContainer {
     max-height: 1px;
     opacity: 0;
     overflow: hidden;
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
     transition: max-height .4s, opacity .3s; }
   .passion-videos .video-player {
     position: relative;
@@ -2013,7 +2009,7 @@ ul.mTSContainer, ol.mTSContainer {
     background: #002454; }
   .pattern p {
     max-width: 30%; }
-  @media  (min-width: 0) and (max-width: 40em) and (orientation: portrait) {
+  @media  (min-width: 0) and (max-width: 40em),  (min-width: 0) and (max-width: 50em) and (orientation: portrait) {
     .pattern li {
       position: relative;
       background-attachment: scroll;

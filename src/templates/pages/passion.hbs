@@ -12,7 +12,7 @@ class: section-passion
 {{#eachOptions passion}}
 	<li id="passion-{{this.key}}" class="{{this.value.class}}">
 		<h2><a href="#passion-{{this.key}}">{{this.value.title}}</a></h2>
-		<div class="elm-image"  data-original="{{this.value.imgurl}}"></div>
+		<div class="elm-image"  data-bg="{{this.value.imgurl}}"></div>
 		<div class="elm-content">
 
 			<div class="video-player">
@@ -21,7 +21,7 @@ class: section-passion
 					<img src="{{this.value.thumb}}" alt="{{this.value.title}}">
 				</a>
 -->
-				<iframe src="{{this.value.videoUrl}}" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+				<iframe data-src="{{this.value.videoUrl}}" src="" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 			</div>
 		</div>

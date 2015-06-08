@@ -93,7 +93,7 @@
 
 			}
 		}
-		@include breakpoint(($sm) (orientation landscape), ($md) (orientation portrait)) {
+		@include breakpoint($sm (orientation landscape), $md (orientation portrait)) {
 			.csstransitions & {
 				h2,
 				p {
@@ -157,7 +157,8 @@
 		}
 	}
 	*/
-	@include breakpoint((0 $sm) or (0 $md) (orientation portrait)) {
+	$advanced: 0 $sm, (0 $md) (orientation portrait);
+	@include breakpoint($advanced) {
 		li {
 			position: relative;
 			background-attachment: scroll;

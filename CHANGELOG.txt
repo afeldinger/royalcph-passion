@@ -1,3 +1,9 @@
+2015-06-08 23:00
+	* Switched lazy load library to aid load times:
+		* Change data-original="" into data-bg="" on pattern and passion <divs>
+		* On passion, change vimeo iframe src into data-src, add empty src="":  <iframe data-src="VIMEO-URL" src=""
+
+
 2015-06-01 14:00
 	* Removed <video> tag from frontpage, due to ipad issues. Video is now injected using javascript.
 	* Added <div class="scroll-down"> to frontpage

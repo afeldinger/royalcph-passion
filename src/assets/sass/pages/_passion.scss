@@ -80,7 +80,7 @@
 		z-index:-1;
 
 		transition: opacity .3s ease .15s;
-		transform: translate3d(0,0,0);
+		//transform: translate3d(0,0,0);
 		//transform: translateZ(0);
 
 		img {
@@ -95,7 +95,7 @@
 		max-height: 1px;
 		opacity: 0;
 		overflow: hidden;
-		transform: translate3d(0,0,0);
+		//transform: translate3d(0,0,0);
 		//transform: translateZ(0);
 
 		transition: max-height .4s, opacity .3s;

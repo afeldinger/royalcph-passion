@@ -1,4 +1,11 @@
 
+$.extend($.lazyLoadXT, {
+  autoLoadTime: 1500,
+  //autoInit:  false,
+  //srcAttr: 'data-original',
+  //bgAttr: 'data-bg',
+});
+
 (function() {
     'use strict';
 
@@ -101,7 +108,8 @@
                 var bottom = top + $(this).outerHeight();
 
                 //$(this).toggleClass('visible', cur_pos + winH >= top * 1.1 && cur_pos * 1.2 <= bottom);
-                $(this).toggleClass('visible', cur_pos + winH * 0.3 >= top && cur_pos + winH * 0.65 <= bottom);
+                //$(this).toggleClass('visible', cur_pos + winH * 0.3 >= top && cur_pos + winH * 0.65 <= bottom);
+                $(this).toggleClass('visible', cur_pos + winH * 0.3 >= top);
                 $(this).toggleClass('active', cur_pos >= top && cur_pos <= bottom);
             });
         }
@@ -303,12 +311,25 @@
 
     pep_init();
 
-
+/*
     $('[data-original]').lazyload({
         //effect : 'fadeIn',
         skip_invisible : false,
         //threshold: 10,
     });
+*/
+
+    $('[data-original]').lazyLoadXT({
+        srcAttr: 'data-original',
+        edgeY: 200,
+    });
+
+    $('[data-src]').lazyLoadXT({
+        srcAttr: 'data-src',
+    });
+
+    //$.lazyLoadXT.bgAttr = 'data-original';
+    //$.lazyLoadXT.srcAttr = 'data-original';
 
     $(window).bind('load', function() {
 
@@ -317,7 +338,7 @@
             bgvid.attr('preload', 'auto').attr('autoplay', 'true');
         }
 
-        $('[data-original]').trigger('appear');
+        //$('[data-original]').trigger('appear');
 
     });
 
