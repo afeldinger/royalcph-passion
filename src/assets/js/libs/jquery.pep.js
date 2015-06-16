@@ -560,7 +560,6 @@
   //  moveToUsingTransforms();
   //    move the object to an x and/or y value
   Pep.prototype.moveToUsingTransforms = function(x,y) {
-
     // Check for our initial values if we don't have them.
     var matrixArray  = this.matrixToArray( this.matrixString() );
     if ( !this.cssX )

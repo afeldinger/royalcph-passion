@@ -1,6 +1,6 @@
 
 $.extend($.lazyLoadXT, {
-  autoLoadTime: 1500,
+  autoLoadTime: 2500,
   //autoInit:  false,
   //srcAttr: 'data-original',
   //bgAttr: 'data-bg',
@@ -8,7 +8,6 @@ $.extend($.lazyLoadXT, {
 
 (function() {
     'use strict';
-
 
     // Returns a function, that, as long as it continues to be invoked, will not
     // be triggered. The function will be called after it stops being called for
@@ -54,6 +53,8 @@ $.extend($.lazyLoadXT, {
     var cur_pos = 0;
     var winH = $(window).height();
 
+    var fuzzyFactor = !Modernizr.touch? 0.75 : 1;
+
     var scrollListener = function() {
 
         cur_pos = Math.max(0, $(window).scrollTop());
@@ -71,7 +72,8 @@ $.extend($.lazyLoadXT, {
             var is_front = $(this).hasClass('section-front')? 1:0;
 
             // fuzzy section
-            if (cur_pos + winH * 0.75 >= top && cur_pos <= bottom) {
+
+            if (cur_pos + winH * fuzzyFactor >= top && cur_pos <= bottom) {
                 $(this).addClass('active');
 
                 if (!Modernizr.touch && is_front && bgvid.hasClass('ready')) {
@@ -207,7 +209,32 @@ $.extend($.lazyLoadXT, {
             history_stop_elms.filter(':nth('+(slider.animatingTo)+')').find('a').each(function() {
                 var $li = $(this).closest('li');
                 $li.addClass('active').siblings('li').removeClass('active');
-                $(history_pep).data('plugin_pep').moveTo($li.data('stop'), 0);
+
+                var pepObj = $(history_pep).data('plugin_pep');
+
+                // Find current x offset
+                
+                var cx = 0;
+                var dx = 0;
+                if ( !pepObj.shouldUseCSSTranslation() ) {
+                    cx = parseInt(pepObj.$el.css('left'), 10);
+                    dx = $li.data('stop');
+                } else {
+                    if ( !pepObj.cssX ) {
+                        var matrixArray  = pepObj.matrixToArray( pepObj.matrixString() );
+                        pepObj.cssX = pepObj.xTranslation( matrixArray );    
+                    }
+                    cx = pepObj.cssX;
+                    dx = $li.data('stop') - cx;
+                }
+
+                pepObj.options.moveTo.call(pepObj, dx, 0);
+/*
+                var point = $li.offset();
+                var ev = jQuery.Event('click', {originalEvent: {pageX:point.left, pageY:point.top}});
+                pepObj.handleMove(ev);
+*/
+
             });
         },
         after: flexslider_after,
@@ -243,47 +270,76 @@ $.extend($.lazyLoadXT, {
                     $(this).bind('click', function(event) {
                         $('.history .flexslider').flexslider(i);
 
-                        var $li = $(this).closest('li');
-                        $li.addClass('active').siblings('li').removeClass('active');
-                        $(history_pep).data('plugin_pep').moveTo($li.data('stop'), 0);
-                        
                         //event.stopPropagation();
                         event.preventDefault();
                         
-                    }).bind('touchend', function() {
-                        $(this).trigger('click');
                     });
+                    if (Modernizr.touch) {
+                        $(this).bind('tap', function() {
+                            $(this).trigger('click');
+                        });
+                    }
+
                 }).filter(':first').closest('li').addClass('active');
 
                 history_calc_stops();
 
                 $(this).pep({
                     axis: 'x',
+                    //debug: true,
+                    //useCSSTranslation: false,
                     constrainTo: history_constrain_to,
                     stops: history_stops,
                     //elementsWithInteraction: 'a',
                     moveTo: function(x,y) {
+
+                        // Find current x offset
+                        var cx = 0;
+                        if ( !this.shouldUseCSSTranslation() ) {
+                            cx = parseInt(this.$el.css('left'), 10);
+                        } else {
+                            if ( !this.cssX ) {
+                                var matrixArray  = this.matrixToArray( this.matrixString() );
+                                this.cssX = this.xTranslation( matrixArray );    
+                            }
+                            cx = this.cssX;
+                        }
+
+                        // Find integer delta x - how much are we moving the timeline?
+                        var dx = 0;
+                        if (typeof x === 'string' && x.indexOf('=') !== false) {
+                            dx = parseInt(x.substr(0,1) + x.substr(2), 10);
+                        } else {
+                            dx = x;
+                        }
+
+                        // snap to nearest stop when easing
                         if (this.easing && this.options.stops !== 'undefined') {
 
-                            // snap to nearest stop when easing
-                            var dx = 0;
-                            if (typeof x === 'string' && x.indexOf('=') !== false) {
-                                dx = parseInt(this.$el.css('left'), 10);
-                                //eval('dx' + x);
-                                dx += parseInt(x.substr(0,1) + x.substr(2), 10);
-                            } else {
-                                dx = x;
-                            }
-                            var xClosest = 0;
+                            var xClosest = null;
                             $.each(this.options.stops, function(){
-                                if (xClosest === null || Math.abs(this - dx) < Math.abs(xClosest - dx)) {
+                                if (xClosest === null || Math.abs(this - cx - dx) < Math.abs(xClosest - cx - dx)) {
                                     xClosest = this;
                                 }
                             });
-
                             x = xClosest;
+                            dx = xClosest - cx;
+
                         }
-                        this.$el.stop(true, false).css({ top: y , left: x });
+
+                        if ( !this.shouldUseCSSTranslation() ) {
+                            this.moveTo( x, 0 );
+                        } else {
+/*
+                            if ( this.options.constrainTo ) {
+                                var hash = this.handleConstraint(dx, 0);
+                                dx = (hash.x === false) ? dx : 0 ;
+                            }
+*/
+                            this.moveToUsingTransforms( dx, 0 );
+                        }
+
+
                     },
 
                 });
@@ -306,7 +362,7 @@ $.extend($.lazyLoadXT, {
 
             // move pep obj to new stop coordinates
             var $li = $(history_pep).find('li.active');
-            pepObj.moveTo($li.data('stop'), 0);
+            pepObj.options.moveTo.call(pepObj, $li.data('stop'), 0);
         };
 
     pep_init();
@@ -328,8 +384,6 @@ $.extend($.lazyLoadXT, {
         srcAttr: 'data-src',
     });
 
-    //$.lazyLoadXT.bgAttr = 'data-original';
-    //$.lazyLoadXT.srcAttr = 'data-original';
 
     $(window).bind('load', function() {
 

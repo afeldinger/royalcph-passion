@@ -6,7 +6,7 @@
 .history {
 
 	position: relative;
-	overflow: hidden;
+	//overflow: hidden;
 
 	color: $color-brand;
 	background:#fff;
@@ -22,16 +22,17 @@
 		bottom: 0;
 		height: vw-units(2 * $section-margin-v);
 		left: 0;
+		min-width: 100%;
 		text-align: left;
-		transform: translate3d(0,0,0);
+
 
 		ul {
-			position:relative;
 			margin:0;
 			padding:0;
 			list-style: none;
 			white-space: nowrap;
 			cursor: move;
+			-webkit-backface-visibility: hidden;
 		}
 		
 		li {
@@ -45,6 +46,7 @@
 				position:relative;
 				border-top: 1px solid $color-brand;
 				z-index: 1;
+				transform: translateZ(0);
 			}
 
 			&:first-of-type {
@@ -135,6 +137,8 @@
 			position:absolute;
 			bottom:0;
 			left:0;
+			right:1px;
+
 		}
 	}
 
@@ -182,7 +186,8 @@
 		}
 		.elm-image {
 			float:right;
-			width: 50%;
+			width: 49.5%;
+			margin-right:0.5%;
 			padding: 0 vw-units($content-margin-px) 0 0;
 		}
 	}

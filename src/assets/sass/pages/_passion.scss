@@ -3,7 +3,6 @@
 	overflow:hidden;
 	z-index:1;
 	padding: 0;
-	transform: translate3d(0,0,0);
 
 
 	> h1 {
@@ -29,13 +28,9 @@
 	transform: translate3d(0,0,0);
 
 	@media screen and (min-aspect-ratio: 3/2) {
-		min-height: 70vw;
+		min-height: 85vw;
 	}
-	/*
-	@media screen and (min-aspect-ratio: 2/1) {
-		min-height: 80vw;
-	}
-*/
+
 	.no-flexboxlegacy & {
 		padding: vw-units($section-margin-v / 2) 0;
 	}
@@ -95,10 +90,10 @@
 		max-height: 1px;
 		opacity: 0;
 		overflow: hidden;
-		//transform: translate3d(0,0,0);
-		//transform: translateZ(0);
 
-		transition: max-height .4s, opacity .3s;
+		.no-touch & {
+			transition: max-height .4s, opacity .3s;
+		}
 	}
 
 	
@@ -109,6 +104,7 @@
 		height:auto;
 		max-width: 480px;
 		margin: 1.2em auto;
+		transform: translateZ(0);
 
 		&:after {
 			content: '';
@@ -160,7 +156,13 @@
 			z-index: -2;
 		}
 		.elm-content {
-			transition: max-height .4s linear .2s, opacity .3s ease .5s;
+			.no-touch & {
+				transition: max-height .4s linear .2s, opacity .3s ease .5s;	
+			}
+			.touch & {
+				transition: opacity .3s ease .5s;
+			}
+			
 			max-height:1000px;
 			opacity: 1;
 

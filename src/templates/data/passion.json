@@ -29,5 +29,12 @@
 		"thumb": "assets/img/passion/thumb_blue.jpg",
 		"imgurl": "assets/img/passion/innovation.jpg",
 		"videoUrl": "https://player.vimeo.com/video/125015747"
+	},
+	{
+		"title": "Flowers",
+		"thumb": "assets/img/passion/thumb_flowers.jpg",
+		"imgurl": "assets/img/passion/flowers.jpg",
+		"videoUrl": "https://player.vimeo.com/video/125017560"
 	}
 ]
+
