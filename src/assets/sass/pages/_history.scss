@@ -6,7 +6,7 @@
 .history {
 
 	position: relative;
-	//overflow: hidden;
+	overflow: hidden;
 
 	color: $color-brand;
 	background:#fff;
@@ -17,22 +17,22 @@
 	padding-bottom: vw-units(2 * $section-margin-v);
 
 	.years {
+    -webkit-backface-visibility: hidden;
 		position: absolute;
 		z-index: 5;
 		bottom: 0;
 		height: vw-units(2 * $section-margin-v);
 		left: 0;
-		min-width: 100%;
 		text-align: left;
 
 
 		ul {
+			position:relative;
 			margin:0;
 			padding:0;
 			list-style: none;
 			white-space: nowrap;
 			cursor: move;
-			-webkit-backface-visibility: hidden;
 		}
 		
 		li {

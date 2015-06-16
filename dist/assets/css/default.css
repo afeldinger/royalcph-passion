@@ -1464,26 +1464,27 @@ ul.mTSContainer, ol.mTSContainer {
 
 .history {
   position: relative;
+  overflow: hidden;
   color: #002454;
   background: #fff;
   margin-left: -9.38vw;
   margin-right: -9.38vw;
   padding-bottom: 18.75vw; }
   .history .years {
+    -webkit-backface-visibility: hidden;
     position: absolute;
     z-index: 5;
     bottom: 0;
     height: 18.75vw;
     left: 0;
-    min-width: 100%;
     text-align: left; }
     .history .years ul {
+      position: relative;
       margin: 0;
       padding: 0;
       list-style: none;
       white-space: nowrap;
-      cursor: move;
-      -webkit-backface-visibility: hidden; }
+      cursor: move; }
     .history .years li {
       display: inline-block;
       vertical-align: top;
