@@ -35,15 +35,28 @@
 		
 		.elm-image,
 		.elm-content {
-			padding: 0 30px;
+			margin: 0 30px;
 		}
 
 		.elm-content {
 			margin: 0 vw-units($section-margin-h);
 		}
+		
+		.elm-image {
+			position:relative;
 
+			&:after {
+				content:'';
+				display:block;
+				margin-bottom:100%;
+			}
+		}
 		img {
-			width:auto;
+			position:absolute;
+			bottom:0;
+			left:0;
+			width:100%;
+			height: auto;
 			max-width: 100%;
 		}
 

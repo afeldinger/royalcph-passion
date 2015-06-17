@@ -7,6 +7,15 @@ img.full-width {
 	width:100%;
 }
 
+img.lazy-hidden {
+    opacity: 0;
+}
+img.lazy-loaded {
+    transition: opacity 0.3s;
+    opacity: 1;
+}
+
+
 @mixin circle-marker {
 	transform: translate3d(-50%, -50%, 0);
 	display:block;

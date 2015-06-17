@@ -123,6 +123,7 @@ $.extend($.lazyLoadXT, {
 
     var resizeListener = debounce(function() {
         winH = $(window).height(); 
+        scrollListener();
         pep_update();
     }, 200);
     window.addEventListener('resize', resizeListener);
@@ -167,7 +168,19 @@ $.extend($.lazyLoadXT, {
         axis:'x',
         type:'hover-50',
         setLeft:'0%',
-        speed:20
+        speed:20,
+        callbacks: {
+            whileScrolling: function() {
+                if (!$(this).hasClass('loaded')) {
+                    if ($(this).find('img:not(.lazy-loaded)').length == 0) {
+                        $(this).addClass('loaded');
+                    }
+                    $(window).trigger('scroll');
+                }
+                
+                
+            }
+        }
     }).find('li').click(function() {
         $(this).toggleClass('active').siblings('li').removeClass('active');
     });
@@ -184,11 +197,16 @@ $.extend($.lazyLoadXT, {
         //setTimeout(function() {
             slider.slides.eq(slider.currentSlide).addClass('flex-active-transition');
             slider.attr('data-current-slide', slider.currentSlide);
+
+              setTimeout(function() {
+                $(window).trigger('scroll');
+              }, 50);
         //}, 500);
     };
 
     $('.blue-slider, .products').flexslider({
         animation: 'slide',
+        animationSpeed: Modernizr.touch ? 300 : 600,
         slideshow: false,
         controlNav: false,
         start: flexslider_start,
@@ -199,6 +217,7 @@ $.extend($.lazyLoadXT, {
 
     $('.history .flexslider').flexslider({
         animation: 'slide',
+        animationSpeed: Modernizr.touch ? 300 : 600,
         slideshow: false,
         controlNav: false,
         //directionNav: false,
@@ -375,16 +394,18 @@ $.extend($.lazyLoadXT, {
     });
 */
 
+
     $('[data-original]').lazyLoadXT({
         srcAttr: 'data-original',
+        visibleOnly: false,
         edgeY: 200,
     });
 
-/*
+
     $('[data-src]').lazyLoadXT({
         srcAttr: 'data-src',
     });
-*/
+
 
     $(window).bind('load', function() {
 

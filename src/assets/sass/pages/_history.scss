@@ -14,25 +14,28 @@
 	margin-left:-1 * vw-units($section-margin-h);
 	margin-right:-1 * vw-units($section-margin-h);
 
-	padding-bottom: vw-units(2 * $section-margin-v);
+	padding-bottom: vw-units(3 * $section-margin-v);
 
 	.years {
-    -webkit-backface-visibility: hidden;
+    	
 		position: absolute;
-		z-index: 5;
-		bottom: 0;
-		height: vw-units(2 * $section-margin-v);
 		left: 0;
+		bottom: 0;
+		height: vw-units(3 * $section-margin-v);
 		text-align: left;
+		z-index: 5;
+		backface-visibility: hidden;
 
 
 		ul {
-			position:relative;
 			margin:0;
 			padding:0;
 			list-style: none;
 			white-space: nowrap;
 			cursor: move;
+
+			backface-visibility: hidden;
+			transform: translate3d(0,0,0);
 		}
 		
 		li {
@@ -118,6 +121,9 @@
 		padding: vw-units($section-margin-v) vw-units($section-margin-h);
 	}
 	
+	.slides {
+		transform: translate3d(0,0,0);
+	}
 
 	.elm-content {
 		padding: vw-units($content-margin-px) vw-units($content-margin-px) 0;
@@ -174,10 +180,10 @@
 
 
 	@include breakpoint($xs) {
-		padding-bottom: vw-units($content-margin-px);
+		padding-bottom: vw-units(2 * $section-margin-v);
 
 		.years {
-			height: vw-units(100px);
+			height: vw-units(2 * $section-margin-v);
 		}
 		.elm-content {
 			float:left;
@@ -192,8 +198,9 @@
 		}
 	}
 	@include breakpoint($sm) {
+		padding-bottom: vw-units($section-margin-v);
 		.years {
-			height: vw-units(2 * $content-margin-px);
+			height: vw-units($section-margin-v);
 		}
 	}
 
