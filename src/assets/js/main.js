@@ -380,10 +380,11 @@ $.extend($.lazyLoadXT, {
         edgeY: 200,
     });
 
+/*
     $('[data-src]').lazyLoadXT({
         srcAttr: 'data-src',
     });
-
+*/
 
     $(window).bind('load', function() {
 
