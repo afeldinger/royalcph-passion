@@ -16,26 +16,27 @@
 
 	padding-bottom: vw-units(3 * $section-margin-v);
 
+
 	.years {
-    	
+
 		position: absolute;
 		left: 0;
 		bottom: 0;
 		height: vw-units(3 * $section-margin-v);
 		text-align: left;
 		z-index: 5;
-		backface-visibility: hidden;
-
 
 		ul {
+			position:absolute;
+			display:block;
+			left:0;
+			top:0;
+			z-index: 9999;
 			margin:0;
 			padding:0;
 			list-style: none;
 			white-space: nowrap;
 			cursor: move;
-
-			backface-visibility: hidden;
-			transform: translate3d(0,0,0);
 		}
 		
 		li {

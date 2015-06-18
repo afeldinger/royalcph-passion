@@ -3,7 +3,7 @@
  * http://ressio.github.io/lazy-load-xt
  * (C) 2014 RESS.io
  * Licensed under MIT */
-/*
+
 (function ($) {
     var options = $.lazyLoadXT;
 
@@ -17,4 +17,3 @@
     });
 
 })(window.jQuery || window.Zepto || window.$);
-*/

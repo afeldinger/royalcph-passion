@@ -683,8 +683,7 @@ img.lazy-loaded {
     *zoom: 1; }
     .flexslider .slides > li {
       margin: 0;
-      display: none;
-      overflow: hidden; }
+      display: none; }
     .flexslider .slides img {
       width: 100%;
       height: auto;
@@ -1484,19 +1483,18 @@ ul.mTSContainer, ol.mTSContainer {
     bottom: 0;
     height: 28.12vw;
     text-align: left;
-    z-index: 5;
-    -webkit-backface-visibility: hidden;
-            backface-visibility: hidden; }
+    z-index: 5; }
     .history .years ul {
+      position: absolute;
+      display: block;
+      left: 0;
+      top: 0;
+      z-index: 9999;
       margin: 0;
       padding: 0;
       list-style: none;
       white-space: nowrap;
-      cursor: move;
-      -webkit-backface-visibility: hidden;
-              backface-visibility: hidden;
-      -webkit-transform: translate3d(0, 0, 0);
-              transform: translate3d(0, 0, 0); }
+      cursor: move; }
     .history .years li {
       display: inline-block;
       vertical-align: top;

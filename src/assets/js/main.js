@@ -123,7 +123,7 @@ $.extend($.lazyLoadXT, {
 
     var resizeListener = debounce(function() {
         winH = $(window).height(); 
-        scrollListener();
+        //scrollListener();
         pep_update();
     }, 200);
     window.addEventListener('resize', resizeListener);
@@ -172,7 +172,7 @@ $.extend($.lazyLoadXT, {
         callbacks: {
             whileScrolling: function() {
                 if (!$(this).hasClass('loaded')) {
-                    if ($(this).find('img:not(.lazy-loaded)').length == 0) {
+                    if ($(this).find('img:not(.lazy-loaded)').length === 0) {
                         $(this).addClass('loaded');
                     }
                     $(window).trigger('scroll');
@@ -232,7 +232,6 @@ $.extend($.lazyLoadXT, {
                 var pepObj = $(history_pep).data('plugin_pep');
 
                 // Find current x offset
-                
                 var cx = 0;
                 var dx = 0;
                 if ( !pepObj.shouldUseCSSTranslation() ) {
@@ -244,15 +243,39 @@ $.extend($.lazyLoadXT, {
                         pepObj.cssX = pepObj.xTranslation( matrixArray );    
                     }
                     cx = pepObj.cssX;
+                    //cx = Math.round(pepObj.$el.position().left);
+                    
                     dx = $li.data('stop') - cx;
+/*
+                    pepObj.cssX = cx;
+                    // remove transition & stop ongoing animations
+                    if (!pepObj.CSSDefaultEaseHash) {
+                        pepObj.CSSDefaultEaseHash = pepObj.CSSEaseHash;
+                    }
+                    pepObj.CSSEaseHash = false;
+                    pepObj.$el.css( pepObj.getCSSEaseHash(true) );
+
+                    // reset position to current, mid-animation position
+                    pepObj.moveToUsingTransforms( 0, 0 );
+
+                    // reinstate default transation property
+                    pepObj.CSSEaseHash = pepObj.CSSDefaultEaseHash;
+                    pepObj.$el.css( pepObj.getCSSEaseHash() );
+*/
+
                 }
 
+
+
+//console.log('constrainTo', pepObj.options.constrainTo, cx + dx);
+
                 pepObj.options.moveTo.call(pepObj, dx, 0);
-/*
-                var point = $li.offset();
-                var ev = jQuery.Event('click', {originalEvent: {pageX:point.left, pageY:point.top}});
-                pepObj.handleMove(ev);
-*/
+
+                /*
+                var ev = jQuery.Event('move', {originalEvent: {pageX:500, pageY:0}});
+                pepObj.handleStart(ev);
+                pepObj.handleStop(ev);
+                */
 
             });
         },
@@ -306,11 +329,14 @@ $.extend($.lazyLoadXT, {
                 $(this).pep({
                     axis: 'x',
                     //debug: true,
-                    //useCSSTranslation: false,
+                    useCSSTranslation: Modernizr.ipad? false : true,
+                    //cssEaseDuration: Modernizr.ipad? 0 : 1000,
                     constrainTo: history_constrain_to,
                     stops: history_stops,
                     //elementsWithInteraction: 'a',
                     moveTo: function(x,y) {
+
+                        y = 0;
 
                         // Find current x offset
                         var cx = 0;
@@ -322,6 +348,7 @@ $.extend($.lazyLoadXT, {
                                 this.cssX = this.xTranslation( matrixArray );    
                             }
                             cx = this.cssX;
+                            //cx = Math.round(this.$el.position().left);
                         }
 
                         // Find integer delta x - how much are we moving the timeline?
@@ -334,7 +361,6 @@ $.extend($.lazyLoadXT, {
 
                         // snap to nearest stop when easing
                         if (this.easing && this.options.stops !== 'undefined') {
-
                             var xClosest = null;
                             $.each(this.options.stops, function(){
                                 if (xClosest === null || Math.abs(this - cx - dx) < Math.abs(xClosest - cx - dx)) {
@@ -343,19 +369,32 @@ $.extend($.lazyLoadXT, {
                             });
                             x = xClosest;
                             dx = xClosest - cx;
-
                         }
 
                         if ( !this.shouldUseCSSTranslation() ) {
-                            this.moveTo( x, 0 );
+                            this.moveTo( x, y );
                         } else {
 /*
+                            // remove transition & stop ongoing animations
+                            if (!this.CSSDefaultEaseHash) {
+                                this.CSSDefaultEaseHash = this.CSSEaseHash;
+                            }
+                            this.CSSEaseHash = false;
+                            this.$el.css( this.getCSSEaseHash(true) );
+
+                            // reset position to current, mid-animation position
+                            this.moveToUsingTransforms( 0, y );
+
+                            // reinstate default transation property
+                            this.CSSEaseHash = this.CSSDefaultEaseHash;
+                            this.$el.css( this.getCSSEaseHash() );
+*/
+                            // respect constraints
                             if ( this.options.constrainTo ) {
                                 var hash = this.handleConstraint(dx, 0);
                                 dx = (hash.x === false) ? dx : 0 ;
                             }
-*/
-                            this.moveToUsingTransforms( dx, 0 );
+                            this.moveToUsingTransforms( dx, y );
                         }
 
 
@@ -382,6 +421,7 @@ $.extend($.lazyLoadXT, {
             // move pep obj to new stop coordinates
             var $li = $(history_pep).find('li.active');
             pepObj.options.moveTo.call(pepObj, $li.data('stop'), 0);
+            //pepObj.cssX = pepObj.$el.position().left;
         };
 
     pep_init();
@@ -406,6 +446,8 @@ $.extend($.lazyLoadXT, {
         srcAttr: 'data-src',
     });
 
+    // fix buggy vh and vw units in ios7: see https://github.com/rodneyrehm/viewport-units-buggyfill
+    window.viewportUnitsBuggyfill.init();
 
     $(window).bind('load', function() {
 
